@@ -1,0 +1,156 @@
+{
+  "schema": "x3dnv.rosetta/1",
+  "started": "2026-11-26T07:07:24+00:00",
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v880-x86_64-with-glibc2.39",
+  "source": "amethyst.ply",
+  "source_stats": {
+    "n": 190125,
+    "degree": 3,
+    "bytes": 47152531,
+    "read_s": 0.504,
+    "problems": []
+  },
+  "subset": {
+    "n": 20000,
+    "rule": "20000 most opaque"
+  },
+  "files": {
+    ".ply": {
+      "bytes": 4961530,
+      "write_s": 0.012,
+      "read_s": 0.015
+    },
+    ".x3d": {
+      "bytes": 12250618,
+      "write_s": 0.722,
+      "read_s": 0.284
+    },
+    ".usda": {
+      "bytes": 14999449,
+      "write_s": 0.432,
+      "read_s": 0.294
+    },
+    ".glb": {
+      "bytes": 5044380,
+      "write_s": 0.012,
+      "read_s": 0.005
+    }
+  },
+  "round_trip": {
+    ".ply": {
+      "n": [
+        20000,
+        20000
+      ],
+      "degree": [
+        3,
+        3
+      ],
+      "positions": 0.0,
+      "rotations": 1.7881393432617188e-07,
+      "scales": 7.450580596923828e-09,
+      "opacities": 0.0,
+      "sh": 0.0
+    },
+    ".x3d": {
+      "n": [
+        20000,
+        20000
+      ],
+      "degree": [
+        3,
+        3
+      ],
+      "positions": 5.960464477539063e-08,
+      "rotations": 3.5762786865234375e-07,
+      "scales": 4.470348358154297e-08,
+      "opacities": 5.960464477539063e-08,
+      "sh": 4.76837158203125e-07
+    },
+    ".usda": {
+      "n": [
+        20000,
+        20000
+      ],
+      "degree": [
+        3,
+        3
+      ],
+      "positions": 0.0,
+      "rotations": 2.980232238769531e-07,
+      "scales": 0.0,
+      "opacities": 0.0,
+      "sh": 0.0
+    },
+    ".glb": {
+      "n": [
+        20000,
+        20000
+      ],
+      "degree": [
+        3,
+        3
+      ],
+      "positions": 0.0,
+      "rotations": 2.980232238769531e-07,
+      "scales": 0.0,
+      "opacities": 0.0,
+      "sh": 0.0
+    }
+  },
+  "validators": {
+    "usd": {
+      "tool": "usd-core 0.26.11 UsdValidation",
+      "validators": 30,
+      "errors": []
+    },
+    "gltf": {
+      "tool": "gltf-validator (npm)",
+      "version": "2.0.0-dev.3.10",
+      "errors": 19,
+      "warnings": 0,
+      "infos": 1,
+      "codes": {
+        "UNSUPPORTED_EXTENSION": 1,
+        "MESH_PRIMITIVE_INVALID_ATTRIBUTE": 19
+      }
+    },
+    "x3d": null
+  },
+  "chain_equal": {
+    "n": [
+      20000,
+      20000
+    ],
+    "degree": [
+      3,
+      3
+    ],
+    "positions": 0.0,
+    "rotations": 2.980232238769531e-07,
+    "scales": 0.0,
+    "opacities": 0.0,
+    "sh": 0.0
+  },
+  "xite": {
+    "version": "16.8.1",
+    "renderer": "ANGLE (Mesa, Vulkan 1.4.335 (llvmpipe (LLVM 20.1.2 256 bits) (0x00000000)), llvmpipe)",
+    "errors": [],
+    "size": 512,
+    "lit_pixels": 63937,
+    "compare_to_inline": {
+      "native": {
+        "max": 1,
+        "mean": 0.00019,
+        "pixels_differing": 91
+      },
+      "chain": {
+        "max": 1,
+        "mean": 0.00019,
+        "pixels_differing": 91
+      }
+    }
+  },
+  "finished": "2026-11-26T07:07:47+00:00"
+}

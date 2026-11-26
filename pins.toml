@@ -1,0 +1,17 @@
+# Versions this repo's receipts were measured with. Numbers on other pins aren't comparable.
+[x_ite]
+npm = "16.8.1"
+
+[playwright]
+npm = "1.63.0"          # drives an existing Chrome; no browser download
+
+[usd_core]
+pypi = "26.11"          # needs >= 26.3 for UsdVol.ParticleField3DGaussianSplat
+
+[gltf_validator]
+npm = "2.0.0-dev.3.10"  # does not know KHR_gaussian_splatting yet (ATLAS §1.2)
+
+[nvidia_api]
+chat = "https://integrate.api.nvidia.com/v1"
+genai = "https://ai.api.nvidia.com/v1/genai"
+rpm_default = 36        # free developer tier is ~40 rpm; shared with x3d.lab
