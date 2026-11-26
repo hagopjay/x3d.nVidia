@@ -3,7 +3,10 @@
 This is a triage metric (for probes and DSPy/GEPA loops), not a validator.
 Real validation is the x3d_mcp fork's XSD + semantic checks (owner's lane).
 Score, 0..5: parses (1), root X3D with version (1), has Scene with children (1),
-every requested node present (1), no obvious field-arity errors (1).
+every requested node present (1), no field-arity or structure errors (1).
+Structure: X3D XML is case-sensitive, so the root's children must be exactly
+``head`` and ``Scene``, and head's children ``component``/``unit``/``meta``
+(Nemotron 3.5 Lightning wrote ``<Head>``/``<Meta>`` on 26 Nov 2026).
 """
 from __future__ import annotations
 
@@ -32,7 +35,7 @@ def extract_x3d(text: str) -> str:
 
 def check_x3d(xml: str, want=WANT) -> dict:
     out = {"parses": False, "root": None, "version": None, "profile": None,
-           "scene_children": None, "nodes": {}, "missing": list(want), "arity_errors": [], "score": 0}
+           "scene_children": None, "nodes": {}, "missing": list(want), "arity_errors": [], "structure_errors": [], "score": 0}
     try:
         root = ET.fromstring(xml)
     except ET.ParseError as e:
@@ -57,8 +60,13 @@ def check_x3d(xml: str, want=WANT) -> dict:
                 continue
             if len(nums) != n:
                 out["arity_errors"].append(f"{el.tag}@{k}={v!r}")
+    struct = [f"X3D/{c.tag}" for c in root if c.tag not in ("head", "Scene")]
+    head = root.find("head")
+    if head is not None:
+        struct += [f"head/{c.tag}" for c in head if c.tag not in ("component", "unit", "meta")]
+    out["structure_errors"] = struct
     out["missing"] = [w for w in want if w not in out["nodes"]]
     out["score"] = (int(out["parses"]) + int(out["root"] == "X3D" and bool(out["version"]))
                     + int(bool(out["scene_children"])) + int(not out["missing"])
-                    + int(not out["arity_errors"]))
+                    + int(not out["arity_errors"] and not struct))
     return out

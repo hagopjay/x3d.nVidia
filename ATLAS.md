@@ -69,7 +69,8 @@ Source: a 190,125-splat, SH-degree-3 training PLY (X_ITE's own example asset, fe
 | **USD Code** | Llama-3.1-70B + RAG over OpenUSD docs → USD-Python | 🔎 model card | does it know `ParticleField3DGaussianSplat`? The probe asks |
 | USD Search | AI search over OpenUSD/3D/image assets | 🔎 catalog listing | asset intake for X3D scenes |
 | **Cosmos 3** | open omnimodel (4B Edge, 16B Nano, 64B Super), MoT; released 31 May 2026; hosted on build.nvidia.com | 🔎 NVIDIA llm-info page | VLM judge of X3D frames; X3D scene → world video |
-| Live model list | `GET /v1/models` | ⏳ `probe` step 1 | becomes §2's ground truth |
+| Live model list | `GET /v1/models` | ⏳ partly: ran 26 Nov (below); counts not yet copied into the repo | becomes §2's ground truth |
+| **First keyed run** (26 Nov 2026, 07:34–07:48 UTC, claude.ai/code cloud session, key as a network secret) | `nemotron-3.5-super-vl-120b-a12b` and `nemotron-3.5-lightning-30b-a3b` both wrote valid X3D 4.0, **5/5**. Lightning used `<Head>`/`<Meta>`; X3D XML is case-sensitive, so x3dcheck now fails it (4/5). At `max_tokens` 4096 both USD answers were **truncated**: these models reason for **~4.7–5.6k tokens** before writing code. At 16384 both hit 5/5 on keywords. Read by eye: the 120B script looks right; Lightning uses `Vec3f` orientations and a scalar SH coefficient, and usd-core 26.11 raises a type error on each (checked here) | 🔎 relayed summary; receipts `probe-20261126-073326/073438/074827.json` are still in that session | probe default is now 16384 tokens and flags `finish_reason=length`; `tools/usd_judge.py` *runs* the scripts (⏳ needs those receipts) |
 
 ## 3. Omniverse and OpenUSD
 
@@ -107,7 +108,8 @@ glTF and USD now carry splats, and X3D 4.1 carries the *same* splats bit for bit
 ## 7. Open questions (each becomes a receipt)
 
 1. TRELLIS on NIM: what image encoding does it accept, and what is the response shape (base64 glb? artifacts?). → `probe --trellis`.
-2. Does USD Code know the 26.03 `ParticleField3DGaussianSplat` schema? → `probe` step 3.
+2. Does USD Code know the 26.03 `ParticleField3DGaussianSplat` schema? → `probe` step 3. Nemotron 3.5 Super VL apparently does (above); run `usd_judge` on its script to be sure.
+2b. Does `chat_template_kwargs.enable_thinking=false` turn off Nemotron 3.5's ~5k-token reasoning, and does quality hold? → `probe --no-think` vs default.
 3. Do Omniverse's `omni.kit.converter.gsplat` and our writer produce the same USD for one PLY? (orientation convention, SH layout, frame)
 4. Does `hdParticleField` / Omniverse RTX draw our `.usda` like X_ITE draws our `.x3d`? Measure with the same viewpoint and a pixel delta.
 5. X3D 4.1 XSD validation of `GaussianSplats` (needs the x3d_mcp fork with the 4.1 schema).

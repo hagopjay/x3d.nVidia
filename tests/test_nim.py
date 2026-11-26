@@ -77,3 +77,10 @@ def test_proxy_mode_sends_no_auth(monkeypatch):
     n = NIM(rpm=6000, transport=f, log=lambda m: None)
     assert n.models() == ["nvidia/x"] and n.key_id == "proxy"
     assert "Authorization" not in f.calls[0][2]
+
+
+def test_x3dcheck_case_sensitive_structure():
+    lightning = ('<X3D profile="Interchange" version="4.0"><Head><Meta name="a" content="b"/></Head><Scene>'
+                 '<Viewpoint position="0 0 6"/><DirectionalLight/><Shape><Box size="1 1 1"/></Shape></Scene></X3D>')
+    r = check_x3d(lightning)
+    assert r["structure_errors"] == ["X3D/Head"] and r["score"] == 4

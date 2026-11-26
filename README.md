@@ -19,7 +19,7 @@ One trained 3DGS cloud through **four standards** — `.ply` → **X3D 4.1** `Ga
 
 ```bash
 pip install -e ".[dev]"            # numpy; usd-core>=26.3 for USD
-pytest -q                           # 23 tests, offline
+pytest -q                           # 26 tests, offline
 x3dnv-splats cloud.ply out.x3d out.usda out.glb --max-splats 20000
 x3dnv-probe --out receipts/         # needs NVIDIA_API_KEY (see AGENTS.md)
 ```
@@ -32,6 +32,7 @@ src/x3dnv/nim.py        build.nvidia.com client: stdlib, paced, key never logged
 src/x3dnv/probe.py      catalog / X3D-writing / USD-schema / TRELLIS probe → receipts
 src/x3dnv/x3dcheck.py   fast triage score for model-written X3D (x3d_mcp is the real validator)
 tools/rosetta_check.py  the Q0 conformance run (convert, validate, X_ITE frames, pixel deltas)
+tools/usd_judge.py      runs model-written OpenUSD splat scripts in isolation and grades the file they write (0–7)
 tools/xite_render.mjs   X_ITE in headless Chrome (Playwright); --gpu for ANGLE/Vulkan on Colab
 notebooks/00_NVIDIA_Probe.ipynb, 01_Splat_Rosetta.ipynb   VERBOSE/VISUAL on; secrets via Colab Secrets
 scenes/                 splat_galaxy.{x3d,ply,usda,glb}; trellis_input_rocket.x3d (the TRELLIS test image's source)

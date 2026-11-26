@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "x3dnv"
-version = "0.1.0"
+version = "0.1.1"
 description = "x3d.nVidia: X3D meets NVIDIA — NIM probes, OpenUSD/Omniverse bridges, Gaussian splats"
 readme = "README.md"
 requires-python = ">=3.10"

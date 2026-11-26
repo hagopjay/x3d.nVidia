@@ -15,6 +15,7 @@ carry the key's 8-hex id, never the key. Steps:
 from __future__ import annotations
 
 import argparse
+import os
 import datetime as dt
 import json
 import platform
@@ -35,9 +36,10 @@ WORDS = {
     "nemotron": r"nemotron",
     "embed": r"embed|rerank|retriev",
 }
-DEFAULT_CHAT = [
+DEFAULT_CHAT = [  # 26 Nov 2026: the keyed run used the 3.5 pair; older ids are kept if listed
+    "nvidia/nemotron-3.5-super-vl-120b-a12b",
+    "nvidia/nemotron-3.5-lightning-30b-a3b",
     "nvidia/nemotron-3-super-120b-a12b",
-    "nvidia/nemotron-3-nano-30b-a3b",
 ]
 X3D_TASK = (
     "Write a complete, minimal X3D 4.0 XML file (XML encoding, profile Interchange) "
@@ -63,6 +65,11 @@ def main(argv=None):
     ap.add_argument("--skip-chat", action="store_true")
     ap.add_argument("--trellis", default=None, help="PNG to send to microsoft/trellis")
     ap.add_argument("--rpm", type=float, default=None)
+    ap.add_argument("--max-tokens", type=int, default=int(os.environ.get("X3DNV_MAX_TOKENS", 16384)),
+                    help="Nemotron 3.5 spends ~4.7-5.6k tokens reasoning before code (26 Nov 2026); 4096 truncates")
+    ap.add_argument("--only", choices=["x3d", "usd"], default=os.environ.get("X3DNV_ONLY") or None)
+    ap.add_argument("--no-think", action="store_true",
+                    help="send chat_template_kwargs.enable_thinking=false (effect per model is unverified)")
     a = ap.parse_args(argv)
 
     out = Path(a.out)
@@ -72,7 +79,8 @@ def main(argv=None):
     nim = NIM(rpm=a.rpm, log=log)
     rec = {"schema": "x3dnv.probe/1", "started": now(), "x3dnv": __version__,
            "python": sys.version.split()[0], "platform": platform.platform(),
-           "key_id": nim.key_id, "rpm": nim.pacer.rpm, "catalog": None, "x3d": [], "usd": [],
+           "key_id": nim.key_id, "rpm": nim.pacer.rpm, "max_tokens": a.max_tokens,
+           "no_think": a.no_think, "catalog": None, "x3d": [], "usd": [],
            "trellis": None}
 
     def save():
@@ -103,9 +111,17 @@ def main(argv=None):
         models = [m for m in models if m in ids]
     for m in ([] if a.skip_chat else models):
         for task, bucket in ((X3D_TASK, "x3d"), (USD_TASK, "usd")):
+            if a.only and bucket != a.only:
+                continue
             log(f"[probe] {bucket} <- {m}")
-            c = nim.chat(m, [{"role": "user", "content": task}], max_tokens=4096, temperature=0.2)
+            extra = {"chat_template_kwargs": {"enable_thinking": False}} if a.no_think else {}
+            c = nim.chat(m, [{"role": "user", "content": task}], max_tokens=a.max_tokens, temperature=0.2, **extra)
             row = {"model": m, **c.receipt()}
+            fr = ((c.raw or {}).get("choices") or [{}])[0].get("finish_reason") if isinstance(c.raw, dict) else None
+            row["finish_reason"] = fr
+            row["truncated"] = fr == "length"
+            if row["truncated"]:
+                log(f"[probe]   WARNING {m} hit max_tokens={a.max_tokens}: result is not a fair score")
             if c.content is not None and bucket == "x3d":
                 row["check"] = check_x3d(extract_x3d(c.content))
             if c.content is not None and bucket == "usd":
