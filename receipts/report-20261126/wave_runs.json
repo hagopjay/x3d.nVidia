@@ -1,0 +1,16 @@
+[
+{
+"engine": "Newton XPBD",
+"fallen": 134,
+"dominoes": 134,
+"last_fall_s": 3.2666666666666666,
+"gap_over_H": 0.44949449465949404
+},
+{
+"engine": "Newton MuJoCo",
+"fallen": 134,
+"dominoes": 134,
+"last_fall_s": 4.7,
+"gap_over_H": 0.44949449465949404
+}
+]

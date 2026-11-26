@@ -1,0 +1,187 @@
+{
+ "solver": "mujoco",
+ "references": [
+  {
+   "id": "free fall: height against the discrete semi-implicit Euler solution, 1 s (m)",
+   "observed": 2.433776855603753e-06,
+   "limit": 0.0001,
+   "declared_limit": 0.0001,
+   "rule": "at most",
+   "status": "pass",
+   "detail": {
+    "y": 5.0745649337768555,
+    "vy": -9.810012817382812,
+    "discrete": 5.0745625,
+    "continuum": 5.095
+   },
+   "source": "x3dnv.newton_refs (set-up and limit: physx-bridge p1-analytic.json)"
+  },
+  {
+   "id": "free fall: velocity against -g t, 1 s (m/s)",
+   "observed": 1.281738281200262e-05,
+   "limit": 0.0001,
+   "declared_limit": 0.0001,
+   "rule": "at most",
+   "status": "pass",
+   "detail": {
+    "y": 5.0745649337768555,
+    "vy": -9.810012817382812,
+    "discrete": 5.0745625,
+    "continuum": 5.095
+   },
+   "source": "x3dnv.newton_refs (set-up and limit: physx-bridge p1-analytic.json)"
+  },
+  {
+   "id": "free fall: the continuum gap equals the integrator's 1/2 g h t (m)",
+   "observed": 2.433776855718245e-06,
+   "limit": 0.0001,
+   "declared_limit": 0.0001,
+   "rule": "at most",
+   "status": "pass",
+   "detail": {
+    "y": 5.0745649337768555,
+    "vy": -9.810012817382812,
+    "discrete": 5.0745625,
+    "continuum": 5.095
+   },
+   "source": "x3dnv.newton_refs (set-up and limit: physx-bridge p1-analytic.json)"
+  },
+  {
+   "id": "pendulum, ball joint: period against 2 pi sqrt(I/(m g L)) (relative)",
+   "observed": 0.00014219919217402585,
+   "limit": 0.005,
+   "declared_limit": 0.005,
+   "rule": "at most",
+   "status": "pass",
+   "detail": {
+    "T": 1.418818555339428,
+    "expected": 1.4186168291723151,
+    "periods": 7,
+    "spread": 9.314001441218522e-07
+   },
+   "source": "x3dnv.newton_refs (set-up and limit: physx-bridge p1-analytic.json)"
+  },
+  {
+   "id": "pendulum, hinge joint: period against 2 pi sqrt(I/(m g L)) (relative)",
+   "observed": 0.0001420345891237185,
+   "limit": 0.005,
+   "declared_limit": 0.005,
+   "rule": "at most",
+   "status": "pass",
+   "detail": {
+    "T": 1.4188183218307706,
+    "expected": 1.4186168291723151,
+    "periods": 7,
+    "spread": 2.8935066520574537e-07
+   },
+   "source": "x3dnv.newton_refs (set-up and limit: physx-bridge p1-analytic.json)"
+  },
+  {
+   "id": "restitution: rebound speed against e (v + g h), worst of 5 bounces",
+   "observed": 1.0,
+   "limit": 0.001,
+   "declared_limit": 0.001,
+   "rule": "at most",
+   "status": "fail",
+   "detail": {
+    "bounces": [
+     {
+      "impact": 3.1473729610443115,
+      "rebound": 0.42531025409698486,
+      "physx_law": 1.912948776626587,
+      "continuum_law": 1.8884237766265868
+     }
+    ],
+    "found": 1,
+    "worst_vs_continuum_e_v": 0.7747802906523746
+   },
+   "source": "x3dnv.newton_refs (set-up and limit: physx-bridge p1-analytic.json)"
+  },
+  {
+   "id": "incline 30 deg, mu 0.3: sliding acceleration against g (sin t - mu cos t) (relative)",
+   "observed": 0.0008829588901006388,
+   "limit": 0.02,
+   "declared_limit": 0.02,
+   "rule": "at most",
+   "status": "pass",
+   "detail": {
+    "a": 2.3542067318991546,
+    "expected": 2.3562872366623964,
+    "travelled": 0.42701204492295874
+   },
+   "source": "x3dnv.newton_refs (set-up and limit: physx-bridge p1-analytic.json)"
+  },
+  {
+   "id": "incline 30 deg, mu 0.7: a body that must hold moved (m)",
+   "observed": 0.0035237948850857514,
+   "limit": 0.001,
+   "declared_limit": 0.001,
+   "rule": "at most",
+   "status": "fail",
+   "detail": {
+    "travelled_along_slope_0.05_to_0.55s": 0.0035237948850857514,
+    "expected": 0.0,
+    "settle_drop": 0.001358708250336349
+   },
+   "source": "x3dnv.newton_refs (set-up and limit: physx-bridge p1-analytic.json)"
+  },
+  {
+   "id": "tunnelling with CCD on: phases (of 40) in which a 5 m/s marble crossed a 5 mm wall",
+   "observed": 40.0,
+   "limit": 0.0,
+   "declared_limit": 0.0,
+   "rule": "at most",
+   "status": "fail",
+   "detail": {
+    "speed": 5.0,
+    "phases": 40,
+    "crossed": 40
+   },
+   "source": "x3dnv.newton_refs (set-up and limit: physx-bridge p1-analytic.json)"
+  }
+ ],
+ "controls": [
+  {
+   "id": "gravity off: the free-fall height reference must miss",
+   "expect": "fail",
+   "observed": 4.9254375,
+   "observed_failed": true
+  },
+  {
+   "id": "a 60 m/s marble must tunnel the 5 mm wall in some phase (the test can see tunnelling)",
+   "expect": "fail",
+   "observed": 40.0,
+   "observed_failed": true
+  },
+  {
+   "id": "wrecking ball without the declared filter pairs: the bob rises above its start (> 1 mm) or blows up",
+   "expect": "fail",
+   "observed": 0.0659990906715393,
+   "blew_up": false,
+   "with_filters": 1.5914440155029297e-05,
+   "observed_failed": true
+  }
+ ],
+ "substep_sweep": [
+  {
+   "substeps": 1,
+   "dt": 0.004166666666666667,
+   "period_rel_err": 0.0001420345891237185
+  },
+  {
+   "substeps": 2,
+   "dt": 0.0020833333333333333,
+   "period_rel_err": 0.00015273475000699593
+  },
+  {
+   "substeps": 4,
+   "dt": 0.0010416666666666667,
+   "period_rel_err": 0.00015530766925931838
+  },
+  {
+   "substeps": 10,
+   "dt": 0.00041666666666666664,
+   "period_rel_err": 0.00015613054033586992
+  }
+ ]
+}

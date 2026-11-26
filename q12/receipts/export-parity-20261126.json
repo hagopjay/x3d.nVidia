@@ -1,0 +1,2545 @@
+{
+ "blender": "5.3.0",
+ "addon_version": "2.7.6",
+ "settings": {
+  "z": {
+   "export_materials": true,
+   "generate_preview_surface": true,
+   "export_lights": true,
+   "export_cameras": true,
+   "use_instancing": true
+  },
+  "y": {
+   "export_materials": true,
+   "generate_preview_surface": true,
+   "export_lights": true,
+   "export_cameras": true,
+   "use_instancing": true,
+   "convert_orientation": true,
+   "export_global_up_selection": "Y",
+   "export_global_forward_selection": "NEGATIVE_Z"
+  }
+ },
+ "scenes": {
+  "p_alpha-range__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.046,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.031,
+    "bytes": 3103
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3149
+   }
+  },
+  "p_alpha-range__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.032,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3103
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3149
+   }
+  },
+  "p_bbox__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.017,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2979
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3027
+   }
+  },
+  "p_bbox__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.016,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2979
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 3027
+   }
+  },
+  "p_body-shared__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.031,
+   "counts": {
+    "objects": 3,
+    "meshes": 2,
+    "faces": 512,
+    "verts": 484,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11488
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 11540
+   }
+  },
+  "p_body-shared__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.039,
+   "counts": {
+    "objects": 3,
+    "meshes": 2,
+    "faces": 512,
+    "verts": 484,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.006,
+    "bytes": 11527
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11574
+   }
+  },
+  "p_coincident__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.054,
+   "counts": {
+    "objects": 3,
+    "meshes": 2,
+    "faces": 12,
+    "verts": 16,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3504
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3557
+   }
+  },
+  "p_coincident__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.058,
+   "counts": {
+    "objects": 3,
+    "meshes": 2,
+    "faces": 262,
+    "verts": 250,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.006,
+    "bytes": 12112
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 12167
+   }
+  },
+  "p_collider-overlap__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.041,
+   "counts": {
+    "objects": 3,
+    "meshes": 2,
+    "faces": 512,
+    "verts": 484,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.006,
+    "bytes": 11527
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 11575
+   }
+  },
+  "p_collider-overlap__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.052,
+   "counts": {
+    "objects": 3,
+    "meshes": 2,
+    "faces": 512,
+    "verts": 484,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 11527
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11575
+   }
+  },
+  "p_colocated__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.025,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 3,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2962
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3010
+   }
+  },
+  "p_colocated__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.045,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 3,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 2962
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3010
+   }
+  },
+  "p_colour-range__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.042,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3103
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3149
+   }
+  },
+  "p_colour-range__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.044,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3103
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3149
+   }
+  },
+  "p_constant-interp__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.066,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3476
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3521
+   }
+  },
+  "p_constant-interp__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.045,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3472
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3517
+   }
+  },
+  "p_float__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.029,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2978
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3026
+   }
+  },
+  "p_float__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.03,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2978
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3026
+   }
+  },
+  "p_index-oob__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.029,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 5,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3026
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3075
+   }
+  },
+  "p_index-oob__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.031,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2978
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 3026
+   }
+  },
+  "p_inertia__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.035,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 256,
+    "verts": 242,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11395
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 11443
+   }
+  },
+  "p_inertia__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.031,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 256,
+    "verts": 242,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11395
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 11443
+   }
+  },
+  "p_joint-body__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.034,
+   "counts": {
+    "objects": 4,
+    "meshes": 3,
+    "faces": 768,
+    "verts": 726,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 11586
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11637
+   }
+  },
+  "p_joint-body__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.035,
+   "counts": {
+    "objects": 5,
+    "meshes": 4,
+    "faces": 1024,
+    "verts": 968,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 11657
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11706
+   }
+  },
+  "p_joint-loop__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.037,
+   "counts": {
+    "objects": 7,
+    "meshes": 6,
+    "faces": 1536,
+    "verts": 1452,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.006,
+    "bytes": 11775
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 11834
+   }
+  },
+  "p_joint-loop__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.036,
+   "counts": {
+    "objects": 5,
+    "meshes": 4,
+    "faces": 1024,
+    "verts": 968,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 11656
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11706
+   }
+  },
+  "p_joint-two-targets__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.038,
+   "counts": {
+    "objects": 7,
+    "meshes": 6,
+    "faces": 1536,
+    "verts": 1452,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.006,
+    "bytes": 11820
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 11874
+   }
+  },
+  "p_joint-two-targets__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.034,
+   "counts": {
+    "objects": 5,
+    "meshes": 4,
+    "faces": 1024,
+    "verts": 968,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 11657
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11706
+   }
+  },
+  "p_manifold__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.03,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 3,
+    "verts": 5,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3058
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3106
+   }
+  },
+  "p_manifold__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.035,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 2,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3002
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3050
+   }
+  },
+  "p_nested-geometry__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.072,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3364
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3414
+   }
+  },
+  "p_nested-geometry__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.049,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3364
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3414
+   }
+  },
+  "p_nested-material__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.042,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3364
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3414
+   }
+  },
+  "p_nested-material__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.043,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3364
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3414
+   }
+  },
+  "p_no-collider__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.001,
+   "counts": {
+    "objects": 1,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 0,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 1543
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.001,
+    "bytes": 1591
+   }
+  },
+  "p_no-collider__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.031,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 256,
+    "verts": 242,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11395
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 11443
+   }
+  },
+  "p_no-geometry__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.001,
+   "counts": {
+    "objects": 1,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 0,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 1543
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.001,
+    "bytes": 1591
+   }
+  },
+  "p_no-geometry__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.043,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3364
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3414
+   }
+  },
+  "p_normal-unit__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.03,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2999
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3047
+   }
+  },
+  "p_normal-unit__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.03,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2999
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3047
+   }
+  },
+  "p_not-image__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.031,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2905
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2953
+   }
+  },
+  "p_not-image__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.032,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2905
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2953
+   }
+  },
+  "p_pbr-range__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3297
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3343
+   }
+  },
+  "p_pbr-range__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3297
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3343
+   }
+  },
+  "p_physics-mass__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.034,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 256,
+    "verts": 242,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11395
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 11443
+   }
+  },
+  "p_physics-mass__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.034,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 256,
+    "verts": 242,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 11395
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 11443
+   }
+  },
+  "p_precision__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.017,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 3,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2962
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3010
+   }
+  },
+  "p_precision__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.034,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 3,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2962
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3010
+   }
+  },
+  "p_proto-undeclared__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.046,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3364
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3414
+   }
+  },
+  "p_proto-undeclared__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.055,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3364
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3414
+   }
+  },
+  "p_splat-opacities__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2126
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 2176
+   }
+  },
+  "p_splat-opacities__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2126
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 2176
+   }
+  },
+  "p_splat-orientations__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.004,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2126
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 2176
+   }
+  },
+  "p_splat-orientations__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2126
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 2176
+   }
+  },
+  "p_splat-positions__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 0,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2006
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2054
+   }
+  },
+  "p_splat-positions__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.004,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2126
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2176
+   }
+  },
+  "p_splat-radiance__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 0,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2038
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2086
+   }
+  },
+  "p_splat-radiance__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2126
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 2176
+   }
+  },
+  "p_splat-scales__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2126
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 2176
+   }
+  },
+  "p_splat-scales__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.003,
+   "counts": {
+    "objects": 2,
+    "meshes": 0,
+    "faces": 0,
+    "verts": 0,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2126
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 2176
+   }
+  },
+  "p_texture-large__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.032,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 2905
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2953
+   }
+  },
+  "p_texture-large__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.031,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2905
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2953
+   }
+  },
+  "p_transparent-open__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.047,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 2978
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3026
+   }
+  },
+  "p_transparent-open__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.036,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 4,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3059
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3107
+   }
+  },
+  "p_type__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.054,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 256,
+    "verts": 242,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11327
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 11381
+   }
+  },
+  "p_type__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.041,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 256,
+    "verts": 242,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 11327
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 11381
+   }
+  },
+  "p_unicode-name__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.059,
+   "counts": {
+    "objects": 3,
+    "meshes": 2,
+    "faces": 12,
+    "verts": 16,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3597
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3640
+   }
+  },
+  "p_unicode-name__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.07,
+   "counts": {
+    "objects": 3,
+    "meshes": 2,
+    "faces": 12,
+    "verts": 16,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3573
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3623
+   }
+  },
+  "p_unknown-node__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.059,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.006,
+    "bytes": 3364
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3414
+   }
+  },
+  "p_unknown-node__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.059,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 3364
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3414
+   }
+  },
+  "p_unused-point__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.029,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2970
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3018
+   }
+  },
+  "p_unused-point__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.044,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 3,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2962
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3010
+   }
+  },
+  "p_unused-value__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.031,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3103
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3149
+   }
+  },
+  "p_unused-value__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.031,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3103
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3149
+   }
+  },
+  "p_url-absolute__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.05,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.009,
+    "bytes": 2905
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.014,
+    "bytes": 2953
+   }
+  },
+  "p_url-absolute__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.037,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.006,
+    "bytes": 2905
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2953
+   }
+  },
+  "p_url-missing__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.053,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.006,
+    "bytes": 2905
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2953
+   }
+  },
+  "p_url-missing__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.032,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 4,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2905
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2953
+   }
+  },
+  "p_use-undefined__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.004,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 6,
+    "verts": 8,
+    "materials": 2,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 2920
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.002,
+    "bytes": 2965
+   }
+  },
+  "p_use-undefined__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.046,
+   "counts": {
+    "objects": 3,
+    "meshes": 2,
+    "faces": 12,
+    "verts": 16,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3505
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3557
+   }
+  },
+  "p_winding__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.028,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 3,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 2975
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.003,
+    "bytes": 3023
+   }
+  },
+  "p_winding__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.049,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 3,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 2975
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3023
+   }
+  },
+  "p_zero-area__bad": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.026,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 3,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.005,
+    "bytes": 2962
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3010
+   }
+  },
+  "p_zero-area__good": {
+   "import_": [
+    "FINISHED"
+   ],
+   "import_s": 0.049,
+   "counts": {
+    "objects": 2,
+    "meshes": 1,
+    "faces": 1,
+    "verts": 3,
+    "materials": 1,
+    "lights": 0,
+    "cameras": 1,
+    "images": 0
+   },
+   "z": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.006,
+    "bytes": 2962
+   },
+   "y": {
+    "export": [
+     "FINISHED"
+    ],
+    "s": 0.004,
+    "bytes": 3010
+   }
+  }
+ }
+}

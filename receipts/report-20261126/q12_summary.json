@@ -1,0 +1,36 @@
+[
+{
+"corpus": "Parity fixtures (84 scenes)",
+"key": "parity",
+"scenes": 84,
+"fired": 67,
+"both": 17,
+"x3d_only": 32,
+"usd_only": 18,
+"quiet_pairs": 3391,
+"rules_usd_core": 30,
+"rules_omniverse": 40,
+"rules_simready": 201,
+"mapped_usd_core": 7,
+"mapped_omniverse": 20,
+"mapped_simready": 21,
+"mapped_total": 48
+},
+{
+"corpus": "Real X3D files (141)",
+"key": "real",
+"scenes": 141,
+"fired": 359,
+"both": 140,
+"x3d_only": 117,
+"usd_only": 102,
+"quiet_pairs": 5421,
+"rules_usd_core": 30,
+"rules_omniverse": 40,
+"rules_simready": 201,
+"mapped_usd_core": 7,
+"mapped_omniverse": 20,
+"mapped_simready": 21,
+"mapped_total": 48
+}
+]

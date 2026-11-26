@@ -1,0 +1,146 @@
+[
+{
+"requirement": "SR LI.001",
+"change": "fixed by the direct writer",
+"scenes": 21,
+"message": "Lidars must be represented by an OmniLidar prim with OmniSensorGenericLidarCoreAPI; legacy Camera-based lidars are not allowed."
+},
+{
+"requirement": "SR NP.006",
+"change": "fixed by the direct writer",
+"scenes": 21,
+"message": "Asset 'bell' has no metadata. Metadata must be stored in custom layer data as 'SimReady_Metadata' or a sidecar JSON file."
+},
+{
+"requirement": "SR SR.001",
+"change": "fixed by the direct writer",
+"scenes": 21,
+"message": "Required metadata fields are missing: SimReady_Metadata, asset_name, asset_type, source_file, usd_date_generated. Fields must be authored di"
+},
+{
+"requirement": "SR VG.008",
+"change": "fixed by the direct writer",
+"scenes": 21,
+"message": "Found 3 coincident meshes with identical geometry at the same transform: /root/P1BellCS_001/P1BellCS_Cone, /root/P1BellCS_003/P1BellCS_Cone,"
+},
+{
+"requirement": "SR VG.009",
+"change": "fixed by the direct writer",
+"scenes": 19,
+"message": "primvars:st contains repeated values that can be indexed."
+},
+{
+"requirement": "SR VG.014",
+"change": "fixed by the direct writer",
+"scenes": 19,
+"message": "Invalid topology found"
+},
+{
+"requirement": "SR VG.026",
+"change": "fixed by the direct writer",
+"scenes": 18,
+"message": "Asset pivot appears to be offset from expected position (bottom-center of bounds). Expected pivot near (0.00, -0.00, -10.00)"
+},
+{
+"requirement": "SR HI.009",
+"change": "fixed by the direct writer",
+"scenes": 13,
+"message": "Transformable link '/root/D84T/D0SS_020' in kinematic hierarchy has no transform operations. Each link should have xformOps (translate, rota"
+},
+{
+"requirement": "SR RB.001",
+"change": "fixed by the direct writer",
+"scenes": 13,
+"message": "No physics rigid bodies found under the default prim."
+},
+{
+"requirement": "SR RB.MB.001",
+"change": "fixed by the direct writer",
+"scenes": 7,
+"message": "Not enough physics rigid bodies found under the default prim. Found 0, expected at least 2."
+},
+{
+"requirement": "SR MUJOCO.COL.001",
+"change": "now applies (physics present)",
+"scenes": 21,
+"message": "MuJoCo collider '/World/P1BellBody/Cone' must apply MjcCollisionAPI."
+},
+{
+"requirement": "SR RC.005",
+"change": "now applies (physics present)",
+"scenes": 21,
+"message": "Physics Attribute physics:gravityDirection in robot asset </home/claude/q12/phys/usd/x3d2usd/bell/bell.usdc> has authored value NOT in the p"
+},
+{
+"requirement": "SR RC.006",
+"change": "now applies (physics present)",
+"scenes": 21,
+"message": "Physics Schema [PhysicsMaterialAPI] on /World/PhysicsMaterials/Surfaces in robot asset </home/claude/q12/phys/usd/x3d2usd/bell/bell.usdc> ha"
+},
+{
+"requirement": "SR RM.002",
+"change": "now applies (physics present)",
+"scenes": 21,
+"message": "Material /World/PhysicsMaterials/Surfaces is not in the top level Looks prim"
+},
+{
+"requirement": "SR VG.MESH.001",
+"change": "now applies (physics present)",
+"scenes": 19,
+"message": "Stage does not contain any meshes."
+},
+{
+"requirement": "SR BA.001",
+"change": "now applies (physics present)",
+"scenes": 8,
+"message": "Articulation Root API is not set on any prim in the stage"
+},
+{
+"requirement": "SR DJ.002",
+"change": "now applies (physics present)",
+"scenes": 8,
+"message": "/World/Joints/P1Hinge Has no Joint State API"
+},
+{
+"requirement": "SR DJ.004",
+"change": "now applies (physics present)",
+"scenes": 8,
+"message": "Joint /World/Joints/P1Hinge has no drive or mimic API"
+},
+{
+"requirement": "SR HI.002",
+"change": "now applies (physics present)",
+"scenes": 8,
+"message": "Prim Parent has no xformOp:rotate."
+},
+{
+"requirement": "SR MUJOCO.DJ.001",
+"change": "now applies (physics present)",
+"scenes": 8,
+"message": "MuJoCo articulation joint '/World/Joints/P1Hinge' does not apply MjcJointAPI. Apply MjcJointAPI to every non-fixed joint that participates i"
+},
+{
+"requirement": "SR NEWTON.DJ.001",
+"change": "now applies (physics present)",
+"scenes": 8,
+"message": "Newton joint '/World/Joints/P1Hinge' has no PhysicsDriveAPI applied, is not targeted by a NewtonActuator, and is not coupled to a leader joi"
+},
+{
+"requirement": "SR COL.001",
+"change": "now applies (physics present)",
+"scenes": 3,
+"message": "Mesh collider approximation is set to 'none' instead of 'sdf'."
+},
+{
+"requirement": "SR NEWTON.COL.001",
+"change": "now applies (physics present)",
+"scenes": 3,
+"message": "Newton mesh collider '/World/P1CurveBody/IndexedFaceSet' must apply either NewtonMeshCollisionAPI or NewtonSDFCollisionAPI."
+},
+{
+"requirement": "SR DJ.011",
+"change": "now applies (physics present)",
+"scenes": 1,
+"message": "Multiple joints connect the same body pair /World/ArmBody -- /World/FrameBody: /World/Joints/ArmHinge, /World/Joints/Latch\nOnly one joint pe"
+}
+]

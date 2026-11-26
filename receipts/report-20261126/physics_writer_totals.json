@@ -1,0 +1,16 @@
+[
+{
+"path": "blender",
+"label": "Blender 5.3 USD export",
+"scenes": 21,
+"omniverse_usdcore_failing_pairs": 38,
+"rigid_bodies_found": 0
+},
+{
+"path": "x3d2usd",
+"label": "x3d2usdphysics (direct)",
+"scenes": 21,
+"omniverse_usdcore_failing_pairs": 0,
+"rigid_bodies_found": 13
+}
+]

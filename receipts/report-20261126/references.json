@@ -1,0 +1,110 @@
+[
+{
+"reference": "Free fall: height",
+"id": "free fall: height against the discrete semi-implicit Euler solution, 1 s (m)",
+"unit": "m",
+"limit": 0.0001,
+"physx": 1.4801025391975031e-06,
+"xpbd": 1.4801025391975031e-06,
+"mujoco": 2.433776855603753e-06,
+"physx_pass": true,
+"xpbd_pass": true,
+"mujoco_pass": true
+},
+{
+"reference": "Free fall: velocity",
+"id": "free fall: velocity against -g t, 1 s (m/s)",
+"unit": "m/s",
+"limit": 0.0001,
+"physx": 1.281738281200262e-05,
+"xpbd": 1.281738281200262e-05,
+"mujoco": 1.281738281200262e-05,
+"physx_pass": true,
+"xpbd_pass": true,
+"mujoco_pass": true
+},
+{
+"reference": "Free fall: continuum gap",
+"id": "free fall: the continuum gap equals the integrator's 1/2 g h t (m)",
+"unit": "m",
+"limit": 0.0001,
+"physx": 1.4801025393119949e-06,
+"xpbd": 1.4801025393119949e-06,
+"mujoco": 2.433776855718245e-06,
+"physx_pass": true,
+"xpbd_pass": true,
+"mujoco_pass": true
+},
+{
+"reference": "Pendulum, ball joint: period",
+"id": "pendulum, ball joint: period against 2 pi sqrt(I/(m g L)) (relative)",
+"unit": "relative",
+"limit": 0.005,
+"physx": 1.4188085919504396e-05,
+"xpbd": 0.14459968849876553,
+"mujoco": 0.00014219919217402585,
+"physx_pass": true,
+"xpbd_pass": false,
+"mujoco_pass": true
+},
+{
+"reference": "Pendulum, hinge: period",
+"id": "pendulum, hinge joint: period against 2 pi sqrt(I/(m g L)) (relative)",
+"unit": "relative",
+"limit": 0.005,
+"physx": 1.4198379702485657e-05,
+"xpbd": 0.14459968849876553,
+"mujoco": 0.0001420345891237185,
+"physx_pass": true,
+"xpbd_pass": false,
+"mujoco_pass": true
+},
+{
+"reference": "Restitution: e(v+gh)",
+"id": "restitution: rebound speed against e (v + g h), worst of 5 bounces",
+"unit": "relative",
+"limit": 0.001,
+"physx": 7.219632258692599e-08,
+"xpbd": 1.5747103012084944e-07,
+"mujoco": 1.0,
+"physx_pass": true,
+"xpbd_pass": true,
+"mujoco_pass": false
+},
+{
+"reference": "Incline \u03bc 0.3: slides",
+"id": "incline 30 deg, mu 0.3: sliding acceleration against g (sin t - mu cos t) (relative)",
+"unit": "relative",
+"limit": 0.02,
+"physx": 0.009826795315465285,
+"xpbd": 1.2391382566405443e-06,
+"mujoco": 0.0008829588901006388,
+"physx_pass": true,
+"xpbd_pass": true,
+"mujoco_pass": true
+},
+{
+"reference": "Incline \u03bc 0.7: holds",
+"id": "incline 30 deg, mu 0.7: a body that must hold moved (m)",
+"unit": "m",
+"limit": 0.001,
+"physx": 0.00030350911951615434,
+"xpbd": 0.004460447978264493,
+"mujoco": 0.0035237948850857514,
+"physx_pass": true,
+"xpbd_pass": false,
+"mujoco_pass": false
+},
+{
+"reference": "Tunnelling at 5 m/s",
+"id": "tunnelling with CCD on: phases (of 40) in which a 5 m/s marble crossed a 5 mm wall",
+"unit": "phases of 40",
+"limit": 0.0,
+"physx": 0.0,
+"xpbd": 0.0,
+"mujoco": 40.0,
+"physx_pass": true,
+"xpbd_pass": true,
+"mujoco_pass": false
+}
+]

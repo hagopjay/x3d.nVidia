@@ -12,7 +12,8 @@ dependencies = ["numpy>=1.24"]
 
 [project.optional-dependencies]
 usd = ["usd-core>=26.3"]
-dev = ["pytest>=8", "usd-core>=26.3", "pillow"]
+dev = ["pytest>=8", "usd-core>=26.3", "pillow", "lxml"]
+newton = ["newton[importers]==1.8.0", "mujoco==4.0.1", "mujoco-warp==4.0.1", "lxml"]
 
 [project.scripts]
 x3dnv-splats = "x3dnv.splats:main"
