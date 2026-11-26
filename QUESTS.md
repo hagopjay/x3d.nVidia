@@ -16,6 +16,13 @@ Ranked by advocacy value ÷ cost on today's **free dev key (40 rpm)** and Colab 
 | Q9 | **Warp physics → X3D**: simulate an X3D RigidBodyCollection or ParticleSystem in Warp, bake to interpolators, compare with X_ITE's own physics | Warp | GPU minutes | ⏳ | |
 | Q10 | **Objaverse at scale**: licence-filtered (CC0/CC-BY) glbs → X3D; loss histogram per node type | HF datasets | CPU/GPU | ⏳ | |
 | Q11 | **Hugging Face home**: dataset `x3d-scenes` (with receipts) + a Space running X_ITE on generated worlds | HF | free | ⏳ | |
+| Q12 | **SimReady before export** (STRATEGY M1): X3D → Blender 5.x → USD through the Omniverse Asset Validator and a SimReady profile; plus an X3D SimReady metadata profile checked by x3d_mcp | omniverse-asset-validator, SimReady Foundation. **First run done 26 Nov** (x3d_mcp #33, Blender 5.3.0, usd-core 26.11, Validator 1.18.0): 84 scenes, 27 mapped rules; 17 X3D-only pairs where Blender's importer repaired the fault. Open: real files, SimReady requirement rules | CPU | ⏳ (turn 3 is the X3D half ✅) | |
+| Q13 | **Newton as a physics witness** (M3): one x3d.physics scene in Newton, PhysX and X_ITE; disagreements shrunk to tests | Newton 1.0 (Warp, pip) | Colab GPU | ⏳ | |
+| Q14 | **Behaviour pack for AOUSD CMI** (M2): X3D event semantics ⟷ USD mapping and a conformance pack with X_ITE traces | AOUSD (standards) | CPU | ⏳ | |
+| Q15 | **H-Anim → humanoid** (M3): retarget an H-Anim motion to an Isaac humanoid via URDF/MJCF; joint-error receipt | Isaac Sim 6 importers, GR00T assets | GPU | ⏳ | |
+| Q16 | **MCP to MCP**: an agent builds and validates an X3D prop with x3d_mcp, exports it, and Isaac Sim MCP drops it into a scene | Isaac Sim 6 MCP, Nemotron | GPU + key | ⏳ | |
+
+See STRATEGY.md for why Q12 to Q16 are the strategic spine.
 
 ## Why these and in this order
 - **Q0–Q1 build trust.** They are standards-level proofs and catalog facts that NVIDIA's own engineers can check in five minutes.

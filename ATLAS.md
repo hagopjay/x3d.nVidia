@@ -57,6 +57,32 @@ Source: a 190,125-splat, SH-degree-3 training PLY (X_ITE's own example asset, fe
 
 ---
 
+### 1.3 X3D validation answers the USD rulebooks ✅ (flywheel turn 3, 26 Nov 2026)
+
+Every rule of three USD rulebooks is mapped to what X3D does about the same mistake, executed scene by scene:
+
+| Rulebook | Rules | X3D can state | Reported |
+|---|---|---|---|
+| OpenUSD `UsdValidation` (usd-core 26.11) | 30 | 7 | 7 |
+| NVIDIA Omniverse Asset Validator 1.18.0 (PyPI, Python ≤ 3.12) | 40 | 18 | 18 |
+| NVIDIA SimReady Foundation `c3bd1d8` (23 Nov 2026), what Isaac Sim validates against | 270 | 41 | 41 |
+
+The other 274 rules:
+
+| Why X3D has no rule for it | Rules |
+|---|---|
+| Impossible to break in X3D (one root, +Y up, metres, seconds, computed normals) | 32 |
+| A convention the exporter converts (SimReady's Z up) | 1 |
+| USD machinery X3D does not have | 50 |
+| A feature X3D 4.0 lacks | 38 |
+| One simulator's schema | 44 |
+| Pipeline policy | 92 |
+| Human judgement | 17 |
+
+- **New checks:** 18 were written and surveyed on 1,548 real X3D files.
+- **Where it lives:** x3d_mcp `docs/USD-VALIDATION-PARITY.md` and x3d.loom `LEARNINGS-flywheel-turn-3.md` (FM 364 to 373 after renumbering).
+- **Status:** kits waiting to be merged on 26 Nov.
+
 ## 2. NVIDIA API Catalog (build.nvidia.com) — what a dev key reaches
 
 | Surface | What it is | Checked | X3D angle |
@@ -101,9 +127,20 @@ Source: a 190,125-splat, SH-degree-3 training PLY (X_ITE's own example asset, fe
 | **DSPy 3.3** | `dspy.GEPA` reflective optimiser; experimental `dspy.Flex` lets GEPA rewrite a module's code | 🔎 release notes | **x3d_mcp validator as the GEPA metric** → prompts and programs that write valid X3D, cheap at 40 rpm |
 | **Objaverse 1.0 / XL** | 800K objects, per-object CC licences (721K CC-BY); XL 10M+, ODC-By overall, mixed per-object, Polycam subset by request only | 🔎 HF cards | licence-filtered glb corpus for the X3D fidelity chain at scale |
 
+## 5b. Robotics and physical AI (🔎 read 26 Nov 2026)
+
+| Item | Facts | X3D angle |
+|---|---|---|
+| **Newton** | open, GPU physics engine by NVIDIA, Google DeepMind and Disney Research; a Linux Foundation project, Apache-2.0, built on Warp and OpenUSD; MuJoCo-Warp is one of its solvers; **1.0 GA at GTC 2026**; Toyota Research Institute (Drake) partners | a third engine for the x3d.physics flywheel (STRATEGY M3) |
+| **Isaac Sim 6.x** | 6.0 GA on Kit 110 with PhysX and Newton backends, an Isaac Sim MCP server and agent skills; URDF and MJCF importers 3.0 (Asset Structure 3.0, Newton schema); 6.2 on Kit 110.4 adds a browser WebRTC viewer skill | MCP-to-MCP loop with x3d_mcp (Q16); SimReady validation (M1) |
+| **Isaac Lab 3.0, GR00T 2, Isaac Lab-Arena** | Isaac Lab 3.0 GA late Oct 2026; GR00T 2 and an open policy benchmark shown at CoRL 2026; Lab-Arena for policy evaluation | H-Anim → humanoid retargeting (M3); X3D scenes as evaluation tasks |
+| **Cosmos 3, Physical AI Data Factory** | Cosmos 3 (May 2026) unifies world generation, vision reasoning and action; the GTC 2026 Data Factory blueprint has Cosmos Curator, Transfer and Evaluator | labelled synthetic data from X3D (M4) |
+| **ROS REP 158 (draft, 3 Mar 2026)** | an OpenUSD profile for robotics simulation assets that adopts AOUSD, ASWF and NVIDIA asset requirements | the same rules our USD parity answers; a ROS-facing audience |
+| **AOUSD** | Core Specification 1.0; the Characters, Motion and Interactivity (CMI) interest group formed 25 Mar 2026 to standardize skeletal animation, blend shapes and interactive behaviour; new members July 2026 | X3D's event model and H-Anim as reference input (M2) |
+
 ## 6. Why X3D, in one paragraph (the advocacy thesis)
 
-glTF and USD now carry splats, and X3D 4.1 carries the *same* splats bit for bit (§1.2). X3D adds what the other two leave to an application: a ROUTE graph, sensors, bindable Viewpoints, interpolators, Scripts, metadata, and a browser (X_ITE) that runs all of it from one file in any web page. So the pitch to NVIDIA isn't "another format". It's **the interactive, web-native, ISO-standard layer above NVIDIA's generators** (TRELLIS, Lyra, 3DGRUT, Cosmos), proven by receipts, not slides.
+glTF and USD now carry splats, and X3D 4.1 carries the *same* splats bit for bit (§1.2). X3D's validator now answers every OpenUSD, Omniverse and SimReady rule an X3D file can break (§1.3). X3D adds what the other two leave to an application: a ROUTE graph, sensors, bindable Viewpoints, interpolators, Scripts, metadata, and a browser (X_ITE) that runs all of it from one file in any web page. So the pitch to NVIDIA isn't "another format". It's **the interactive, web-native, ISO-standard layer above NVIDIA's generators** (TRELLIS, Lyra, 3DGRUT, Cosmos), proven by receipts, not slides.
 
 ## 7. Open questions (each becomes a receipt)
 
@@ -113,4 +150,5 @@ glTF and USD now carry splats, and X3D 4.1 carries the *same* splats bit for bit
 3. Do Omniverse's `omni.kit.converter.gsplat` and our writer produce the same USD for one PLY? (orientation convention, SH layout, frame)
 4. Does `hdParticleField` / Omniverse RTX draw our `.usda` like X_ITE draws our `.x3d`? Measure with the same viewpoint and a pixel delta.
 5. X3D 4.1 XSD validation of `GaussianSplats` (needs the x3d_mcp fork with the 4.1 schema).
-6. The SH-ordering wording in the USD schema doc ("sorted first by order (m) and then by index (l)") vs the 3DGS l-major order. We use 3DGS order; a test splat with only one non-zero higher band will settle it in `hdParticleField`.
+6. Does an X3D scene that passes x3d_mcp export through Blender 5.x to USD that passes the Omniverse Asset Validator and a SimReady profile? (STRATEGY M1)
+7. The SH-ordering wording in the USD schema doc ("sorted first by order (m) and then by index (l)") vs the 3DGS l-major order. We use 3DGS order; a test splat with only one non-zero higher band will settle it in `hdParticleField`.
