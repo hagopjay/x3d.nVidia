@@ -1,6 +1,6 @@
 """X3D RigidBodyPhysics -> OpenUSD UsdPhysics, written directly (no Blender).
 
-    python -I -m x3dnv.x3d2usdphysics SCENE.x3d OUT.usda [--meta key=value ...] [--report REPORT.json]
+    python -I -m x3dnv.x3d2usdphysics SCENE.x3d OUT.usda [--runtimes physx,newton,mujoco] [--report REPORT.json] [--meta key=value ...]
 
 Why: Blender's X3D import keeps no physics, so a Blender USD export of an X3D physics scene has no rigid body at all
 (SimReady RB.001 fails on all 225 Blender exports of Q12 run 2), and Newton, Isaac Sim and every SimReady physics
@@ -542,11 +542,157 @@ class Writer:
         layer.comment = f"Written from {self.sc.path.name} by x3dnv.x3d2usdphysics (X3D RigidBodyPhysics to UsdPhysics)"
 
 
-def convert(src, out, meta=None):
+# ---------------------------------------------------------------- runtime variants (SimReady RV.*)
+# Newton and MuJoCo schemas are written by name (Usd.Prim.AddAppliedSchema), as SimReady's own adapters do: neither is
+# registered in every runtime, and the validators read apiSchemas by name. Each engine's schemas live only in that
+# engine's payload, behind a variant set (default Disabled) on the default prim, because SimReady's isolation matrix
+# (RV.010, RV.011) forbids engine schemas in the neutral stage and Mjc* in a Newton stage (and the reverse).
+RUNTIMES = ("physx", "newton", "mujoco")
+_VSET = {"physx": "PhysX", "newton": "Newton", "mujoco": "MuJoCo"}
+
+
+def _components(stage):
+    """Joint-connected groups of bodies: [(bodies, joints)], world and static anchors join nothing."""
+    joints = [p for p in stage.Traverse() if p.IsA(UsdPhysics.Joint)]
+    parent = {}
+
+    def find(x):
+        parent.setdefault(x, x)
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+    ends = {}
+    for j in joints:
+        jj = UsdPhysics.Joint(j)
+        e = [str(t) for r in (jj.GetBody0Rel(), jj.GetBody1Rel()) for t in r.GetTargets()]
+        ends[str(j.GetPath())] = e
+        for t in e:
+            find(t)
+        for a, b in zip(e, e[1:]):
+            parent[find(a)] = find(b)
+    groups = {}
+    for jp, e in ends.items():
+        if e:
+            groups.setdefault(find(e[0]), []).append(jp)
+    comps = []
+    for _, js in sorted(groups.items()):
+        bodies = sorted({t for jp in js for t in ends[jp]})
+        comps.append((bodies, sorted(js)))
+    return comps
+
+
+def add_runtimes(out, runtimes, report):
+    """Neutral articulation roots and passive drives, then one payload and one variant set per runtime."""
+    out = Path(out)
+    stage = Usd.Stage.Open(str(out))
+    root = stage.GetDefaultPrim()
+    rt = {"articulation_roots": [], "drives": 0, "variants": {}}
+    comps = _components(stage)
+    for bodies, js in comps:
+        dyn = [b for b in bodies if stage.GetPrimAtPath(b).HasAPI(UsdPhysics.RigidBodyAPI)]
+        if dyn:
+            UsdPhysics.ArticulationRootAPI.Apply(stage.GetPrimAtPath(dyn[0]))
+            rt["articulation_roots"].append(dyn[0])
+    rt["joint_graphs"] = len(comps)
+    colliders = [p for p in stage.Traverse() if p.HasAPI(UsdPhysics.CollisionAPI)]
+    # A local opinion outranks every variant and payload (LIVRPS), so a neutral physics:approximation = "none" would
+    # beat a runtime's own choice. "none" is the schema fallback: left unauthored, it reads the same and a runtime may set it.
+    for c in colliders:
+        a = c.GetAttribute("physics:approximation")
+        if c.IsA(UsdGeom.Mesh) and a.IsValid() and a.HasAuthoredValue() and a.Get() == "none":
+            c.RemoveProperty("physics:approximation")
+    joints = [p for p in stage.Traverse() if p.IsA(UsdPhysics.Joint) and not p.IsA(UsdPhysics.FixedJoint)]
+    mats = [p for p in stage.Traverse() if p.HasAPI(UsdPhysics.MaterialAPI)]
+    meta = dict(stage.GetRootLayer().customLayerData)
+    sm = dict(meta.get("SimReady_Metadata", {}))
+    var = dict(sm.get("Variants", {}))
+    phys = dict(var.get("Physics", {}))
+    for r in runtimes:
+        name = _VSET[r]
+        pdir = out.parent / "runnables" / "physics"
+        pdir.mkdir(parents=True, exist_ok=True)
+        pay = Usd.Stage.CreateNew(str(pdir / f"{r}.usda"))
+        pay.SetDefaultPrim(pay.OverridePrim(root.GetPath()).GetPrim())
+        def passive_drive(j):
+            # A joint no one drives is declared passive: zero gains, the largest force limit, no target. Without a drive
+            # a joint reads as unfinished to the rules that ask for one (PhysX DJ.004, Newton DJ.001). A ball joint
+            # gets one per rotational axis.
+            axes = ["rotX", "rotY", "rotZ"] if j.IsA(UsdPhysics.SphericalJoint) else \
+                ["linear" if j.IsA(UsdPhysics.PrismaticJoint) else "angular"]
+            for kind in axes:
+                d = UsdPhysics.DriveAPI.Apply(pay.OverridePrim(j.GetPath()), kind)
+                d.CreateStiffnessAttr(0.0)
+                d.CreateDampingAttr(0.0)
+                d.CreateMaxForceAttr(3.4028235e38)
+            return axes
+        for c in colliders:
+            o = pay.OverridePrim(c.GetPath())
+            mesh = c.IsA(UsdGeom.Mesh)
+            approx = c.GetAttribute("physics:approximation").Get() if mesh else None
+            if r == "newton":
+                o.AddAppliedSchema("NewtonCollisionAPI")
+                if mesh and approx == "none":              # a static, concave triangle mesh: Newton's concave collider is the SDF. Its approximation token stays unauthored: 'sdf' there is PhysX's, and RV.011 calls it a leak
+                    o.AddAppliedSchema("NewtonSDFCollisionAPI")
+                    rt["sdf_meshes"] = rt.get("sdf_meshes", 0) + 1
+                elif mesh:
+                    o.AddAppliedSchema("NewtonMeshCollisionAPI")
+            elif r == "mujoco":
+                o.AddAppliedSchema("MjcCollisionAPI")
+                if mesh and approx != "none":
+                    o.AddAppliedSchema("MjcMeshCollisionAPI")
+                elif mesh:                                  # MuJoCo collides convex meshes only; a hull would fill a bowl
+                    rt.setdefault("mujoco_refused_concave", []).append(str(c.GetPath()))
+            else:
+                o.AddAppliedSchema("PhysxCollisionAPI")
+        if r == "newton":
+            for m in mats:
+                o = pay.OverridePrim(m.GetPath())
+                o.AddAppliedSchema("NewtonMaterialAPI")
+                o.CreateAttribute("newton:torsionalFriction", Sdf.ValueTypeNames.Float).Set(0.005)
+                o.CreateAttribute("newton:rollingFriction", Sdf.ValueTypeNames.Float).Set(0.0001)
+            for a in rt["articulation_roots"]:
+                o = pay.OverridePrim(a)
+                o.AddAppliedSchema("NewtonArticulationRootAPI")
+                o.CreateAttribute("newton:selfCollisionEnabled", Sdf.ValueTypeNames.Bool).Set(False)
+            for j in joints:
+                passive_drive(j)
+        elif r == "mujoco":
+            for j in joints:
+                pay.OverridePrim(j.GetPath()).AddAppliedSchema("MjcJointAPI")
+        else:
+            for j in joints:
+                o = pay.OverridePrim(j.GetPath())
+                for kind in passive_drive(j):
+                    o.AddAppliedSchema(f"PhysicsJointStateAPI:{kind}")
+                    o.CreateAttribute(f"state:{kind}:physics:position", Sdf.ValueTypeNames.Float).Set(0.0)
+                    o.CreateAttribute(f"state:{kind}:physics:velocity", Sdf.ValueTypeNames.Float).Set(0.0)
+        pay.GetRootLayer().Save()
+        vs = root.GetVariantSets().AddVariantSet(name)
+        vs.AddVariant("Disabled")
+        vs.AddVariant("Enabled")
+        vs.SetVariantSelection("Enabled")
+        with vs.GetVariantEditContext():
+            root.GetPayloads().AddPayload(Sdf.Payload(f"./runnables/physics/{r}.usda"), Usd.ListPositionFrontOfPrependList)
+        vs.SetVariantSelection("Disabled")
+        phys[name] = {"prim": str(root.GetPath()), "variantSetName": name, "activateOption": "Enabled"}
+        rt["variants"][name] = {"payload": f"runnables/physics/{r}.usda", "colliders": len(colliders),
+                                "joints": len(joints) if r != "newton" or joints else 0}
+    var["Physics"] = phys
+    sm["Variants"] = var
+    meta["SimReady_Metadata"] = sm
+    stage.GetRootLayer().customLayerData = meta
+    stage.GetRootLayer().Save()
+    report["runtimes"] = rt
+
+
+def convert(src, out, meta=None, runtimes=()):
     sc = Scene(src)
     w = Writer(sc, out, meta or {})
     rep = w.write()
     rep["dropped_fields"] = sorted(set(rep["dropped_fields"]))
+    if runtimes:
+        add_runtimes(out, runtimes, rep)
     return rep
 
 
@@ -561,7 +707,9 @@ if __name__ == "__main__":
             k, _, v = kv.partition("=")
             meta[k] = v
     rep_path = a[a.index("--report") + 1] if "--report" in a else None
-    rep = convert(a[0], a[1], meta)
+    rts = tuple(a[a.index("--runtimes") + 1].split(",")) if "--runtimes" in a else ()
+    assert all(r in RUNTIMES for r in rts), f"--runtimes takes {','.join(RUNTIMES)}"
+    rep = convert(a[0], a[1], meta, rts)
     if rep_path:
         Path(rep_path).write_text(json.dumps(rep, indent=1, default=str))
     print(json.dumps({k: rep[k] for k in ("bodies", "dynamic", "static", "shapes", "joints", "kinematic_lost")}),

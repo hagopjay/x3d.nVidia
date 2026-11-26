@@ -40,3 +40,43 @@ The run executed 48 mapped rules: 7 usd-core, 20 Omniverse and 21 SimReady (#33:
 - **Blender drops X3D physics.** SimReady RB.001 fails on every export.
 - **Add-on (parity scenes).** RigidBody collision shapes are placed at the origin, ignoring `position`, and a body that a joint USEs is imported twice.
 - **Direct writer.** On the 21 PhysX-bridge scenes, the output of `src/x3dnv/x3d2usdphysics.py` passes every usd-core and Omniverse rule; Blender's exports of the same scenes fail 38 pairs. It also fixes 10 SimReady requirements: metadata, rigid bodies, coincident meshes, point-set topology and others. 14 more now apply because there is physics to judge (engine schemas, joint drives, articulation roots). Those are the writer's next work.
+
+## Runtime variants in the writer (`--runtimes physx,newton,mujoco`), 26 Nov 2026
+
+SimReady's isolation matrix (RV.010, RV.011) forbids engine schemas in the neutral stage and Mjc* under Newton (and the
+reverse), so the writer puts each engine's schemas in `runnables/physics/<engine>.usda` behind a variant set named after it
+(`PhysX`, `Newton`, `MuJoCo`; Disabled by default; `SimReady_Metadata.Variants.Physics` documents each). Neutral extras: one
+`PhysicsArticulationRootAPI` per joint graph, on its first dynamic body. Per engine, by schema name:
+
+| Payload | Carries |
+|---|---|
+| `physx` | passive `PhysicsDriveAPI` (stiffness 0, damping 0, force limit FLT_MAX) and `PhysicsJointStateAPI` per joint axis (a ball joint gets rotX/Y/Z) |
+| `newton` | `NewtonCollisionAPI`; `NewtonMeshCollisionAPI` on dynamic meshes, `NewtonSDFCollisionAPI` on static concave ones; `NewtonMaterialAPI`; `NewtonArticulationRootAPI` with `newton:selfCollisionEnabled` false; the passive drives |
+| `mujoco` | `MjcCollisionAPI`; `MjcMeshCollisionAPI` on dynamic meshes; `MjcJointAPI` on non-fixed joints |
+
+`q12/writer_runtimes.py` reproduces the table below (Python 3.12, usd-validation-nvidia 1.23.0 + tiers c3bd1d8, usd-core 26.11,
+omniverse-asset-validator 1.18.0; 21 PhysX-bridge scenes; receipt `receipts/writer-runtimes-20261126.json`). Scenes failing a requirement:
+
+| Requirement | Neutral writer | Its own target composition | |
+|---|---|---|---|
+| RV.001, RV.004, RV.007 (variant sets) | 21 | 0 (default asset; RV.001-RV.011 all 0) | flipped |
+| DJ.002 joint state, DJ.004 drive (PhysX) | 8, 8 | 0, 0 | flipped |
+| NEWTON.DJ.001 drive, NEWTON.COL.001 mesh API | 8, 3 | 0, 0 | flipped |
+| MUJOCO.COL.001 collider API, MUJOCO.DJ.001 joint API | 21, 8 | 0, 0 | flipped |
+| BA.001 articulation root | 8 | 2 | the 2 have two joint graphs; the rule wants exactly one root per stage |
+| NEWTON.BA.001 | 21 | 15 | the 15 have no joints, and the rule still wants a root |
+| MUJOCO.COL.002 convex hull | 0 | 3 | **refused**: a hull of the static curve, half-pipe and marble-machine pipe would fill the bowl |
+| MUJOCO.DJ.002 actuator | 0 | 8 | **rule tension**: DJ.001 wants MjcJointAPI on every joint, DJ.002 then wants an MjcActuator; a passive pendulum has none (Suspected rule gap; a zero-gain actuator would pass it by inventing one) |
+| COL.001 (sdf, PhysX) | 3 | 3 | not applied: PhysX's reference runs use the triangle mesh (9/9) |
+| DJ.011 | 1 | 1 | a true property of one scene (two hinges between one body pair) |
+
+So 9 requirement codes flip to 0, 2 improve, and 2 new conflicts surface: the "14" in the earlier note was an estimate (Suspected);
+the measured figure is 9 fully flipped. SimReady's rules are not gated by runtime, so a MuJoCo rule fails while Newton is selected: read
+each runtime on its own composition (`writer_runtimes.py` flattens one per runtime).
+All 70 usd-core and Omniverse rules pass on the `.usdc` form of the three mesh scenes; the ASCII `.usda` form trips
+`UsdAsciiPerformanceChecker` on those three (also in the neutral writer): write `.usdc` for assets that carry meshes.
+
+**Does Newton use the roots? No (Confirmed, Newton 1.8.0 CPU, `newton/repros/`).** With the writer's roots, `add_usd` still leaves the joint
+outside any articulation (`joint_articulation == [-1]`), because the jointed body's partner is a static Xform and not a rigid body.
+`x3dnv.newton_run` keeps wrapping those joints itself. Runs of pendulum, seesaw and wheel under XPBD and MuJoCo are bit-identical
+with and without `--runtimes` (max |dq| 0.0 over 480 steps).

@@ -83,3 +83,97 @@ def test_material_and_simready_provenance(stage):
     assert md["rigid_body_count"] == 1 and math.isclose(md["mass"], 2.0)
     assert cld["asset_type"] == "articulated"
     assert "qcode" in rep["meta_missing"] and "category" in rep["meta_missing"]   # absent in X3D: never invented
+
+
+# ----------------------------------------------------------------------------- runtime variants (SimReady RV.*)
+def applied(prim):
+    """apiSchemas as authored: Usd.Prim.GetAppliedSchemas() drops names that no plugin registers (Newton*, Mjc*)."""
+    lo = prim.GetMetadata("apiSchemas")
+    return list(lo.GetAddedOrExplicitItems()) if lo else []
+
+
+@pytest.fixture()
+def asset(tmp_path):
+    src = tmp_path / "p.x3d"
+    src.write_text(SCENE.replace("<meta name='creator'", "<meta name='simready:qcode' content='Q111'/><meta name='simready:category' content='Toys'/><meta name='creator'"))
+    d = tmp_path / "asset"
+    d.mkdir()
+    rep = xw.convert(src, d / "p.usda", runtimes=xw.RUNTIMES)
+
+    def compose(**sel):
+        st = Usd.Stage.Open(str(d / "p.usda"))
+        st.SetEditTarget(st.GetSessionLayer())      # the root layer is shared by every stage in the process: never select there
+        for k, v in sel.items():
+            st.GetDefaultPrim().GetVariantSets().GetVariantSet(k).SetVariantSelection(v)
+        return st
+    return d, rep, compose
+
+
+def test_default_composition_is_engine_neutral(asset):
+    d, rep, compose = asset
+    st = compose()
+    root = st.GetDefaultPrim()
+    assert [root.GetVariantSets().GetVariantSet(n).GetVariantSelection() for n in ("PhysX", "Newton", "MuJoCo")] == ["Disabled"] * 3
+    schemas = {s for p in st.Traverse() for s in applied(p)}
+    assert not [s for s in schemas if s.startswith(("Newton", "Mjc", "Physx"))]          # RV.011: nothing foreign in Standard
+    assert not [p for p in st.Traverse() if p.HasAPI(UsdPhysics.DriveAPI, "angular")]    # a drive would owe MuJoCo an actuator
+    assert (d / "runnables/physics/newton.usda").exists() and (d / "runnables/physics/mujoco.usda").exists()
+    phys = st.GetRootLayer().customLayerData["SimReady_Metadata"]["Variants"]["Physics"]
+    assert phys["Newton"] == {"prim": "/World", "variantSetName": "Newton", "activateOption": "Enabled"}
+    assert set(phys) == {"PhysX", "Newton", "MuJoCo"}
+
+
+def test_each_runtime_carries_only_its_own_schemas(asset):
+    _, rep, compose = asset
+    for sel, own, foreign in (("Newton", "Newton", ("Mjc", "Physx")), ("MuJoCo", "Mjc", ("Newton",)), ("PhysX", "Physx", ("Newton", "Mjc"))):
+        st = compose(**{sel: "Enabled"})
+        schemas = {s for p in st.Traverse() for s in applied(p)}
+        assert not [s for s in schemas if s.startswith(foreign)], (sel, schemas)
+    n, m = compose(Newton="Enabled"), compose(MuJoCo="Enabled")
+    assert "NewtonCollisionAPI" in applied(n.GetPrimAtPath("/World/Bob/Sphere"))
+    assert "MjcCollisionAPI" in applied(m.GetPrimAtPath("/World/Bob/Sphere"))
+    assert "MjcJointAPI" in applied(m.GetPrimAtPath("/World/Joints/SingleAxisHingeJoint"))
+    assert "MjcJointAPI" not in applied(n.GetPrimAtPath("/World/Joints/SingleAxisHingeJoint"))
+
+
+def test_articulation_root_once_per_joint_graph_and_passive_drives(asset):
+    _, rep, compose = asset
+    st = compose()
+    roots = [str(p.GetPath()) for p in st.Traverse() if p.HasAPI(UsdPhysics.ArticulationRootAPI)]
+    assert roots == ["/World/Bob"] == rep["runtimes"]["articulation_roots"] and rep["runtimes"]["joint_graphs"] == 1
+    hinge = "/World/Joints/SingleAxisHingeJoint"
+    for sel in ("Newton", "PhysX"):                                     # DJ.004 and NEWTON.DJ.001 want a drive: declared passive
+        s2 = compose(**{sel: "Enabled"})
+        d = UsdPhysics.DriveAPI(s2.GetPrimAtPath(hinge), "angular")
+        assert d.GetStiffnessAttr().Get() == 0 and d.GetDampingAttr().Get() == 0 and d.GetMaxForceAttr().Get() > 1e30
+    sm, sp, sn = compose(MuJoCo="Enabled"), compose(PhysX="Enabled"), compose(Newton="Enabled")
+    assert not sm.GetPrimAtPath(hinge).HasAPI(UsdPhysics.DriveAPI, "angular")
+    assert "PhysicsJointStateAPI:angular" in applied(sp.GetPrimAtPath(hinge))
+    assert sn.GetPrimAtPath("/World/Bob").GetAttribute("newton:selfCollisionEnabled").Get() is False
+
+
+def test_neutral_layer_authors_no_approximation_none(tmp_path):
+    """A local opinion outranks every payload, so a neutral 'none' would pin the approximation for every runtime."""
+    src = tmp_path / "m.x3d"
+    src.write_text("""<X3D profile='Full' version='4.0'><Scene><RigidBodyCollection>
+ <RigidBody DEF='F' containerField='bodies' fixed='true'><CollidableShape DEF='FC' containerField='geometry'><Shape containerField='shape'>
+  <IndexedFaceSet coordIndex='0 1 2 -1 0 2 3 -1'><Coordinate point='0 0 0 1 0 0 1 0 1 0 0 1'/></IndexedFaceSet></Shape></CollidableShape></RigidBody>
+ <CollisionCollection containerField='collider'><CollidableShape USE='FC' containerField='collidables'/></CollisionCollection>
+</RigidBodyCollection></Scene></X3D>""")
+    (tmp_path / "a").mkdir()
+    rep = xw.convert(src, tmp_path / "a" / "m.usda", runtimes=("newton", "mujoco"))
+    st = Usd.Stage.Open(str(tmp_path / "a" / "m.usda"))
+    mesh = next(p for p in st.Traverse() if p.IsA(UsdGeom.Mesh))
+    assert not mesh.GetAttribute("physics:approximation").HasAuthoredValue()
+    st.SetEditTarget(st.GetSessionLayer())
+    st.GetDefaultPrim().GetVariantSets().GetVariantSet("Newton").SetVariantSelection("Enabled")
+    assert "NewtonSDFCollisionAPI" in applied(st.GetPrimAtPath(mesh.GetPath())) and rep["runtimes"]["sdf_meshes"] == 1
+    assert rep["runtimes"]["mujoco_refused_concave"]              # a convex hull would fill a bowl: refused, reported
+
+
+def test_simready_metadata_profile_round_trip(asset):
+    _, rep, compose = asset
+    st = compose()
+    md = st.GetRootLayer().customLayerData["SimReady_Metadata"]
+    assert md["qcode"] == "Q111" and md["category"] == "Toys" and md["author"] == "tests" and md["asset_license"] == "Apache-2.0"
+    assert rep["meta_missing"] == []
