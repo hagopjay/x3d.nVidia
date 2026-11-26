@@ -1,0 +1,1160 @@
+{
+ "root": "/home/claude/hj",
+ "scenes": {
+  "r000_xite_gltf_inline_poc": {
+   "path": "x3d-blender-io/demo/investor_poc/xite_gltf_inline_poc.x3d",
+   "why": [
+    "url-unresolved"
+   ],
+   "sha256": "3061cd6be9b3f6e9138dcc6e53412352f78f58272ce6f911fba4c97305faa160",
+   "bytes": 749
+  },
+  "r001_xite_gltf_multi_inline_poc": {
+   "path": "x3d-blender-io/demo/investor_poc/xite_gltf_multi_inline_poc.x3d",
+   "why": [
+    "url-unresolved"
+   ],
+   "sha256": "1fce50d1ef82d6afa7aa4266be7b62b3fea48592502a4ca883a46dd436a453a7",
+   "bytes": 1066
+  },
+  "r002_xite_whopper_inline_poc": {
+   "path": "x3d-blender-io/demo/investor_poc/xite_whopper_inline_poc.x3d",
+   "why": [
+    "url-unresolved"
+   ],
+   "sha256": "84154193e0433397c6b677db895d095835a75377b76307b4c0f1f39e4e5254f2",
+   "bytes": 930
+  },
+  "r003_prismatica-aurora-cathedral": {
+   "path": "x3d-blender-io/docs/brag/showpieces/prismatica/prismatica-aurora-cathedral.x3d",
+   "why": [
+    "mesh-colocated-points"
+   ],
+   "sha256": "09d74c998d887821bf411e606e0806d70b7d7cd51f0079c24222be71478308dd",
+   "bytes": 1133132
+  },
+  "r004_geolod-origin": {
+   "path": "x3d-blender-io/docs/showcase/scenes/geolod-origin.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "e438e19b1a0a24c360a396b2796acaf10e1c1355ebac140114389261b5328550",
+   "bytes": 3764
+  },
+  "r005_repair-1-validator": {
+   "path": "x3d-blender-io/docs/showcase/scenes/repair-1-validator.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "a4475d0710ad780c73a91ae5f261459aefd5c2c0e3807948f50238872ac9e946",
+   "bytes": 2709
+  },
+  "r006_stars-view": {
+   "path": "x3d-blender-io/docs/showcase/scenes/stars-view.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "aa9fdfba7af8cd32a4a64b4cae841e822050ad34e9f656e02f57460fd8c53554",
+   "bytes": 1318
+  },
+  "r007_emissive_glass_c14n": {
+   "path": "x3d-blender-io/tests/golden/emissive_glass.c14n.x3d",
+   "why": [
+    "transparent-open-mesh"
+   ],
+   "sha256": "cc84830e9c7ff1bc4d468574e4b6e740a640668dd3cce563f4da9d6fe10fad9d",
+   "bytes": 1641
+  },
+  "r008_orrery": {
+   "path": "x3d.demo/docs/demos/blender-flywheel-forge/v1/gens/gen1/orrery.x3d",
+   "why": [
+    "interpolator-constant"
+   ],
+   "sha256": "1e9c27c396f4fa89c1d958d41183bd26e3d262098db403f5ed7cf61202fc0622",
+   "bytes": 486052
+  },
+  "r009_orrery": {
+   "path": "x3d.demo/docs/demos/blender-flywheel-forge/v1/gens/gen4/orrery.x3d",
+   "why": [
+    "interpolator-constant"
+   ],
+   "sha256": "d87a1ef71789712c74117fb3a3c03fe619b32b0de56d54a42016126eda73c4a3",
+   "bytes": 936199
+  },
+  "r010_orrery": {
+   "path": "x3d.demo/docs/demos/blender-flywheel-forge/v1/gens/gen7/orrery.x3d",
+   "why": [
+    "interpolator-constant"
+   ],
+   "sha256": "3d499aee1ecc412bbee1529659846aa9b3827dbb598cf14ada3094b04e113a3d",
+   "bytes": 936205
+  },
+  "r011_fall": {
+   "path": "x3d.demo/docs/demos/blender-giza-fall/v2/assets/fall.x3d",
+   "why": [
+    "interpolator-constant"
+   ],
+   "sha256": "53fbd73b0e6bbb830c0e14af59b678ae0a6489b679d3fe50f0b6fb041dd58e71",
+   "bytes": 1266191
+  },
+  "r012_numbers": {
+   "path": "x3d.demo/docs/demos/blender-giza-numbers/v1/assets/numbers.x3d",
+   "why": [
+    "transparent-open-mesh"
+   ],
+   "sha256": "e12472e4385ee7f0cc3ea0a4b99f8bf8f4d2ad1d297a6c77874a520295e6a62e",
+   "bytes": 183673
+  },
+  "r013_celestial": {
+   "path": "x3d.demo/docs/demos/blender-giza-numbers/v6/assets/celestial.x3d",
+   "why": [
+    "coordinate-precision",
+    "mesh-coincident"
+   ],
+   "sha256": "8100a5b38919f6eeaf26205b54ff179224800ec751c655c1c5d688161da85cf0",
+   "bytes": 283259
+  },
+  "r014_route-demo": {
+   "path": "x3d.demo/docs/demos/blender-route/v1/scenes/route-demo.x3d",
+   "why": [
+    "interpolator-constant"
+   ],
+   "sha256": "5b69e65d3b15460560a2130c1429e01a316438a4a4704fd84267a4dec963adc7",
+   "bytes": 61373
+  },
+  "r015_forcegraph": {
+   "path": "x3d.demo/docs/demos/d3-bridge/v1/scenes/forcegraph.x3d",
+   "why": [
+    "mesh-colocated-points"
+   ],
+   "sha256": "680b7f295864b4ae5b21adea9113ed548755e0b502f643c31ca205a976e50ffe",
+   "bytes": 41345
+  },
+  "r016_relief": {
+   "path": "x3d.demo/docs/demos/d3-bridge/v1/scenes/relief.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "ae3783506c9dbf616fc1f09120a4b71a34ae27f43faecebf7408a6b96ac494f9",
+   "bytes": 221711
+  },
+  "r017_treemap": {
+   "path": "x3d.demo/docs/demos/d3-bridge/v2.1/scenes/treemap.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "bab90b7cda6e97acd9bbdf9c32997ebf7e97af678a3e34588ead151b4ed5c439",
+   "bytes": 77159
+  },
+  "r018_sankey": {
+   "path": "x3d.demo/docs/demos/d3-bridge/v2.2/scenes/sankey.x3d",
+   "why": [
+    "transparent-open-mesh"
+   ],
+   "sha256": "12c510b7bbb890b61da0738947ad2449351accaec1a137f80cd543af46bea537",
+   "bytes": 750884
+  },
+  "r019_conetree": {
+   "path": "x3d.demo/docs/demos/d3-bridge/v2/scenes/conetree.x3d",
+   "why": [
+    "mesh-colocated-points"
+   ],
+   "sha256": "32646642bfd16eef9c52defd385cd7cbf8eca8717fbe3f17883b367d99712f92",
+   "bytes": 42809
+  },
+  "r020_scatter": {
+   "path": "x3d.demo/docs/demos/d3-bridge/v2/scenes/scatter.x3d",
+   "why": [
+    "mesh-colocated-points"
+   ],
+   "sha256": "106d740ae4cafce544edfa793208461c6dafb3a636d747d2ff51c840b111fa53",
+   "bytes": 153847
+  },
+  "r021_pocket-habsburg": {
+   "path": "x3d.demo/docs/demos/dynasty-loom-webgpu/v1/pocket-habsburg.x3d",
+   "why": [
+    "mesh-zero-area-face"
+   ],
+   "sha256": "b0f3783a4c81fa56057a728fc0d1777cd9ebf5851b1171eb84c74c500cf037b9",
+   "bytes": 1522483
+  },
+  "r022_pocket-rothschild": {
+   "path": "x3d.demo/docs/demos/dynasty-loom-webgpu/v1/theme/documentary-night/pocket-rothschild.x3d",
+   "why": [
+    "mesh-zero-area-face"
+   ],
+   "sha256": "89ff1821d021ca351c755ef9d9cb6b1ab7afa256bf56b5d7d532746cbb76f3c1",
+   "bytes": 2268251
+  },
+  "r023_pocket-habsburg": {
+   "path": "x3d.demo/docs/demos/dynasty-loom/v1/pocket-habsburg.x3d",
+   "why": [
+    "mesh-zero-area-face"
+   ],
+   "sha256": "b0f3783a4c81fa56057a728fc0d1777cd9ebf5851b1171eb84c74c500cf037b9",
+   "bytes": 1522483
+  },
+  "r024_pocket-darwin_wedgwood": {
+   "path": "x3d.demo/docs/demos/dynasty-loom/v1/theme/documentary-night/pocket-darwin_wedgwood.x3d",
+   "why": [
+    "mesh-colocated-points",
+    "mesh-zero-area-face"
+   ],
+   "sha256": "c90559d46c3609cda9b547a93d19f65014cfbc60f9c1a18ab341106e5c484a12",
+   "bytes": 1240267
+  },
+  "r025_two-geometries": {
+   "path": "x3d.demo/docs/demos/fault-lab/v1/cases/two-geometries.x3d",
+   "why": [
+    "sfnode-multiple"
+   ],
+   "sha256": "221181bb038e21dfddb50dcccd72fcfa3b2c06d22958e28ea4fc3fbedb854035",
+   "bytes": 5721
+  },
+  "r026_two-materials": {
+   "path": "x3d.demo/docs/demos/fault-lab/v1/cases/two-materials.x3d",
+   "why": [
+    "sfnode-multiple"
+   ],
+   "sha256": "8b379cde462ee9b4adc460271d0a2ab04e06912630b444f4d466ca8308ce47dd",
+   "bytes": 5773
+  },
+  "r027_t_1_1_0_2_1_3_2_0_3_0": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_1_1_0_2_1_3_2_0_3_0.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "11048ebbae146d4f61d3ec29cbf0f94656436d8a2359d3b3a29528b3ad02ea87",
+   "bytes": 556
+  },
+  "r028_t_1_1_0_2_1_3_2_0_3_2": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_1_1_0_2_1_3_2_0_3_2.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "e1da33361e417d42719088b402888817d9cb5606e62989a582a7e9cce9decc6b",
+   "bytes": 556
+  },
+  "r029_t_1_1_0_2_1_3_2_2_1_1": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_1_1_0_2_1_3_2_2_1_1.x3d",
+   "why": [
+    "scene-no-geometry"
+   ],
+   "sha256": "dda8f2b6b3ddc08435fc9f0915a07cc9bc747502d12663d5458b11f9420789ca",
+   "bytes": 717
+  },
+  "r030_t_1_1_0_2_1_3_2_2_1_3_1": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_1_1_0_2_1_3_2_2_1_3_1.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "959db8f7561416d5b699498e9bea94149f3ad7caf848850a5028eb293e771fd6",
+   "bytes": 559
+  },
+  "r031_t_1_1_0_2_1_3_2_3": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_1_1_0_2_1_3_2_3.x3d",
+   "why": [
+    "scene-no-geometry"
+   ],
+   "sha256": "737abbe517d9177e3e977033e9c64cbefaefcdfcf500029fdd1fd37a83a86b30",
+   "bytes": 694
+  },
+  "r032_t_1_1_0_2_1_3_2_3_0_1": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_1_1_0_2_1_3_2_3_0_1.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "2546a661abdd1e47a9f971a7d588377f04f7579f1bb6c2d3c6315d13a7f91e3b",
+   "bytes": 556
+  },
+  "r033_t_1_1_0_2_3_0_0": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_1_1_0_2_3_0_0.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "a7b7f135f19537d01c676c23ac7f31994f1dec18a670be994f6ceb369221ee56",
+   "bytes": 548
+  },
+  "r034_t_1_1_0_2_3_3": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_1_1_0_2_3_3.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "92896694ea13740c26f5956981bcd82ec4efdc05feac607055e286b9866d29de",
+   "bytes": 546
+  },
+  "r035_t_1_1_0_3_2_0_1": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_1_1_0_3_2_0_1.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "dc7d95016d3284355e79a72ffc40bc65d86402adefc385063a479ae8d342ad34",
+   "bytes": 548
+  },
+  "r036_t_2": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/converted/t_2.x3d",
+   "why": [
+    "scene-no-geometry"
+   ],
+   "sha256": "38162f7645f7e999456daf30fdbfaa36fcd9cdc9dcfc04f862b9a1d775f8f336",
+   "bytes": 563
+  },
+  "r037_z11_565_796": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z11_565_796.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "0f2e448f909784086464f47477d56df498722a7c5779ac59edcc2b5a90469e08",
+   "bytes": 22309
+  },
+  "r038_z13_2264_3181_mesh": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z13_2264_3181.mesh.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "a3d60110d5eb622bec30d927981115cfe64069e2fb80a5ef09d2dfded6d7ebf2",
+   "bytes": 22323
+  },
+  "r039_z13_2264_3181": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z13_2264_3181.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "a3d60110d5eb622bec30d927981115cfe64069e2fb80a5ef09d2dfded6d7ebf2",
+   "bytes": 22323
+  },
+  "r040_z13_2267_3180_mesh": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z13_2267_3180.mesh.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "840760e0db9e7e5275a456b659eed79087fd7e730fd8579d2788147f8308c7d0",
+   "bytes": 22329
+  },
+  "r041_z14_4530_6363": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z14_4530_6363.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "2c259aece3f02e2a5cf510b9d71dfb2d6479339fac2583d365215164866e2548",
+   "bytes": 22347
+  },
+  "r042_z15_9064_12729": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z15_9064_12729.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "8e5573d0af4ceabd86b36295afbe1fe85d05b96075542369b9f0bdf37cb3c9d0",
+   "bytes": 22341
+  },
+  "r043_z15_9065_12728_mesh": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z15_9065_12728.mesh.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "4d655ab39792ce21a92dd813efef9200b1e05e55a74da7bc01e4c5498a109910",
+   "bytes": 22309
+  },
+  "r044_z7_33_48": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z7_33_48.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "be9411c4ff5e82daf96fc3a6bd60d857c9238ad798ef43064870758a7aa9257b",
+   "bytes": 22387
+  },
+  "r045_z7_34_50": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z7_34_50.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "ae07ebb6366f4d53f1bae8948b255e3bedd737f196272ff491d31665a3dc37da",
+   "bytes": 22437
+  },
+  "r046_z7_35_49": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z7_35_49.x3d",
+   "why": [
+    "scene-no-geometry"
+   ],
+   "sha256": "b53a10b38c1eb6c665582e73d43d65d13cd98d6d2e444c877349fd53605252b2",
+   "bytes": 575
+  },
+  "r047_z9_140_199": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z9_140_199.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "4b8856293752098f25a75aa06f0bb8dbc5f9eddbc39939b76341dfafce86942c",
+   "bytes": 22429
+  },
+  "r048_z9_143_199": {
+   "path": "x3d.demo/docs/demos/geotiling/v1/tiles/z9_143_199.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "9c084c7a8a64fc9cc8574066b8dce8e4f364179d402727a9f84a37b868b9894e",
+   "bytes": 22163
+  },
+  "r049_village": {
+   "path": "x3d.demo/docs/demos/gobbler-demiurge-webgpu/v1/data/bird/village.x3d",
+   "why": [
+    "mesh-zero-area-face"
+   ],
+   "sha256": "d6411188a2219b71c5b7e26747bd27a72b21a9e7e3cefd6cbd6c0250aa055fac",
+   "bytes": 1577790
+  },
+  "r050_gobbler3": {
+   "path": "x3d.demo/docs/demos/gobbler-gyroscope-webgpu/v2/gobbler3.x3d",
+   "why": [
+    "mesh-non-manifold-edge",
+    "mesh-unused-value",
+    "normal-not-unit"
+   ],
+   "sha256": "0772caea04e80d03d43ce1543e86fee5854e13a6ad1d273dc65ea2e5aee47dc6",
+   "bytes": 1985373
+  },
+  "r051_gobbler3": {
+   "path": "x3d.demo/docs/demos/gobbler-gyroscope-webgpu/v3/gobbler3.x3d",
+   "why": [
+    "mesh-non-manifold-edge",
+    "mesh-unused-point",
+    "mesh-unused-value",
+    "mesh-zero-area-face",
+    "normal-not-unit",
+    "transparent-open-mesh"
+   ],
+   "sha256": "0772caea04e80d03d43ce1543e86fee5854e13a6ad1d273dc65ea2e5aee47dc6",
+   "bytes": 1985373
+  },
+  "r052_gobbler3": {
+   "path": "x3d.demo/docs/demos/gobbler-gyroscope-webgpu/v4/gobbler3.x3d",
+   "why": [
+    "mesh-unused-value",
+    "normal-not-unit"
+   ],
+   "sha256": "0772caea04e80d03d43ce1543e86fee5854e13a6ad1d273dc65ea2e5aee47dc6",
+   "bytes": 1985373
+  },
+  "r053_gobbler3": {
+   "path": "x3d.demo/docs/demos/gobbler-gyroscope-webgpu/v5/gobbler3.x3d",
+   "why": [
+    "mesh-non-manifold-edge",
+    "mesh-unused-point",
+    "mesh-unused-value",
+    "normal-not-unit"
+   ],
+   "sha256": "0772caea04e80d03d43ce1543e86fee5854e13a6ad1d273dc65ea2e5aee47dc6",
+   "bytes": 1985373
+  },
+  "r054_gobbler3": {
+   "path": "x3d.demo/docs/demos/gobbler-gyroscope-webgpu/v6/gobbler3.x3d",
+   "why": [
+    "mesh-non-manifold-edge",
+    "mesh-unused-value",
+    "normal-not-unit"
+   ],
+   "sha256": "0772caea04e80d03d43ce1543e86fee5854e13a6ad1d273dc65ea2e5aee47dc6",
+   "bytes": 1985373
+  },
+  "r055_giza-nest": {
+   "path": "x3d.demo/docs/demos/gobbler-worlds-within/v1/data/worlds/giza/giza-nest.x3d",
+   "why": [
+    "mesh-unused-point"
+   ],
+   "sha256": "69028d26bcbb9874223f66335e7072348356e77a95b23c669d7d30ed03449077",
+   "bytes": 51148
+  },
+  "r056_bird": {
+   "path": "x3d.demo/docs/demos/gobbler-worlds-within/v1/source/bird.x3d",
+   "why": [
+    "interpolator-constant",
+    "mesh-coincident",
+    "mesh-non-manifold-edge",
+    "mesh-unused-value",
+    "url-unresolved"
+   ],
+   "sha256": "904ce6a3541cd3720cb6a3aa2374388ffe614464594585ff8df0b91da1ae49e3",
+   "bytes": 1714665
+  },
+  "r057_gobbler3": {
+   "path": "x3d.demo/docs/demos/gobbler3-webgpu/v1/gobbler3.x3d",
+   "why": [
+    "mesh-non-manifold-edge",
+    "mesh-unused-value"
+   ],
+   "sha256": "1fd1be536c4d66a684f94255a6a6ba9b376b23257a17342715ae34831fd630c2",
+   "bytes": 276599
+  },
+  "r058_lumen-interference": {
+   "path": "x3d.demo/docs/demos/lumen-interference-xite/v1/lumen-interference.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "6ec549c2a6a7e396be8899e41fcee66fb71d34d0769cd2038e34d506fa1e5c17",
+   "bytes": 777662
+  },
+  "r059_odyssey": {
+   "path": "x3d.demo/docs/demos/material-odyssey-webgpu/v1/odyssey.x3d",
+   "why": [
+    "mesh-non-manifold-edge"
+   ],
+   "sha256": "523fa5633c6e9b4820b0b104670ac5cc3f938dcf01cac08ce034312fb0985a5e",
+   "bytes": 876155
+  },
+  "r060_concept-graph": {
+   "path": "x3d.demo/docs/demos/math-concept-graph/v3/concept-graph.x3d",
+   "why": [
+    "mesh-colocated-points"
+   ],
+   "sha256": "e67f99b0bfa134eb3aa57ed68901578a495af7ca382abb6cacfd541f70b93106",
+   "bytes": 89058
+  },
+  "r061_hanim-skeleton": {
+   "path": "x3d.demo/docs/demos/medical-provenance/v4/hanim-skeleton.x3d",
+   "why": [
+    "mesh-normal-against-winding",
+    "normal-not-unit"
+   ],
+   "sha256": "0460de05566c844026949c09b3d1cc30ff33f142a71f28b6b30bcd17c0a137b1",
+   "bytes": 817762
+  },
+  "r062_ct-segments": {
+   "path": "x3d.demo/docs/demos/medical-provenance/v6/scene/ct-segments.x3d",
+   "why": [
+    "image-unrecognized"
+   ],
+   "sha256": "8ddc8efe6eb17cf39b06342162d813e97b68cc62430bf95589bf30bbc997ac5d",
+   "bytes": 3925
+  },
+  "r063_ct-volume": {
+   "path": "x3d.demo/docs/demos/medical-provenance/v6/scene/ct-volume.x3d",
+   "why": [
+    "image-unrecognized"
+   ],
+   "sha256": "f48ab23024b785fb8d1ddede9dd48c3b57fa44605c75e20ab3ffe315c5e43ff2",
+   "bytes": 2504
+  },
+  "r064_ct-organ": {
+   "path": "x3d.demo/docs/demos/medical-provenance/v7/scene/ct-organ.x3d",
+   "why": [
+    "image-unrecognized"
+   ],
+   "sha256": "e820380a45570e20f39e6745c17f467cdfeecace693b7ca2d30c36c1e08790fc",
+   "bytes": 3516
+  },
+  "r065_ontology-constellation": {
+   "path": "x3d.demo/docs/demos/ontology-constellation/v1/ontology-constellation.x3d",
+   "why": [
+    "mesh-coincident",
+    "mesh-unused-point"
+   ],
+   "sha256": "708ee7f4fde0dc75e64d4d7f435473368f15ef8e260a816d497f67a7851e67d8",
+   "bytes": 165953
+  },
+  "r066_builtin": {
+   "path": "x3d.demo/docs/demos/rigid-engines/v1/data/avalanche/builtin.x3d",
+   "why": [
+    "interpolator-constant"
+   ],
+   "sha256": "dccac6bde9480933392e964d672f1d3b9c590722f88af483b71c71e92598b037",
+   "bytes": 400783
+  },
+  "r067_live": {
+   "path": "x3d.demo/docs/demos/rigid-engines/v1/data/avalanche/live.x3d",
+   "why": [
+    "physics-collider-overlap"
+   ],
+   "sha256": "23e1cc4461ecd1014ea4423bd35d5ac198226c3aa37b5d63af753b91dee6d4eb",
+   "bytes": 31401
+  },
+  "r068_cannon": {
+   "path": "x3d.demo/docs/demos/rigid-engines/v1/data/gate/cannon.x3d",
+   "why": [
+    "interpolator-constant"
+   ],
+   "sha256": "5f1a51303895b21cb69339600bf814381708de29783f4234c298201f67a3c069",
+   "bytes": 27379
+  },
+  "r069_segment-sphere": {
+   "path": "x3d.demo/docs/demos/segment-sphere/v1/assets/segment-sphere.x3d",
+   "why": [
+    "mesh-unused-value"
+   ],
+   "sha256": "632e93ad78a2c75640fc8d992f7204549d02b15ed7b2125ed46a9a8386791e84",
+   "bytes": 1167122
+  },
+  "r070_vortex": {
+   "path": "x3d.demo/docs/demos/stem/v1/vortex-sound/scenes/vortex.x3d",
+   "why": [
+    "mesh-coincident"
+   ],
+   "sha256": "14c20b0a4796aa96b6ce2c960cad4e25768bdb02d500b84212fb4c64461d982c",
+   "bytes": 2453
+  },
+  "r071_splats-disc": {
+   "path": "x3d.demo/docs/demos/webgpu-compute/v1/compute/fixtures/splats-disc.x3d",
+   "why": [
+    "splat-no-color"
+   ],
+   "sha256": "b3786b2637a2574b371582703a593ad6a2a62abc2e6981f5dcdcfcfdcd473243",
+   "bytes": 154515
+  },
+  "r072_fork-timeline": {
+   "path": "x3d.docs/docs/x3d-blender-io/scenes/fork-timeline.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "08bb153e589b1621cc2d9d991e1c00afc470d65e07ee42e049ef761cbe1d5918",
+   "bytes": 79744
+  },
+  "r073_twin_back": {
+   "path": "x3d.loom/formats/gltf/runs/2026-11-20-v0-x3d-semantic/semantic/twin/twin.back.x3d",
+   "why": [
+    "mesh-zero-area-face"
+   ],
+   "sha256": "515598d97c51bdfb4892e15a4c9f658d48b936df5e90c23918ab6665775908d6",
+   "bytes": 40432
+  },
+  "r074_exact-zmumu": {
+   "path": "x3d.loom/runs/hep-demo-20261106/candidate/events/exact-zmumu.x3d",
+   "why": [
+    "mesh-colocated-points"
+   ],
+   "sha256": "bd1ca0fd6a6e37fd19ed5cfd90ee7b205909a63c0a28adef24dda2cc7899f66f",
+   "bytes": 105365
+  },
+  "r075_pythia-zmumu": {
+   "path": "x3d.loom/runs/hep-demo-v2-20261106/candidate/events-v2/pythia-zmumu.x3d",
+   "why": [
+    "mesh-colocated-points"
+   ],
+   "sha256": "d7878d74f0248e9716dc63e7c5f62ddb8df63d469c1403051d6298860888b4a0",
+   "bytes": 2648216
+  },
+  "r076_cd_ils": {
+   "path": "x3d.loom/runs/r2r-receipts-20261123/hand-274/cd_ils.x3d",
+   "why": [
+    "mesh-unused-point"
+   ],
+   "sha256": "dcfccda4a3f0a32e0daaee6c6ee2a426421ad8aacd85e41f91f399c685726ffd",
+   "bytes": 239
+  },
+  "r077_cd_itfs": {
+   "path": "x3d.loom/runs/r2r-receipts-20261123/hand-274/cd_itfs.x3d",
+   "why": [
+    "index-out-of-range"
+   ],
+   "sha256": "09967d48ee4387011a90c9e9a4983280400ccffaf12c4f9b99d737cedc1ac72d",
+   "bytes": 250
+  },
+  "r078_cd_its": {
+   "path": "x3d.loom/runs/r2r-receipts-20261123/hand-274/cd_its.x3d",
+   "why": [
+    "mesh-unused-point"
+   ],
+   "sha256": "3a6ad0bde5c4c1792bb84d9efa35ce17cd365533c9ed833cfa77a5d213d63257",
+   "bytes": 245
+  },
+  "r079_fan_19_tokens": {
+   "path": "x3d.loom/runs/r2r-receipts-20261123/hand-274/fan_19_tokens.x3d",
+   "why": [
+    "index-out-of-range",
+    "mesh-unused-point"
+   ],
+   "sha256": "706cb4d8eb63850a1f666d55d5805a4777dc7dc5dac14c4d6ada64a3bdf9f269",
+   "bytes": 292
+  },
+  "r080_fan_3fans": {
+   "path": "x3d.loom/runs/r2r-receipts-20261123/hand-274/fan_3fans.x3d",
+   "why": [
+    "index-out-of-range"
+   ],
+   "sha256": "0035d330c88952881952c718330b1860c7d4a339bcb421074f61414cb7becffa",
+   "bytes": 296
+  },
+  "r081_fan_4fans": {
+   "path": "x3d.loom/runs/r2r-receipts-20261123/hand-274/fan_4fans.x3d",
+   "why": [
+    "index-out-of-range"
+   ],
+   "sha256": "a6f4366bd12a320452874f6075edb8dcb832fbfcf339c1c04f79e54a6d7139fc",
+   "bytes": 299
+  },
+  "r082_fan_no_end": {
+   "path": "x3d.loom/runs/r2r-receipts-20261123/hand-274/fan_no_end.x3d",
+   "why": [
+    "index-out-of-range"
+   ],
+   "sha256": "8632b17e3e30c842fcf40cac4c857d3f24b0b92d1b277b8e41cf7067e4d5ea68",
+   "bytes": 296
+  },
+  "r083_fan_one_long": {
+   "path": "x3d.loom/runs/r2r-receipts-20261123/hand-274/fan_one_long.x3d",
+   "why": [
+    "index-out-of-range"
+   ],
+   "sha256": "01d5865fd39efe8641f8d036b54a65a50d559a5ac4d257baf1633f78ebf390e5",
+   "bytes": 294
+  },
+  "r084_1n0z": {
+   "path": "x3d.loom/runs/zinc-scenes-v2-20261106/candidate/scenes/1n0z.x3d",
+   "why": [
+    "transparent-open-mesh"
+   ],
+   "sha256": "826606722272e26853f68ba5b96cd8b2bd0b45d0d431927c0c308d81ae8ed969",
+   "bytes": 14060
+  },
+  "r085_1zaa": {
+   "path": "x3d.loom/runs/zinc-scenes-v2-20261106/candidate/scenes/1zaa.x3d",
+   "why": [
+    "transparent-open-mesh"
+   ],
+   "sha256": "94ac4202654127751aef95f96201c2ebd469430c5c473078b050bcffbd3daf11",
+   "bytes": 45376
+  },
+  "r086_2k1p": {
+   "path": "x3d.loom/runs/zinc-scenes-v2-20261106/candidate/scenes/2k1p.x3d",
+   "why": [
+    "transparent-open-mesh"
+   ],
+   "sha256": "21cab1c987385f92475ef4805d819a804985fcb731cd21367fbe6db7a13f9364",
+   "bytes": 13706
+  },
+  "r087_3g9y": {
+   "path": "x3d.loom/runs/zinc-scenes-v2-20261106/candidate/scenes/3g9y.x3d",
+   "why": [
+    "transparent-open-mesh"
+   ],
+   "sha256": "d1c4a782cbe4f3722de17d664fd0a236e29e5b716464390ef9351bddaceb83c1",
+   "bytes": 14811
+  },
+  "r088_brain_hero_lite": {
+   "path": "x3d.loom/x3d.brain/scenes/brain_hero_lite.x3d",
+   "why": [
+    "mesh-normal-against-winding",
+    "url-unresolved"
+   ],
+   "sha256": "3f249a3d9953dff7d3b0471e611a3d031723905b89c0b387b5fa9326477cbd1c",
+   "bytes": 2646870
+  },
+  "r089_torso_ct_lite": {
+   "path": "x3d.loom/x3d.brain/scenes/torso_ct_lite.x3d",
+   "why": [
+    "mesh-non-manifold-edge",
+    "mesh-normal-against-winding",
+    "normal-not-unit"
+   ],
+   "sha256": "12b5774972b71867bf17c85f8e0598507c19b3092519eff7dd41b036b6aa3368",
+   "bytes": 2778885
+  },
+  "r090_splats-disc": {
+   "path": "x3d.loom/x3d.compute/fixtures/splats-disc.x3d",
+   "why": [
+    "splat-no-color"
+   ],
+   "sha256": "b3786b2637a2574b371582703a593ad6a2a62abc2e6981f5dcdcfcfdcd473243",
+   "bytes": 154515
+  },
+  "r091_cliffside": {
+   "path": "x3d.loom/x3d.drift/levels/cliffside.x3d",
+   "why": [
+    "normal-not-unit"
+   ],
+   "sha256": "e920c1b198b5b8b51628730ec181d70a1c34e71c121ce18e64e2ec55fed4e1be",
+   "bytes": 2813400
+  },
+  "r092_practice-pad": {
+   "path": "x3d.loom/x3d.drift/levels/practice-pad.x3d",
+   "why": [
+    "mesh-unused-point"
+   ],
+   "sha256": "81ce47b2c8c3272e35352fb41eb6795c38dd69917bf2b619dc2f0bd8a950f1a0",
+   "bytes": 435158
+  },
+  "r093_salt-ring": {
+   "path": "x3d.loom/x3d.drift/levels/salt-ring.x3d",
+   "why": [
+    "mesh-zero-area-face"
+   ],
+   "sha256": "634b5da529dc501bcd244ad482de70f80ebc42bfa9e9c2660866a4b68b4b77ad",
+   "bytes": 912061
+  },
+  "r094_carnival-seed-7": {
+   "path": "x3d.loom/x3d.physics/flop-lab/level/carnival-seed-7.x3d",
+   "why": [
+    "physics-joint-loop"
+   ],
+   "sha256": "7a75c873622358381dedc12c9ded0473a4c6cedd1c1b6a099cd803a7aa748794",
+   "bytes": 124892
+  },
+  "r095_default-level": {
+   "path": "x3d.loom/x3d.physics/flop-lab/level/default-level.x3d",
+   "why": [
+    "physics-joint-loop"
+   ],
+   "sha256": "3944d0a63c867f794895e8c9e21d149f1e80a2cd5026b353c11dbaa64dd6d9a6",
+   "bytes": 228633
+  },
+  "r096_skyline-seed-7": {
+   "path": "x3d.loom/x3d.physics/flop-lab/level/skyline-seed-7.x3d",
+   "why": [
+    "physics-collider-overlap",
+    "physics-joint-loop"
+   ],
+   "sha256": "3e8924e8ec3443a16e726d36edd381fca85b3b8b674eb75886e75177007186a7",
+   "bytes": 49629
+  },
+  "r097_tidal-seed-7": {
+   "path": "x3d.loom/x3d.physics/flop-lab/level/tidal-seed-7.x3d",
+   "why": [
+    "physics-joint-loop"
+   ],
+   "sha256": "6ead679b563f38a8faac8b9aa4e5865dea1f11434c55e81d230d7312a71f4abe",
+   "bytes": 99210
+  },
+  "r098_pendulum": {
+   "path": "x3d.loom/x3d.physics/mujoco-bridge/validation/agents-slice/pendulum.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "0613f56a784ebf5d9d524386ceeccbf688b40ea327893419aa4a44230c349110",
+   "bytes": 4404
+  },
+  "r099_galton-board": {
+   "path": "x3d.loom/x3d.physics/physx-bridge/scenes/demos/galton-board.x3d",
+   "why": [
+    "physics-collider-overlap"
+   ],
+   "sha256": "533d674c5381c895399ad3952c77e1e7920122df98da3aeb9fee928ea498f4e0",
+   "bytes": 272267
+  },
+  "r100_trebuchet-keep": {
+   "path": "x3d.loom/x3d.physics/physx-bridge/scenes/demos/trebuchet-keep.x3d",
+   "why": [
+    "physics-joint-loop"
+   ],
+   "sha256": "6c89f87b3e39b98ecf8a1def0f78348f75004d1de5e4b24a7db339a7d3adf730",
+   "bytes": 143007
+  },
+  "r101_machine-with-sound": {
+   "path": "x3d.loom/x3d.physics/physx-bridge/scenes/experiments/machine-with-sound.x3d",
+   "why": [
+    "physics-joint-loop"
+   ],
+   "sha256": "08b811190832e0f44182e50cc5ae36d4021e922c670e370916428dda43808a4b",
+   "bytes": 94701
+  },
+  "r102_marble-machine": {
+   "path": "x3d.loom/x3d.physics/physx-bridge/scenes/marble-machine.x3d",
+   "why": [
+    "physics-joint-loop"
+   ],
+   "sha256": "10500eef2e392c407274f5d1186cdb3a2b933445913f262aa953f85a2e855553",
+   "bytes": 128534
+  },
+  "r103_flipper": {
+   "path": "x3d.loom/x3d.physics/physx-bridge/scenes/pieces/flipper.x3d",
+   "why": [
+    "physics-joint-loop"
+   ],
+   "sha256": "04980d20606ce89f2f35a1e1223b7180ee7ca6f044d9f8dbea8da2a9aeca8434",
+   "bytes": 5029
+  },
+  "r104_funnel": {
+   "path": "x3d.loom/x3d.physics/physx-bridge/scenes/pieces/funnel.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "9a1aad6b9813731c5578d259f861e7fcef6271903dc7e2f9a62310a5b78cb861",
+   "bytes": 4423
+  },
+  "r105_demo-avalanche": {
+   "path": "x3d.loom/x3d.physics/rigid-engines/fixtures/demo-avalanche.x3d",
+   "why": [
+    "physics-collider-overlap"
+   ],
+   "sha256": "23e1cc4461ecd1014ea4423bd35d5ac198226c3aa37b5d63af753b91dee6d4eb",
+   "bytes": 31401
+  },
+  "r106_ctl_exp2_c_physical_default__colour-cast": {
+   "path": "x3d.loom/x3d.render-oracle/controls/ctl_exp2_c_physical_default__colour-cast.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "235a7cc5e4ffda2e1e4c32bc30fad9a88dd05a2b5111fe32200a6da617465a5e",
+   "bytes": 997
+  },
+  "r107_ctl_dir_diffuse_colour__red-to-blue": {
+   "path": "x3d.loom/x3d.render-oracle/controls_lit/ctl_dir_diffuse_colour__red-to-blue.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "bb10dc14d4203621bd5265de3dc41960b14ab4ed3e0920edd46dd256547c534b",
+   "bytes": 851
+  },
+  "r108_lit_point_attenuation": {
+   "path": "x3d.loom/x3d.render-oracle/scenes/lit_point_attenuation.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "5defe6fa760c4d5cfbfb4ce06a424f76bb282ca601ec2c54df861331449dae3a",
+   "bytes": 855
+  },
+  "r109_broken-reference": {
+   "path": "x3d.loom/x3d.s1/observatory/scenes/broken-reference.x3d",
+   "why": [
+    "use-undefined-def"
+   ],
+   "sha256": "0ed5836be6cecba9430bcb0349597bf9f51824c36cbbbf71d16ddddf30e056a3",
+   "bytes": 18317
+  },
+  "r110_Extrusion": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/Extrusion.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "e868acdff32f116e6d706aa2d2dc0620bfed750bf627ef029452a92b31f1b52f",
+   "bytes": 2272
+  },
+  "r111_IndexedFaceSetNormals": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/IndexedFaceSetNormals.x3d",
+   "why": [
+    "mesh-normal-against-winding"
+   ],
+   "sha256": "1f4ca64fe62ef180ba8a1a73c3feee5929241e2824594fa08bb6cdfbaae41ed6",
+   "bytes": 1795
+  },
+  "r112_IndexedTriangleStripSet": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/IndexedTriangleStripSet.x3d",
+   "why": [
+    "index-out-of-range"
+   ],
+   "sha256": "46f0ac25bffece6a1aa187b232bacb9738613597a32550979673343a6f262216",
+   "bytes": 765
+  },
+  "r113_LayoutGroup": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/LayoutGroup.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "da2cb71cf31413d611a04836d76413c520eaeec04b9462f1a2dc334aa4b0943f",
+   "bytes": 1713
+  },
+  "r114_LineSet": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/LineSet.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "185d55e5b3fe0235f821749e50436fbfb8d08a78a9afa556a5a0e838a4a8158e",
+   "bytes": 663
+  },
+  "r115_Material": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/Material.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "912aedfaa9485462fba032cf6f7f4d50adeacf0a41a8bdf9c2439f977c82d98d",
+   "bytes": 1033
+  },
+  "r116_MultiTexture": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/MultiTexture.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "e2a9612dc5533a75f3e50d428b7062940bc4e3df83c9a5c3cfe30e5543d4629e",
+   "bytes": 3146
+  },
+  "r117_ScreenGroup": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/ScreenGroup.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "64f35fdc223f03849df95ff37a03a12058b191f27e8a758ac8fb070c8235818f",
+   "bytes": 804
+  },
+  "r118_SpotLight": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/SpotLight.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "983f0582fce1d640f6449cec113f0e18366994e3e01f8df32b66c06acc44261a",
+   "bytes": 801
+  },
+  "r119_Switch": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/Switch.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "313ffa823feb757696ef19614bb971694a8b6aa992d48cf9cf84896176f5d51d",
+   "bytes": 819
+  },
+  "r120_Transform": {
+   "path": "x3d.loom/x3d.threejs/bridge/fixtures/Transform.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "a13342ce9a9764d7c44dd8658eca30fce770a257ea4a0f0afaa465fcfa722cda",
+   "bytes": 736
+  },
+  "r121_AudioDestination": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/AudioDestination.x3d",
+   "why": [
+    "scene-no-geometry"
+   ],
+   "sha256": "159f54174ada89cad5e435defa03c87fbef55ae058871d4ff344a04607672256",
+   "bytes": 728
+  },
+  "r122_Collision": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/Collision.x3d",
+   "why": [
+    "bbox-too-small"
+   ],
+   "sha256": "fbd6cdca9440dbddba7c9c1956023f98e9708df6e3dd10048eb659ceab31a554",
+   "bytes": 1296
+  },
+  "r123_CollisionCollection": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/CollisionCollection.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "5ffe4b741db022d657f4f253413e72ee6eac9dceee0c3a6bdc67b06788f44961",
+   "bytes": 1651
+  },
+  "r124_ColorChaser": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/ColorChaser.x3d",
+   "why": [
+    "scene-no-geometry"
+   ],
+   "sha256": "a2014b120888e08c1ecacb9491bc86dc85b9fa5771acf842c5719971d65461bd",
+   "bytes": 459
+  },
+  "r125_HAnimHumanoid": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/HAnimHumanoid.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "ae2d986af5b36183815ff4e24eef569414cf909543ddfc0481e47dafa83f0281",
+   "bytes": 2726
+  },
+  "r126_IndexedTriangleFanSet": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/IndexedTriangleFanSet.x3d",
+   "why": [
+    "index-out-of-range"
+   ],
+   "sha256": "83ee07a59228f9483a8dcbe315fb6eee4777dfb1439da2714cd3b7611aeb72d3",
+   "bytes": 2539
+  },
+  "r127_LayerSet": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/LayerSet.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "35379d95251c774f3969ca8b776c2ca5ad1af46775bbafb4be2654d3195b10e8",
+   "bytes": 1296
+  },
+  "r128_LayoutGroup": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/LayoutGroup.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "da2cb71cf31413d611a04836d76413c520eaeec04b9462f1a2dc334aa4b0943f",
+   "bytes": 1713
+  },
+  "r129_LineSet": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/LineSet.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "06e898f6cbda273ae2387d5fedf4239f072be77e057a8f4f11dc27e6449f86c5",
+   "bytes": 646
+  },
+  "r130_MovieTexture": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/MovieTexture.x3d",
+   "why": [
+    "url-unresolved"
+   ],
+   "sha256": "28cfdfecf631cc44a1135e58d277c978a70e69fd8a1025b7d64af3d9e1dc1640",
+   "bytes": 601
+  },
+  "r131_MultiTexture": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/MultiTexture.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "f96e3fe2dba57495346ee273ff77244b7821d8133e8f4c61d2cc0aa2b60eb2f1",
+   "bytes": 1383
+  },
+  "r132_NurbsCurve2D": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/NurbsCurve2D.x3d",
+   "why": [
+    "scene-no-geometry"
+   ],
+   "sha256": "0fb457c0e670cbdc9a383eb6328045f80b020680ab6cf90abf8c2ecbb5cf7cc0",
+   "bytes": 1438
+  },
+  "r133_NurbsPositionInterpolator": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/NurbsPositionInterpolator.x3d",
+   "why": [
+    "scene-no-geometry"
+   ],
+   "sha256": "55cd4a5ab122d05ccaac6105d051c645be6efdfa4098e91ec01134a4bb4d8f8d",
+   "bytes": 1133
+  },
+  "r134_ShadedVolumeStyle": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/ShadedVolumeStyle.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "9321219bdbdcaa67eedb518ad4e77c88494cd203892ac149daafa026f5e5c4bd",
+   "bytes": 2021
+  },
+  "r135_TextureBackground": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/TextureBackground.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "aa6a018c834d41b456eccddaf94ef8769c79e295c29c63218df94a308eead0e7",
+   "bytes": 2035
+  },
+  "r136_TextureTransform3D": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/TextureTransform3D.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "3f5b1e2bacdd770ee5e176f5298365398e626b6cf732b44dc7eeb135e0c8332e",
+   "bytes": 5568
+  },
+  "r137__backface": {
+   "path": "x3d.loom/x3d.webgpu/bridge/fixtures/_backface.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "6a49d75961bcd2e6fb70a87e88e6602e05ecc356bd1457dbd5b9364a943fee42",
+   "bytes": 1366
+  },
+  "r138_half_m0_r0_c0_5": {
+   "path": "x3d.wgpu/conformance/scenes/half_m0_r0_c0.5.x3d",
+   "why": [
+    "(control)"
+   ],
+   "sha256": "7ef18f5c086181e39f9a8da7aad8cad3de1e036d6cd801eee2993cfb25f13a9e",
+   "bytes": 3510
+  },
+  "r139_08_what_gets_skipped": {
+   "path": "x3d.wgpu/fuzz/seeds/parse/08_what_gets_skipped.x3d",
+   "why": [
+    "url-unresolved"
+   ],
+   "sha256": "4dccf74038cd704a1b0c7f97f93369e1f9d8f0ea2179b3cdd8279f00daadf82f",
+   "bytes": 1592
+  },
+  "r140_08_what_gets_skipped": {
+   "path": "x3d.wgpu/scenes/08_what_gets_skipped.x3d",
+   "why": [
+    "url-unresolved"
+   ],
+   "sha256": "4dccf74038cd704a1b0c7f97f93369e1f9d8f0ea2179b3cdd8279f00daadf82f",
+   "bytes": 1592
+  }
+ }
+}

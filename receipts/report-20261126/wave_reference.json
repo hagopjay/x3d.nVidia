@@ -1,0 +1,17 @@
+[
+{
+"what": "PhysX bridge, \u03bc 0.2, gaps 0.1\u20130.5 H (low end)",
+"v_over_sqrt_gH": 1.05,
+"source": "physx-bridge SPEC.md (Stated)"
+},
+{
+"what": "PhysX bridge, \u03bc 0.2, gaps 0.1\u20130.5 H (high end)",
+"v_over_sqrt_gH": 1.46,
+"source": "physx-bridge SPEC.md (Stated)"
+},
+{
+"what": "Real dominoes, peak (Larham, arXiv:1302.3311)",
+"v_over_sqrt_gH": 1.53,
+"source": "physx-bridge SPEC.md (Stated)"
+}
+]

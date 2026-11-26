@@ -1,0 +1,50 @@
+[
+{
+"solver": "xpbd",
+"substeps": 1,
+"dt_ms": 4.166666666666667,
+"period_error_pct": 14.459968849876553
+},
+{
+"solver": "xpbd",
+"substeps": 2,
+"dt_ms": 2.0833333333333335,
+"period_error_pct": 3.737338812061607
+},
+{
+"solver": "xpbd",
+"substeps": 4,
+"dt_ms": 1.0416666666666667,
+"period_error_pct": 0.9633517330292338
+},
+{
+"solver": "xpbd",
+"substeps": 10,
+"dt_ms": 0.41666666666666663,
+"period_error_pct": 0.1697121547650633
+},
+{
+"solver": "mujoco",
+"substeps": 1,
+"dt_ms": 4.166666666666667,
+"period_error_pct": 0.01420345891237185
+},
+{
+"solver": "mujoco",
+"substeps": 2,
+"dt_ms": 2.0833333333333335,
+"period_error_pct": 0.015273475000699593
+},
+{
+"solver": "mujoco",
+"substeps": 4,
+"dt_ms": 1.0416666666666667,
+"period_error_pct": 0.015530766925931838
+},
+{
+"solver": "mujoco",
+"substeps": 10,
+"dt_ms": 0.41666666666666663,
+"period_error_pct": 0.015613054033586992
+}
+]

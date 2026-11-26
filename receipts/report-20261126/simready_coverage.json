@@ -1,0 +1,26 @@
+[
+{
+"what": "SimReady rules installed (5 tiers)",
+"n": 216
+},
+{
+"what": "requirement codes with an executable rule",
+"n": 203
+},
+{
+"what": "of the 270 pinned requirements, executable",
+"n": 165
+},
+{
+"what": "pinned, registered, but no rule (requirement page only)",
+"n": 30
+},
+{
+"what": "pinned, not registered by any installed tier",
+"n": 75
+},
+{
+"what": "executable but not in the pinned list (Newton, MuJoCo, PhysX, packaging)",
+"n": 38
+}
+]

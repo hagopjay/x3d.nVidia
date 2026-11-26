@@ -1,0 +1,32 @@
+[
+{
+"engine": "Newton XPBD",
+"section": "dominoes 10\u201350",
+"v_over_sqrt_gH": 1.952
+},
+{
+"engine": "Newton XPBD",
+"section": "dominoes 50\u201390",
+"v_over_sqrt_gH": 1.542
+},
+{
+"engine": "Newton XPBD",
+"section": "dominoes 90\u2013130",
+"v_over_sqrt_gH": 2.309
+},
+{
+"engine": "Newton MuJoCo",
+"section": "dominoes 10\u201350",
+"v_over_sqrt_gH": 1.227
+},
+{
+"engine": "Newton MuJoCo",
+"section": "dominoes 50\u201390",
+"v_over_sqrt_gH": 1.309
+},
+{
+"engine": "Newton MuJoCo",
+"section": "dominoes 90\u2013130",
+"v_over_sqrt_gH": 1.312
+}
+]

@@ -1,0 +1,16 @@
+[
+{
+"rule": "sr:UN.006",
+"scenes": 225,
+"z_pass": 225,
+"y_fail": 225,
+"map_status": "convention"
+},
+{
+"rule": "sr:VG.025",
+"scenes": 225,
+"z_pass": 225,
+"y_fail": 225,
+"map_status": "judgement"
+}
+]

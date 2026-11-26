@@ -1,0 +1,38 @@
+[
+{
+"solver": "xpbd",
+"control": "gravity off: the free-fall height reference must miss",
+"failed_as_required": true,
+"observed": 4.9254375
+},
+{
+"solver": "xpbd",
+"control": "a 60 m/s marble must tunnel the 5 mm wall in some phase (the test can see tunnelling)",
+"failed_as_required": true,
+"observed": 6.0
+},
+{
+"solver": "xpbd",
+"control": "wrecking ball without the declared filter pairs: the bob rises above its start (> 1 mm) or blows up",
+"failed_as_required": true,
+"observed": "blew up (non-finite)"
+},
+{
+"solver": "mujoco",
+"control": "gravity off: the free-fall height reference must miss",
+"failed_as_required": true,
+"observed": 4.9254375
+},
+{
+"solver": "mujoco",
+"control": "a 60 m/s marble must tunnel the 5 mm wall in some phase (the test can see tunnelling)",
+"failed_as_required": true,
+"observed": 40.0
+},
+{
+"solver": "mujoco",
+"control": "wrecking ball without the declared filter pairs: the bob rises above its start (> 1 mm) or blows up",
+"failed_as_required": true,
+"observed": 0.0659990906715393
+}
+]

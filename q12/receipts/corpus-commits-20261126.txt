@@ -1,0 +1,6 @@
+x3d.loom 524500b
+x3d.docs d4704b1
+x3d.demo b73d4a9
+x3d.lab 62f3aab
+x3d.wgpu 091b2be
+x3d-blender-io 3e3c1e8

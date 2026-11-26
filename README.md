@@ -12,6 +12,8 @@
 | [`ATLAS.md`](ATLAS.md) | **The map.** Every NVIDIA surface × X3D touchpoint, each marked ✅ measured / 🔎 read / ⏳ not run |
 | [`STRATEGY.md`](STRATEGY.md) | **The plan.** Where USD is thin and X3D is not, the five moves (SimReady before export, behaviour, robots, ML beyond tokens, the web), the scoreboard |
 | [`QUESTS.md`](QUESTS.md) | Ranked, claimable projects that make X3D's case on NVIDIA tech |
+| [`q12/`](q12/README.md) | **Q12 run 2.** X3D → Blender 5.3 → USD, judged by OpenUSD, the Omniverse Asset Validator and SimReady (executed), joined with x3d_mcp on 141 real files |
+| [`newton/`](newton/README.md) | **Q13.** X3D physics → UsdPhysics (`x3d2usdphysics`) → Newton 1.8, against the PhysX bridge's nine exact references; run records for x3d.loom's physics witness; Cycles renders |
 | [`AGENTS.md`](AGENTS.md) | House rules for every session (evidence, secrets, kits, the shared 40-rpm key) |
 | [`docs/handoff-keyed-agent.md`](docs/handoff-keyed-agent.md) | What the session holding the NVIDIA key runs first |
 

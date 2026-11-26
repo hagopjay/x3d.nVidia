@@ -1,0 +1,38 @@
+[
+{
+"cause": "Blender writes PointSet and LineSet as a Mesh with no faces",
+"pairs": 38,
+"rules": "oav:ValidateTopologyChecker, sr:VG.014",
+"verdict": "Export-made, confirmed: the USD prims are Meshes with 0 faces"
+},
+{
+"cause": "Non-manifold vertices made on the Blender leg (0 in the X3D)",
+"pairs": 32,
+"rules": "oav:ManifoldChecker, sr:VG.007",
+"verdict": "Likely export-made: fall.x3d has 0 bow-tie vertices, its export 668"
+},
+{
+"cause": "Coincident shapes across Transforms: an x3d_mcp gap",
+"pairs": 18,
+"rules": "sr:VG.008",
+"verdict": "x3d_mcp gap: confirmed on scatter.x3d (495 spheres in 69 identical groups); other files likely"
+},
+{
+"cause": "Blender writes PointSet normals of length 0",
+"pairs": 6,
+"rules": "oav:NormalsValidChecker, sr:VG.028",
+"verdict": "Export-made, confirmed by the rule's message (normal length 0 on a PointSet)"
+},
+{
+"cause": "Unused points made on the Blender leg",
+"pairs": 6,
+"rules": "oav:UnusedMeshTopologyChecker, sr:VG.018",
+"verdict": "Likely export-made (same file as the non-manifold vertices)"
+},
+{
+"cause": "Extent after export",
+"pairs": 2,
+"rules": "oav:ExtentsChecker, sr:VG.002",
+"verdict": "Likely export-made (segment-sphere.x3d has no X3D finding)"
+}
+]
