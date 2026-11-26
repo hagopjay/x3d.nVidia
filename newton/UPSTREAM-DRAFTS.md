@@ -41,4 +41,4 @@ does not follow `joint_q` (`body_q` unchanged after 120 steps, with or without `
 docs that body0 must be a rigid body; and make the MuJoCo fallback move the body.
 
 ## Not filed here
-Both add-on defects (RigidBody `position` ignored; a USE'd body imported twice) are filed as issues in `hagopjay/x3d-blender-io` (HagopJay's own repo); the script is `q12/repros/repro_addon_rigidbody.py`.
+Both add-on defects (RigidBody `position` ignored; a USE'd body imported twice) are filed as issues #99 and #100 in `hagopjay/x3d-blender-io` (HagopJay's own repo); the script is `q12/repros/repro_addon_rigidbody.py`.
