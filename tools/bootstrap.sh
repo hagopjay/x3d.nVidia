@@ -54,6 +54,7 @@ if gh repo view "$REPO" >/dev/null 2>&1; then
     say "already in main: $REPO @ ${remote_main:0:7}"; exit 0
   fi
   if [ -n "$remote_main" ]; then
+    gh auth setup-git >/dev/null   # private repo: git needs gh's login even to fetch
     "${GIT[@]}" fetch -q "https://github.com/$REPO" main 2>/dev/null || true
     if "${GIT[@]}" merge-base --is-ancestor "$head_sha" "$remote_main" 2>/dev/null; then
       say "already in main: $REPO @ ${remote_main:0:7} (contains ${head_sha:0:7})"; exit 0
