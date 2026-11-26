@@ -10,7 +10,7 @@ GLB = base64.b64encode(b"glTF\x02\x00\x00\x00" + b"\0" * 12).decode()
 
 
 def fake_transport(method, url, headers, body, timeout):
-    assert headers["Authorization"].startswith("Bearer ")
+    assert headers.get("Authorization", "Bearer ").startswith("Bearer ")
     if url.endswith("/models"):
         ids = ["nvidia/nemotron-3-super-120b-a12b", "nvidia/nemotron-3-nano-30b-a3b",
                "nvidia/usdcode", "nvidia/cosmos-reason2-8b", "microsoft/trellis"]

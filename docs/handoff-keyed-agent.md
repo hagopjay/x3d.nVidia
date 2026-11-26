@@ -11,6 +11,8 @@ python -m x3dnv.probe --out receipts/                     # ~6–10 requests
 python -m x3dnv.probe --out receipts/ --skip-chat --trellis docs/img/trellis_input.png   # spends TRELLIS credit
 ```
 
+**In a Claude cloud session instead of Colab:** put the key on the session's cloud environment as a *network secret* (claude.ai/code → environment selector under the message box → settings icon on the environment → **Network secrets** → **Add secret**; type Bearer; hosts `integrate.api.nvidia.com` and `ai.api.nvidia.com`; header `Authorization`, prefix `Bearer`). Then run with `X3DNV_KEY_VIA_PROXY=1`. The key never enters the VM, and those hosts become reachable without changing the network level.
+
 The probe paces to 36 rpm (set `X3DNV_NVIDIA_RPM` lower if x3d.lab's Duel is running on the same key).
 
 ## What to report back (commit the receipt; update ATLAS)

@@ -11,7 +11,10 @@ Same contract as x3d.lab PR #5's provider, so numbers are comparable:
   * <think>...</think> stripped from content (raw kept in the receipt)
 
 The key is read from NVIDIA_API_KEY, else Colab Secrets, else a hidden
-getpass prompt. It is never printed, logged or written: receipts carry only
+getpass prompt. In a Claude cloud session whose environment holds the key as
+a *network secret* for integrate.api.nvidia.com / ai.api.nvidia.com, set
+X3DNV_KEY_VIA_PROXY=1: we then send no Authorization header and the agent
+proxy attaches the key outside the VM (the session never sees it). It is never printed, logged or written: receipts carry only
 ``key_id`` = sha256(key)[:8].
 """
 from __future__ import annotations
@@ -34,7 +37,13 @@ THINK = re.compile(r"<think>.*?</think>\s*", re.S)
 GLB_B64 = "Z2xURg"  # base64 of b"glTF"
 
 
+def via_proxy() -> bool:
+    return os.environ.get("X3DNV_KEY_VIA_PROXY", "").strip() not in ("", "0", "false")
+
+
 def load_key(interactive: bool = True) -> str:
+    if via_proxy():
+        return ""
     key = os.environ.get("NVIDIA_API_KEY", "").strip()
     if not key:
         try:  # Colab Secrets (never in the notebook)
@@ -53,6 +62,8 @@ def load_key(interactive: bool = True) -> str:
 
 
 def key_id(key: str) -> str:
+    if not key:
+        return "proxy"
     return hashlib.sha256(key.encode()).hexdigest()[:8]
 
 
@@ -127,7 +138,9 @@ class NIM:
     # ----------------------------------------------------------------- core
     def _request(self, method: str, url: str, payload: dict | None, model: str | None) -> Call:
         call = Call(url=url, model=model)
-        headers = {"Authorization": f"Bearer {self._key}", "Accept": "application/json"}
+        headers = {"Accept": "application/json"}
+        if self._key:  # empty = network secret attached by the agent proxy
+            headers["Authorization"] = f"Bearer {self._key}"
         body = None
         if payload is not None:
             headers["Content-Type"] = "application/json"
