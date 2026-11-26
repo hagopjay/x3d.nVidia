@@ -10,6 +10,7 @@
 | File | What |
 |---|---|
 | [`ATLAS.md`](ATLAS.md) | **The map.** Every NVIDIA surface × X3D touchpoint, each marked ✅ measured / 🔎 read / ⏳ not run |
+| [`STRATEGY.md`](STRATEGY.md) | **The plan.** Where USD is thin and X3D is not, the five moves (SimReady before export, behaviour, robots, ML beyond tokens, the web), the scoreboard |
 | [`QUESTS.md`](QUESTS.md) | Ranked, claimable projects that make X3D's case on NVIDIA tech |
 | [`AGENTS.md`](AGENTS.md) | House rules for every session (evidence, secrets, kits, the shared 40-rpm key) |
 | [`docs/handoff-keyed-agent.md`](docs/handoff-keyed-agent.md) | What the session holding the NVIDIA key runs first |
@@ -38,5 +39,7 @@ notebooks/00_NVIDIA_Probe.ipynb, 01_Splat_Rosetta.ipynb   VERBOSE/VISUAL on; sec
 scenes/                 splat_galaxy.{x3d,ply,usda,glb}; trellis_input_rocket.x3d (the TRELLIS test image's source)
 receipts/               one JSON per measured run
 ```
+
+**Turn 3 of the flywheel (26 Nov):** X3D's validator (x3d_mcp) now answers every OpenUSD, Omniverse Asset Validator and SimReady rule an X3D file can break: 66 of 66, out of 340 (ATLAS §1.3).
 
 Sibling repos: `hagopjay/x3d.lab` (fidelity flywheel, Foundry, Unreal), `x3d.wgpu` (Rust renderer), `x3d-blender-io`, `x3d.loom`, `x3d.demo`.

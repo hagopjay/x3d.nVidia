@@ -14,6 +14,13 @@ This repo is the agentic home for **X3D × NVIDIA**. Several Claude sessions and
 - `x3dnv.nim` paces to `X3DNV_NVIDIA_RPM` (falls back to `X3DLAB_NVIDIA_RPM`, default 36). **x3d.lab's Model Duel / Foundry rounds use the same key.** Don't run both at once, or split the rpm.
 - Calls that spend credits (TRELLIS, VLM frames, GEPA runs) are opt-in flags, never defaults.
 
+## Staying in good standing (NVIDIA and GitHub)
+- **The build.nvidia.com key is a trial key for development and evaluation, not production** (NVIDIA API Trial Terms of Service). Pre-generate content and publish the results; never put a page in front of visitors that calls the API live.
+- **One key at a time.** A new key replaces the old one; never run two keys in parallel to multiply the rate limit.
+- **Pace below the limit** (36 of ~40 rpm), honour `Retry-After`, stop after 5 retries, and run one keyed job at a time across x3d.lab and this repo.
+- **Credit-spending calls** (TRELLIS, VLM frames, GEPA runs) are opt-in flags with a stated budget.
+- **GitHub:** kits open one pull request per change on our own repos; no automated activity on other people's repositories.
+
 ## Lanes (who owns what)
 | Lane | Owner | Notes |
 |---|---|---|
