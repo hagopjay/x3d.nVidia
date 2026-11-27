@@ -1,0 +1,90 @@
+#usda 1.0
+(
+    "Written from sr_vocab_coco.x3d by x3dnv.x3d2usdphysics (X3D RigidBodyPhysics to UsdPhysics)"
+    customLayerData = {
+        dictionary SimReady_Metadata = {
+            float[] asset_extents = [2, 2, 2]
+            string asset_license = "CC-BY-4.0"
+            string asset_name = "parity"
+            string asset_type = "prop"
+            string author = "Proof Author"
+            string category = "Toys"
+            double mass = 1
+            string qcode = "Q111"
+            int rigid_body_count = 1
+            string source_file = "sr_vocab_coco.x3d"
+            string usd_date_generated = "2026-11-27T23:43:06Z"
+        }
+        string asset_name = "parity"
+        string asset_type = "prop"
+        string source_file = "sr_vocab_coco.x3d"
+        string usd_date_generated = "2026-11-27T23:43:06Z"
+    }
+    defaultPrim = "World"
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World" (
+    kind = "component"
+)
+{
+    def PhysicsScene "PhysicsScene"
+    {
+        vector3f physics:gravityDirection = (0, 0, -1)
+        float physics:gravityMagnitude = 9.8
+    }
+
+    def Xform "A" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        vector3f physics:angularVelocity = (0, 0, 0)
+        float physics:mass = 1
+        vector3f physics:velocity = (0, 0, 0)
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Mesh "IndexedFaceSet" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI", "PhysicsMeshCollisionAPI", "SemanticsLabelsAPI:coco"]
+        )
+        {
+            float3[] extent = [(0, -1, 0), (1, 0, 1)]
+            int[] faceVertexCounts = [3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 1, 0, 1, 3, 0, 3, 2, 1, 2, 3]
+            rel material:binding = </World/Looks/Mat>
+            normal3f[] normals = [(0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 0, -1), (0, 0, -1), (0, 0, -1), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (0.57735026, -0.57735026, 0.57735026), (0.57735026, -0.57735026, 0.57735026), (0.57735026, -0.57735026, 0.57735026)] (
+                interpolation = "faceVarying"
+            )
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            point3f[] points = [(0, 0, 0), (1, 0, 0), (0, 0, 1), (0, -1, 0)]
+            color3f[] primvars:displayColor = [(0.8, 0.8, 0.8)]
+            token[] semantics:labels:coco = ["gizmo"]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Scope "Looks"
+    {
+        def Material "Mat"
+        {
+            token outputs:surface.connect = </World/Looks/Mat/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.8, 0.8, 0.8)
+                float inputs:opacity = 1
+                float inputs:roughness = 0.5
+                token outputs:surface
+            }
+        }
+    }
+}
+

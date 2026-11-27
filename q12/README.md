@@ -80,3 +80,19 @@ All 70 usd-core and Omniverse rules pass on the `.usdc` form of the three mesh s
 outside any articulation (`joint_articulation == [-1]`), because the jointed body's partner is a static Xform and not a rigid body.
 `x3dnv.newton_run` keeps wrapping those joints itself. Runs of pendulum, seesaw and wheel under XPBD and MuJoCo are bit-identical
 with and without `--runtimes` (max |dq| 0.0 over 480 steps).
+
+## The X3D SimReady profile, crossed (`profile_crossing.py`), 27 Nov 2026
+
+```bash
+python3 -I q12/profile_crossing.py X3D_MCP q12/profile-crossing q12/receipts/profile-crossing-20261127.json
+```
+
+x3d_mcp #40 adds an opt-in SimReady profile: 20 SimReady rules that plain X3D leaves open, each with a failing and a passing
+proof scene. This script writes every pair to USD with `x3d2usdphysics` and runs the named SimReady requirement on both
+(usd-validation-nvidia 1.23.0, tiers c3bd1d8, usd-core 26.11, Python 3.12). **19 of 20 confirmed both ways, 1 X3D-only (VG.021
+has no executable rule), 0 mismatched; 2 more pairs confirm the warning side of VG.MESH.001 and CITY.001.** The ledger reads 66 rules stated by plain X3D plus 20 under the profile, 86 of 340.
+Table, grammar and caveats: `docs/SIMREADY-X3D-PROFILE.md`. Scenes and USD files: `q12/profile-crossing/<pair>/failing|passing/`.
+
+The writer learned three things for this, all "carry it as written": `<unit category='length'>` becomes `metersPerUnit`
+(before, a centimetre scene was written as metres: Confirmed defect, fixed here), a `semantics:labels` MetadataSet becomes
+`SemanticsLabelsAPI`, and `<meta name='Image'>` becomes the SimReady thumbnail.

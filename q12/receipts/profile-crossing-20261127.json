@@ -1,0 +1,1121 @@
+{
+ "what": "X3D SimReady profile draft 2: proof scenes crossed to USD and judged by SimReady's validator",
+ "pins": {
+  "usd-validation-nvidia": "1.23.0",
+  "usd-core": "26.11",
+  "python": "3.12.3",
+  "simready-foundation": "NVIDIA/simready-foundation@c3bd1d8 (2026-11-23)",
+  "x3d_mcp": "c2ab62559a46ae0869184bfa5abc0b413bb18137",
+  "x3d2usdphysics_sha256": "03e645cf675444e540640102dedc7f29cafbc1183d26398d36eece906330f470",
+  "simready-foundation-tier-newton": "2026.10.0",
+  "simready-foundation-tier-isaac": "2026.10.0",
+  "simready-foundation-tier-aif": "2026.10.0",
+  "simready-foundation-tier-core": "2026.10.0",
+  "simready-foundation-tier-sensors": "2026.10.0"
+ },
+ "engine_default_rules": 213,
+ "enabled_by_hand": [
+  "Ade20kLabelsChecker",
+  "CityscapesLabelsChecker",
+  "CocoLabelsChecker",
+  "ImageNet1kLabelsChecker",
+  "PascalVocLabelsChecker",
+  "SemanticLabelsCapabilityChecker",
+  "SemanticLabelsMaterialChecker",
+  "SemanticLabelsWikidataChecker",
+  "SunRgbdLabelsChecker"
+ ],
+ "ledger": {
+  "rules": 340,
+  "stated_by_plain_x3d": 66,
+  "stated_under_profile": 20,
+  "total_stated": 86
+ },
+ "crossing": {
+  "confirmed": 19,
+  "x3d-only": 1
+ },
+ "warning_side_pairs": {
+  "confirmed": 2
+ },
+ "rows": [
+  {
+   "rule": "sr:ADE.001",
+   "kind": "rule",
+   "simready_code": "ADE.001",
+   "summary": "Every `SemanticsLabelsAPI:ade20k` label value must be a member of the ADE20K (150) taxonomy.",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-ade20k",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "Ade20kLabelsChecker"
+   ],
+   "note": "150 names",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Unknown ADE20K semantic segmentation 150 label: 'gizmo' is not a member of the 'ade20k' taxonomy.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-ade20k/failing/sr_vocab_ade20k.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-ade20k/passing/sr_vocab_ade20k.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:AFF.001",
+   "kind": "rule",
+   "simready_code": "AFF.001",
+   "summary": "If `SemanticsLabelsAPI:affordance` is applied to a prim, every authored value in `semantics:labels:affordance` must be one of the allowed affordance tokens.",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-affordance",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "ObjectAffordancesCapabilityChecker"
+   ],
+   "note": "9 names",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "/World/A/IndexedFaceSet property semantics:labels:affordance has disallowed token 'gizmo' at time default. Allowed values: accepts_insertion, adjustable, lockable, openable, pressable, rotatable, slid",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-affordance/failing/sr_vocab_affordance.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-affordance/passing/sr_vocab_affordance.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:AFF.002",
+   "kind": "rule",
+   "simready_code": "AFF.002",
+   "summary": "If `SemanticsLabelsAPI:affordance_state` is applied to a prim, every authored value in `semantics:labels:affordance_state` must be one of the allowed state toke",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-affordance_state",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "ObjectAffordancesCapabilityChecker"
+   ],
+   "note": "12 names",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "/World/A/IndexedFaceSet property semantics:labels:affordance_state has disallowed token 'gizmo' at time default. Allowed values: closed, empty, locked, occupied, open, pressed, toggled_off, toggled_on",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-affordance_state/failing/sr_vocab_affordance_state.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-affordance_state/passing/sr_vocab_affordance_state.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:CITY.001",
+   "kind": "rule",
+   "simready_code": "CITY.001",
+   "summary": "Every `SemanticsLabelsAPI:cityscapes` label value must be a member of the Cityscapes (fine) taxonomy.",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-cityscapes",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "CityscapesLabelsChecker"
+   ],
+   "note": "35 names",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Unknown Cityscapes fine semantic labels label: 'gizmo' is not a member of the 'cityscapes' taxonomy.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-cityscapes/failing/sr_vocab_cityscapes.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-cityscapes/passing/sr_vocab_cityscapes.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:COCO.001",
+   "kind": "rule",
+   "simready_code": "COCO.001",
+   "summary": "Every `SemanticsLabelsAPI:coco` label value must be a member of the COCO (instances) taxonomy.",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-coco",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "CocoLabelsChecker"
+   ],
+   "note": "80 names",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Unknown COCO Instances label: 'gizmo' is not a member of the 'coco' taxonomy.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-coco/failing/sr_vocab_coco.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-coco/passing/sr_vocab_coco.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:RB.001",
+   "kind": "rule",
+   "simready_code": "RB.001",
+   "summary": "Assets must contain at least one rigid body",
+   "x3d_check": "simready-no-rigid-body",
+   "fixture": "sr-one-body",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "RigidBodyCapabilityChecker"
+   ],
+   "note": "asked of a file that claims the feature rigid_bodies",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "No physics rigid bodies found under the default prim.",
+     "writer": {
+      "dynamic": 0,
+      "static": 1,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-one-body/failing/sr_one_body.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-one-body/passing/sr_one_body.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:SL.001",
+   "kind": "rule",
+   "simready_code": "SL.001",
+   "summary": "All renderable geometry must be semantically labeled.",
+   "x3d_check": "simready-shape-unlabelled",
+   "fixture": "sr-unlabelled",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "SemanticLabelsCapabilityChecker"
+   ],
+   "note": "asked of a file that claims the feature semantic_labels",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-unlabelled/failing/sr_unlabelled.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-unlabelled/passing/sr_unlabelled.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:SL.003",
+   "kind": "rule",
+   "simready_code": "SL.003",
+   "summary": "Semantic labels must use the SemanticsLabelsAPI schema",
+   "x3d_check": "simready-label-empty",
+   "fixture": "sr-label-empty",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "SemanticLabelsCapabilityChecker"
+   ],
+   "note": "a label written with no value",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Unusable semantic label: 'SemanticsLabelsAPI:wikidata_qcode' is applied but 'semantics:labels:wikidata_qcode' is missing, empty, or not a token[] array.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-label-empty/failing/sr_label_empty.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-label-empty/passing/sr_label_empty.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:SR.002",
+   "kind": "rule",
+   "simready_code": "SR.002",
+   "summary": "The SimReady asset file should contain a thumbnail that is representative of the asset.",
+   "x3d_check": "simready-thumbnail-missing",
+   "fixture": "sr-thumbnail",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "ThumbnailExists"
+   ],
+   "note": "<meta name='Image'>, the Web3D authoring-hints name for the scene's picture",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "No thumbnail found at WORK/sr-thumbnail/failing/.thumbs/256x256/sr_thumbnail.usda.png for SimReady asset <WORK/sr-thumbnail/failing/sr_thumbnail.usda>",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "absent.png: not a file beside the scene, not copied"
+     },
+     "usd": "sr-thumbnail/failing/sr_thumbnail.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "tex.png copied to .thumbs/256x256/sr_thumbnail.usda.png (4 x 4, not resized)"
+     },
+     "usd": "sr-thumbnail/passing/sr_thumbnail.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:SR.003",
+   "kind": "rule",
+   "simready_code": "SR.003",
+   "summary": "Required SimReady provenance fields must be authored inside the root-layer `SimReady_Metadata` dictionary.",
+   "x3d_check": "simready-metadata-missing",
+   "fixture": "sr-provenance",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "NestedSimReadyMetadata"
+   ],
+   "note": "author, licence, category and Q-code in <head> meta; the writer measures the rest",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Required metadata fields are missing: author, asset_license. Metadata should be in SimReady_Metadata dictionary.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [
+       "asset_license",
+       "author"
+      ],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-provenance/failing/sr_provenance.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-provenance/passing/sr_provenance.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:SR.004",
+   "kind": "rule",
+   "simready_code": "SR.004",
+   "summary": "Required SimReady provenance fields must be present in the union of USD custom layer data and an optional sidecar JSON file.",
+   "x3d_check": "simready-metadata-missing",
+   "fixture": "sr-provenance",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "MetadataUnion"
+   ],
+   "note": "author, licence, category and Q-code in <head> meta; the writer measures the rest",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Required metadata fields are missing: author, asset_license. Fields may be authored in root-layer customLayerData (including SimReady_Metadata) and/or the same-directory sidecar JSON.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [
+       "asset_license",
+       "author"
+      ],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-provenance/failing/sr_provenance.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-provenance/passing/sr_provenance.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:SUN.001",
+   "kind": "rule",
+   "simready_code": "SUN.001",
+   "summary": "Every `SemanticsLabelsAPI:sunrgbd` label value must be a member of the SUN RGB-D (10) taxonomy.",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-sunrgbd",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "SunRgbdLabelsChecker"
+   ],
+   "note": "10 names",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Unknown SUN RGB-D 3D detection 10 label: 'gizmo' is not a member of the 'sunrgbd' taxonomy.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-sunrgbd/failing/sr_vocab_sunrgbd.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-sunrgbd/passing/sr_vocab_sunrgbd.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:UN.007",
+   "kind": "rule",
+   "simready_code": "UN.007",
+   "summary": "Stage must specify metersPerUnit = 1.0 to define the linear unit scale",
+   "x3d_check": "simready-unit-not-metres",
+   "fixture": "sr-unit",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "MetersPerUnit1Checker"
+   ],
+   "note": "a UNIT length other than 1 is legal X3D; the profile wants metres",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Stage has metersPerUnit of 0.01, not 1.0.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 0.01,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-unit/failing/sr_unit.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-unit/passing/sr_unit.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:VG.021",
+   "kind": "rule",
+   "simready_code": "VG.021",
+   "summary": "Meshes must be triangulated for optimal rendering performance and compatibility when considering automatic collider creation (convex-hull, convex-decomposition,",
+   "x3d_check": "simready-mesh-not-triangulated",
+   "fixture": "sr-triangles",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [],
+   "note": "polygons are legal X3D; the profile wants triangles (no executable SimReady rule at c3bd1d8)",
+   "usd": {
+    "failing": {
+     "verdict": "no-rule",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-triangles/failing/sr_triangles.usda"
+    },
+    "passing": {
+     "verdict": "no-rule",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-triangles/passing/sr_triangles.usda"
+    }
+   },
+   "crossing": "x3d-only"
+  },
+  {
+   "rule": "sr:VOC.001",
+   "kind": "rule",
+   "simready_code": "VOC.001",
+   "summary": "Every `SemanticsLabelsAPI:pascal_voc` label value must be a member of the PASCAL VOC (20) taxonomy.",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-pascal_voc",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "PascalVocLabelsChecker"
+   ],
+   "note": "20 names",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Unknown PASCAL VOC 20 object classes label: 'gizmo' is not a member of the 'pascal_voc' taxonomy.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-pascal_voc/failing/sr_vocab_pascal_voc.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-pascal_voc/passing/sr_vocab_pascal_voc.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:dataset_taxonomies/imagenet-labels",
+   "kind": "rule",
+   "simready_code": "IN1K.001",
+   "summary": "Every `SemanticsLabelsAPI:imagenet_1k` label value must be a member of the ImageNet-1K taxonomy.",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-imagenet_1k",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "ImageNet1kLabelsChecker"
+   ],
+   "note": "998 distinct names",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Unknown ImageNet-1K / ILSVRC2012 classification label: 'gizmo' is not a member of the 'imagenet_1k' taxonomy.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-imagenet_1k/failing/sr_vocab_imagenet_1k.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-imagenet_1k/passing/sr_vocab_imagenet_1k.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:geometry/geom-shall-be-mesh",
+   "kind": "rule",
+   "simready_code": "VG.MESH.001",
+   "summary": "All geometry shall be represented as non-subdivided mesh primitives using the UsdGeomMesh schema.",
+   "x3d_check": "simready-geometry-not-mesh",
+   "fixture": "sr-mesh",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "GeomShallBeMeshChecker"
+   ],
+   "note": "primitives are legal X3D; the profile wants a mesh",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Stage does not contain any meshes.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-mesh/failing/sr_mesh.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-mesh/passing/sr_mesh.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:physics_rigid_bodies/rigid-body-multibody-capability",
+   "kind": "rule",
+   "simready_code": "RB.MB.001",
+   "summary": "Assets must contain at least two rigid bodies",
+   "x3d_check": "simready-single-body",
+   "fixture": "sr-two-bodies",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "MultibodyChecker"
+   ],
+   "note": "asked of a file that claims the feature multibody",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Not enough physics rigid bodies found under the default prim. Found 1, expected at least 2.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-two-bodies/failing/sr_two_bodies.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 2,
+      "static": 0,
+      "shapes": 2,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-two-bodies/passing/sr_two_bodies.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:semantic_labels/semantic-label-material",
+   "kind": "rule",
+   "simready_code": "SL.MAT.001",
+   "summary": "Visual material prims must be labeled with a non-empty `SemanticsLabelsAPI:material` label.",
+   "x3d_check": "simready-material-unlabelled",
+   "fixture": "sr-material-label",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "SemanticLabelsMaterialChecker"
+   ],
+   "note": "asked of a file that claims the feature material_labels",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-material-label/failing/sr_material_label.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-material-label/passing/sr_material_label.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:semantic_labels/semantic-label-qcode-valid",
+   "kind": "rule",
+   "simready_code": "SL.QCODE.001",
+   "summary": "If the Wikidata ontology is used, Q-Codes must be well-formed (`Q` followed by one or more digits). Values should reference a real Wikidata entity, but the vali",
+   "x3d_check": "simready-qcode-malformed",
+   "fixture": "sr-label-qcode",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "SemanticLabelsWikidataChecker"
+   ],
+   "note": "",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "FAILURE",
+     "message": "Incorrect semantic label format: the label must be a string starting with letter 'Q' followed by one or more numbers. Found: chair",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-label-qcode/failing/sr_label_qcode.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-label-qcode/passing/sr_label_qcode.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:geometry/geom-shall-be-mesh",
+   "kind": "warning-side",
+   "simready_code": "VG.MESH.001",
+   "summary": "All geometry shall be represented as non-subdivided mesh primitives using the UsdGeomMesh schema.",
+   "x3d_check": "simready-geometry-not-mesh",
+   "fixture": "sr-mesh-mixed",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "GeomShallBeMeshChecker"
+   ],
+   "note": "warning side: SimReady warns, it does not fail",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "WARNING",
+     "message": "Stage contains a mesh as required, but also other types of Gprims.",
+     "writer": {
+      "dynamic": 2,
+      "static": 0,
+      "shapes": 2,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-mesh-mixed/failing/sr_mesh_mixed.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 2,
+      "static": 0,
+      "shapes": 2,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-mesh-mixed/passing/sr_mesh_mixed.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:CITY.001",
+   "kind": "warning-side",
+   "simready_code": "CITY.001",
+   "summary": "Every `SemanticsLabelsAPI:cityscapes` label value must be a member of the Cityscapes (fine) taxonomy.",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-alias",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "CityscapesLabelsChecker"
+   ],
+   "note": "warning side: SimReady warns, it does not fail",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "WARNING",
+     "message": "Non-canonical Cityscapes fine semantic labels label: 'Traffic_Light' is not the canonical spelling. Use 'traffic light'.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-alias/failing/sr_vocab_alias.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-alias/passing/sr_vocab_alias.usda"
+    }
+   },
+   "crossing": "confirmed"
+  }
+ ]
+}
