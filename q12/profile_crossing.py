@@ -17,6 +17,10 @@ and grades the crossing:
     x3d-only     the X3D pair behaves, and no installed SimReady rule enforces the requirement (it is a page only)
     mismatch     anything else; printed, and the exit code is 1
 
+Two more pairs cross the warning side of a rule (a mesh beside a primitive, VG.MESH.001; a label in a non-canonical
+spelling, CITY.001): SimReady accepts those with a warning, the X3D check warns too, and a warning counts as "reports".
+They are listed apart ("warning_side_pairs") and are not counted as rules.
+
 Needs Python 3.11 to 3.13 with usd-core 26.11, usd-validation-nvidia 1.23.0, the SimReady tiers built from
 NVIDIA/simready-foundation (nv_core/tiers: core, newton, isaac, aif, sensors), numpy, lxml, and x3d_mcp's validator
 imports (xmlschema, jsonschema, x3d).
@@ -104,13 +108,15 @@ def main():
     results = up.run_all()                                   # x3d_mcp's own verdict on every fixture
     rules = {r["id"]: r for r in up.RULES["rules"]}
     rows, done = [], {}
-    for rid, (status, fx, note) in up.MAP.items():
-        if status != "profile":
-            continue
+    todo = [(rid, fx, note, "rule") for rid, (status, fx, note) in up.MAP.items() if status == "profile"]
+    # the warning side of two rules: SimReady accepts the scene with a warning, and so does the X3D check
+    todo += [("sr:" + rule, fx, "warning side: SimReady warns, it does not fail", "warning-side")
+             for fx, rule in getattr(up, "SR_WARNING_SIDE", {}).items()]
+    for rid, fx, note, kind in todo:
         by, check, bad, good = up.F[fx]
         code = code_for(rules[rid])
         x3d = {"reports_failing_scene": bool(results[fx]["bad"]), "reports_passing_scene": bool(results[fx]["good"])}
-        row = {"rule": rid, "simready_code": code, "summary": rules[rid].get("summary", "")[:160], "x3d_check": check,
+        row = {"rule": rid, "kind": kind, "simready_code": code, "summary": rules[rid].get("summary", "")[:160], "x3d_check": check,
                "fixture": fx, "x3d": x3d, "simready_rules": sorted(SERVED.get(code, [])), "note": note}
         if fx not in done:
             done[fx] = {}
@@ -156,22 +162,22 @@ def main():
         nm = d.metadata["Name"] or ""
         if nm.startswith("simready-foundation-tier"):
             pins[nm] = d.version
-    tally = defaultdict(int)
+    tally, extra = defaultdict(int), defaultdict(int)
     for r in rows:
-        tally[r["crossing"]] += 1
+        (tally if r["kind"] == "rule" else extra)[r["crossing"]] += 1
     counts = up.counts(results)
     plain = sum(counts[k] for k in up.STATEABLE) - counts["gap"]
     out = {"what": "X3D SimReady profile draft 2: proof scenes crossed to USD and judged by SimReady's validator",
            "pins": pins, "engine_default_rules": N_DEFAULT, "enabled_by_hand": BY_HAND,
            "ledger": {"rules": len(up.MAP), "stated_by_plain_x3d": plain, "stated_under_profile": counts["profile"],
                       "total_stated": plain + counts["profile"]},
-           "crossing": dict(tally), "rows": rows}
+           "crossing": dict(tally), "warning_side_pairs": dict(extra), "rows": rows}
     DEST.write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
     for r in rows:
-        print(f"{r['crossing']:10} {r['rule'][3:]:52} {str(r['simready_code']):13} x3d {r['x3d_check']:34} "
+        print(f"{r['crossing']:10} {(r['rule'][3:] + (' (warning side)' if r['kind'] != 'rule' else '')):52} {str(r['simready_code']):13} x3d {r['x3d_check']:34} "
               f"usd failing={r['usd']['failing']['verdict']:8} passing={r['usd']['passing']['verdict']}")
-    print(dict(tally), "| ledger", out["ledger"])
-    return 1 if tally.get("mismatch") else 0
+    print(dict(tally), "| warning-side pairs", dict(extra), "| ledger", out["ledger"])
+    return 1 if tally.get("mismatch") or extra.get("mismatch") else 0
 
 
 if __name__ == "__main__":

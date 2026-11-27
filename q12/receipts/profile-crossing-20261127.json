@@ -5,7 +5,7 @@
   "usd-core": "26.11",
   "python": "3.12.3",
   "simready-foundation": "NVIDIA/simready-foundation@c3bd1d8 (2026-11-23)",
-  "x3d_mcp": "4c95f03a557820d090abd0e197306242b05be971",
+  "x3d_mcp": "c2ab62559a46ae0869184bfa5abc0b413bb18137",
   "x3d2usdphysics_sha256": "03e645cf675444e540640102dedc7f29cafbc1183d26398d36eece906330f470",
   "simready-foundation-tier-newton": "2026.10.0",
   "simready-foundation-tier-isaac": "2026.10.0",
@@ -35,9 +35,13 @@
   "confirmed": 19,
   "x3d-only": 1
  },
+ "warning_side_pairs": {
+  "confirmed": 2
+ },
  "rows": [
   {
    "rule": "sr:ADE.001",
+   "kind": "rule",
    "simready_code": "ADE.001",
    "summary": "Every `SemanticsLabelsAPI:ade20k` label value must be a member of the ADE20K (150) taxonomy.",
    "x3d_check": "simready-label-not-in-vocabulary",
@@ -86,6 +90,7 @@
   },
   {
    "rule": "sr:AFF.001",
+   "kind": "rule",
    "simready_code": "AFF.001",
    "summary": "If `SemanticsLabelsAPI:affordance` is applied to a prim, every authored value in `semantics:labels:affordance` must be one of the allowed affordance tokens.",
    "x3d_check": "simready-label-not-in-vocabulary",
@@ -134,6 +139,7 @@
   },
   {
    "rule": "sr:AFF.002",
+   "kind": "rule",
    "simready_code": "AFF.002",
    "summary": "If `SemanticsLabelsAPI:affordance_state` is applied to a prim, every authored value in `semantics:labels:affordance_state` must be one of the allowed state toke",
    "x3d_check": "simready-label-not-in-vocabulary",
@@ -182,6 +188,7 @@
   },
   {
    "rule": "sr:CITY.001",
+   "kind": "rule",
    "simready_code": "CITY.001",
    "summary": "Every `SemanticsLabelsAPI:cityscapes` label value must be a member of the Cityscapes (fine) taxonomy.",
    "x3d_check": "simready-label-not-in-vocabulary",
@@ -230,6 +237,7 @@
   },
   {
    "rule": "sr:COCO.001",
+   "kind": "rule",
    "simready_code": "COCO.001",
    "summary": "Every `SemanticsLabelsAPI:coco` label value must be a member of the COCO (instances) taxonomy.",
    "x3d_check": "simready-label-not-in-vocabulary",
@@ -278,6 +286,7 @@
   },
   {
    "rule": "sr:RB.001",
+   "kind": "rule",
    "simready_code": "RB.001",
    "summary": "Assets must contain at least one rigid body",
    "x3d_check": "simready-no-rigid-body",
@@ -326,6 +335,7 @@
   },
   {
    "rule": "sr:SL.001",
+   "kind": "rule",
    "simready_code": "SL.001",
    "summary": "All renderable geometry must be semantically labeled.",
    "x3d_check": "simready-shape-unlabelled",
@@ -374,6 +384,7 @@
   },
   {
    "rule": "sr:SL.003",
+   "kind": "rule",
    "simready_code": "SL.003",
    "summary": "Semantic labels must use the SemanticsLabelsAPI schema",
    "x3d_check": "simready-label-empty",
@@ -422,6 +433,7 @@
   },
   {
    "rule": "sr:SR.002",
+   "kind": "rule",
    "simready_code": "SR.002",
    "summary": "The SimReady asset file should contain a thumbnail that is representative of the asset.",
    "x3d_check": "simready-thumbnail-missing",
@@ -470,6 +482,7 @@
   },
   {
    "rule": "sr:SR.003",
+   "kind": "rule",
    "simready_code": "SR.003",
    "summary": "Required SimReady provenance fields must be authored inside the root-layer `SimReady_Metadata` dictionary.",
    "x3d_check": "simready-metadata-missing",
@@ -521,6 +534,7 @@
   },
   {
    "rule": "sr:SR.004",
+   "kind": "rule",
    "simready_code": "SR.004",
    "summary": "Required SimReady provenance fields must be present in the union of USD custom layer data and an optional sidecar JSON file.",
    "x3d_check": "simready-metadata-missing",
@@ -572,6 +586,7 @@
   },
   {
    "rule": "sr:SUN.001",
+   "kind": "rule",
    "simready_code": "SUN.001",
    "summary": "Every `SemanticsLabelsAPI:sunrgbd` label value must be a member of the SUN RGB-D (10) taxonomy.",
    "x3d_check": "simready-label-not-in-vocabulary",
@@ -620,6 +635,7 @@
   },
   {
    "rule": "sr:UN.007",
+   "kind": "rule",
    "simready_code": "UN.007",
    "summary": "Stage must specify metersPerUnit = 1.0 to define the linear unit scale",
    "x3d_check": "simready-unit-not-metres",
@@ -668,6 +684,7 @@
   },
   {
    "rule": "sr:VG.021",
+   "kind": "rule",
    "simready_code": "VG.021",
    "summary": "Meshes must be triangulated for optimal rendering performance and compatibility when considering automatic collider creation (convex-hull, convex-decomposition,",
    "x3d_check": "simready-mesh-not-triangulated",
@@ -710,6 +727,7 @@
   },
   {
    "rule": "sr:VOC.001",
+   "kind": "rule",
    "simready_code": "VOC.001",
    "summary": "Every `SemanticsLabelsAPI:pascal_voc` label value must be a member of the PASCAL VOC (20) taxonomy.",
    "x3d_check": "simready-label-not-in-vocabulary",
@@ -758,6 +776,7 @@
   },
   {
    "rule": "sr:dataset_taxonomies/imagenet-labels",
+   "kind": "rule",
    "simready_code": "IN1K.001",
    "summary": "Every `SemanticsLabelsAPI:imagenet_1k` label value must be a member of the ImageNet-1K taxonomy.",
    "x3d_check": "simready-label-not-in-vocabulary",
@@ -806,6 +825,7 @@
   },
   {
    "rule": "sr:geometry/geom-shall-be-mesh",
+   "kind": "rule",
    "simready_code": "VG.MESH.001",
    "summary": "All geometry shall be represented as non-subdivided mesh primitives using the UsdGeomMesh schema.",
    "x3d_check": "simready-geometry-not-mesh",
@@ -854,6 +874,7 @@
   },
   {
    "rule": "sr:physics_rigid_bodies/rigid-body-multibody-capability",
+   "kind": "rule",
    "simready_code": "RB.MB.001",
    "summary": "Assets must contain at least two rigid bodies",
    "x3d_check": "simready-single-body",
@@ -902,6 +923,7 @@
   },
   {
    "rule": "sr:semantic_labels/semantic-label-material",
+   "kind": "rule",
    "simready_code": "SL.MAT.001",
    "summary": "Visual material prims must be labeled with a non-empty `SemanticsLabelsAPI:material` label.",
    "x3d_check": "simready-material-unlabelled",
@@ -950,6 +972,7 @@
   },
   {
    "rule": "sr:semantic_labels/semantic-label-qcode-valid",
+   "kind": "rule",
    "simready_code": "SL.QCODE.001",
    "summary": "If the Wikidata ontology is used, Q-Codes must be well-formed (`Q` followed by one or more digits). Values should reference a real Wikidata entity, but the vali",
    "x3d_check": "simready-qcode-malformed",
@@ -992,6 +1015,104 @@
       "thumbnail": "none named (<meta name='Image'>)"
      },
      "usd": "sr-label-qcode/passing/sr_label_qcode.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:geometry/geom-shall-be-mesh",
+   "kind": "warning-side",
+   "simready_code": "VG.MESH.001",
+   "summary": "All geometry shall be represented as non-subdivided mesh primitives using the UsdGeomMesh schema.",
+   "x3d_check": "simready-geometry-not-mesh",
+   "fixture": "sr-mesh-mixed",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "GeomShallBeMeshChecker"
+   ],
+   "note": "warning side: SimReady warns, it does not fail",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "WARNING",
+     "message": "Stage contains a mesh as required, but also other types of Gprims.",
+     "writer": {
+      "dynamic": 2,
+      "static": 0,
+      "shapes": 2,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-mesh-mixed/failing/sr_mesh_mixed.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 2,
+      "static": 0,
+      "shapes": 2,
+      "labels": 0,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-mesh-mixed/passing/sr_mesh_mixed.usda"
+    }
+   },
+   "crossing": "confirmed"
+  },
+  {
+   "rule": "sr:CITY.001",
+   "kind": "warning-side",
+   "simready_code": "CITY.001",
+   "summary": "Every `SemanticsLabelsAPI:cityscapes` label value must be a member of the Cityscapes (fine) taxonomy.",
+   "x3d_check": "simready-label-not-in-vocabulary",
+   "fixture": "sr-vocab-alias",
+   "x3d": {
+    "reports_failing_scene": true,
+    "reports_passing_scene": false
+   },
+   "simready_rules": [
+    "CityscapesLabelsChecker"
+   ],
+   "note": "warning side: SimReady warns, it does not fail",
+   "usd": {
+    "failing": {
+     "verdict": "fail",
+     "severity": "WARNING",
+     "message": "Non-canonical Cityscapes fine semantic labels label: 'Traffic_Light' is not the canonical spelling. Use 'traffic light'.",
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-alias/failing/sr_vocab_alias.usda"
+    },
+    "passing": {
+     "verdict": "pass",
+     "severity": null,
+     "message": null,
+     "writer": {
+      "dynamic": 1,
+      "static": 0,
+      "shapes": 1,
+      "labels": 1,
+      "meters_per_unit": 1.0,
+      "meta_missing": [],
+      "thumbnail": "none named (<meta name='Image'>)"
+     },
+     "usd": "sr-vocab-alias/passing/sr_vocab_alias.usda"
     }
    },
    "crossing": "confirmed"

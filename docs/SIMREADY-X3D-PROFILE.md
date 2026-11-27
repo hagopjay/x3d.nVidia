@@ -82,6 +82,8 @@ c3bd1d8 2026.10.0, Python 3.12.3; receipt `q12/receipts/profile-crossing-2026112
 | RB.MB.001 | `simready-single-body` | `sr-two-bodies` | fail | pass | **confirmed** | Not enough physics rigid bodies found under the default prim. Found 1, expected at least 2. |
 | SL.MAT.001 | `simready-material-unlabelled` | `sr-material-label` | fail | pass | **confirmed** | Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantic |
 | SL.QCODE.001 | `simready-qcode-malformed` | `sr-label-qcode` | fail | pass | **confirmed** | Incorrect semantic label format: the label must be a string starting with letter 'Q' followed by one or more n |
+| VG.MESH.001 (warning side) | `simready-geometry-not-mesh` | `sr-mesh-mixed` | fail | pass | **confirmed** | Stage contains a mesh as required, but also other types of Gprims. |
+| CITY.001 (warning side) | `simready-label-not-in-vocabulary` | `sr-vocab-alias` | fail | pass | **confirmed** | Non-canonical Cityscapes fine semantic labels label: 'Traffic_Light' is not the canonical spelling. Use 'traff |
 
 How to read it:
 
@@ -90,11 +92,15 @@ How to read it:
 - **Nine NVIDIA checker classes were switched on by hand.** The semantic-label checkers and the six dataset-taxonomy checkers
   are registered with their requirement in the core tier but are not in the engine's default rule set (213 rule classes);
   the script enables them with `enable_rule` and lists them in the receipt. NVIDIA's own note calls the taxonomy capability a proof of concept.
+- **The two "warning side" rows are not rules of their own.** SimReady accepts a mesh beside a primitive, and a label in a
+  non-canonical spelling (`Traffic_Light` for `traffic light`), with a warning. The X3D check warns on the same scenes, so the two
+  agree on both sides of each rule. "fail" in the table means SimReady raised an error, failure or warning for that requirement.
+- **X3D levels follow SimReady's.** Where SimReady fails or warns, the X3D check is a warning; VG.021 is information.
 - **VG.021 (triangulated meshes) is X3D-only.** No installed rule enforces it at c3bd1d8, so the X3D check has nothing to agree with.
 - **Left as policy, on purpose.** SR.001 and NP.006 ask for fields the writer authors itself (asset name, type, source file, date,
   the metadata dictionary), so no X3D file can fail them. NP.001 cannot be met by any writer that also follows the `World` and
-  `Looks` conventions: SimReady's checker wants camelCase or snake_case prim names and rejects both (Confirmed in the rule's source,
-  `core/naming_paths/validation.py`). SL.TIME.001 (a label animated over time) is not checked.
+  `Looks` conventions: SimReady's checker wants camelCase or snake_case prim names and rejects both (Confirmed: run on
+  `q12/profile-crossing/sr-provenance/passing/`, 7 NP.001 failures naming `World`, `Looks`, `PhysicsScene` and four more). SL.TIME.001 (a label animated over time) is not checked.
 - **One proof pair per rule is a small sample.** It shows the check and the rule agree on the case the rule was written for,
   not that they agree on every file. The wider test is Q12-style: run both on real files and read the fired pairs.
 

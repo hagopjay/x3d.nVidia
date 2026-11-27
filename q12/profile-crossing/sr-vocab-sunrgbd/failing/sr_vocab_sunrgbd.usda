@@ -13,12 +13,12 @@
             string qcode = "Q111"
             int rigid_body_count = 1
             string source_file = "sr_vocab_sunrgbd.x3d"
-            string usd_date_generated = "2026-11-27T23:35:46Z"
+            string usd_date_generated = "2026-11-27T23:43:08Z"
         }
         string asset_name = "parity"
         string asset_type = "prop"
         string source_file = "sr_vocab_sunrgbd.x3d"
-        string usd_date_generated = "2026-11-27T23:35:46Z"
+        string usd_date_generated = "2026-11-27T23:43:08Z"
     }
     defaultPrim = "World"
     kilogramsPerUnit = 1
