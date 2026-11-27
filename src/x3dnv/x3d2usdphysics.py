@@ -29,6 +29,15 @@ Mapping, following the PhysX bridge's SPEC.md (x3d.loom/x3d.physics/physx-bridge
     SliderJoint                        PhysicsPrismaticJoint along the world axis, limits min/maxSeparation relative to the
                                        start (none when min > max, as X3D says)
     DoubleAxisHingeJoint, UniversalJoint, MotorJoint, CollisionSensor, and ODE-only fields   reported as lost
+The X3D SimReady profile (docs/SIMREADY-X3D-PROFILE.md, draft 2) is carried as written, never repaired:
+    <unit category='length'>           metersPerUnit is the X3D conversionFactor (points are not rescaled), so a file in
+                                       centimetres is a USD stage in centimetres and SimReady UN.007 sees it
+    MetadataSet "semantics:labels"     each MetadataString in it becomes SemanticsLabelsAPI:<name> with token[]
+                                       semantics:labels:<name>: on a RigidBody (its Xform), a CollidableShape or Shape (the
+                                       gprim), an Appearance or its material (the UsdShade Material). A label with no value
+                                       is written applied and empty, as the X3D says
+    <meta name='Image'>                a PNG beside the scene is copied to .thumbs/256x256/<out file>.png (SR.002); it is
+                                       not resized, and its size is reported when it is not 256 x 256
 X3D <head> meta and the physics become SimReady provenance (customLayerData SimReady_Metadata, SR.001/003/004):
 asset_name (title), author (creator or author), asset_license (license or rights), category, qcode (a Wikidata Q
 code), asset_type, source_file, usd_date_generated, rigid_body_count, asset_extents, mass. A field X3D does not carry
@@ -164,6 +173,54 @@ class Scene:
         self.lost.append({"node": e.tag, "DEF": e.get("DEF"), "what": what})
 
 
+LABEL_SET = "semantics:labels"
+
+
+def labels_of(*nodes):
+    """{taxonomy: [values]} from the semantics:labels MetadataSets written directly on the given X3D nodes, in order."""
+    out = {}
+    for n in nodes:
+        if n is None:
+            continue
+        for ms in n:
+            if not isinstance(ms.tag, str) or ms.tag != "MetadataSet" or (ms.get("name") or "").strip() != LABEL_SET:
+                continue
+            for c in ms:
+                if isinstance(c.tag, str) and c.tag == "MetadataString" and (c.get("name") or "").strip():
+                    raw = c.get("value") or ""
+                    vals = re.findall(r'"((?:[^"\\]|\\.)*)"', raw) or ([raw.strip()] if raw.strip() else [])
+                    out.setdefault(c.get("name").strip(), []).extend(v for v in vals if v.strip())
+    return out
+
+
+def apply_labels(prim, labels):
+    """SemanticsLabelsAPI:<taxonomy> by name (as SimReady's rules read it) with token[] semantics:labels:<taxonomy>."""
+    for tax, vals in labels.items():
+        if not re.match(r"^[A-Za-z_][A-Za-z0-9_]*$", tax):
+            continue
+        prim.AddAppliedSchema(f"SemanticsLabelsAPI:{tax}")
+        prim.CreateAttribute(f"semantics:labels:{tax}", Sdf.ValueTypeNames.TokenArray).Set(Vt.TokenArray(list(vals)))
+    return len(labels)
+
+
+def appearance_nodes(sc, shape):
+    """The Shape's Appearance and its material node, USE followed (None where absent)."""
+    app = next((sc.res(c) for c in shape if isinstance(c.tag, str) and c.tag == "Appearance"), None)
+    mat = None
+    if app is not None:
+        mat = next((sc.res(m) for m in app if isinstance(m.tag, str) and m.tag in
+                    ("Material", "PhysicalMaterial", "UnlitMaterial", "TwoSidedMaterial")), None)
+    return app, mat
+
+
+def png_size(path):
+    with open(path, "rb") as fh:
+        d = fh.read(24)
+    if d[:8] != b"\x89PNG\r\n\x1a\n":
+        return None
+    return int.from_bytes(d[16:20], "big"), int.from_bytes(d[20:24], "big")
+
+
 def appearance_colour(shape):
     for app in shape.iter("Appearance"):
         for m in app:
@@ -185,7 +242,13 @@ class Writer:
             self.out.unlink()
         self.stage = Usd.Stage.CreateNew(str(self.out))
         UsdGeom.SetStageUpAxis(self.stage, UsdGeom.Tokens.z)
-        UsdGeom.SetStageMetersPerUnit(self.stage, 1.0)
+        self.unit = 1.0
+        for u in sc.root.iter("unit"):
+            if u.get("category") == "length":
+                f = nums(u.get("conversionFactor"))
+                if f and f[0] > 0:
+                    self.unit = float(f[0])
+        UsdGeom.SetStageMetersPerUnit(self.stage, self.unit)
         UsdPhysics.SetStageKilogramsPerUnit(self.stage, 1.0)
         self.root = UsdGeom.Xform.Define(self.stage, "/World")
         self.stage.SetDefaultPrim(self.root.GetPrim())
@@ -193,7 +256,7 @@ class Writer:
         self.mats, self.phys_mats, self.names = {}, {}, set()
         self.body_prims, self.body_pose = {}, {}
         self.report = {"bodies": 0, "dynamic": 0, "static": 0, "kinematic_lost": 0, "shapes": 0, "joints": {},
-                       "lost": sc.lost, "dropped_fields": [], "meta_missing": []}
+                       "lost": sc.lost, "dropped_fields": [], "meta_missing": [], "labels": 0, "meters_per_unit": self.unit}
         self.total_mass, self.lo, self.hi = 0.0, np.full(3, np.inf), np.full(3, -np.inf)
 
     # ------------------------------------------------------------------ names
@@ -211,7 +274,8 @@ class Writer:
     # -------------------------------------------------------------- materials
     def material(self, shape):
         col, opa, rough = appearance_colour(shape)
-        key = (tuple(np.round(col, 4)), round(opa, 4), round(rough, 3))
+        lab = labels_of(*appearance_nodes(self.sc, shape))
+        key = (tuple(np.round(col, 4)), round(opa, 4), round(rough, 3), json.dumps(lab, sort_keys=True))
         if key not in self.mats:
             UsdGeom.Scope.Define(self.stage, "/World/Looks")
             p = f"/World/Looks/{self.name('Mat')}"
@@ -222,6 +286,7 @@ class Writer:
             s.CreateInput("roughness", Sdf.ValueTypeNames.Float).Set(float(rough))
             s.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(float(opa))
             m.CreateSurfaceOutput().ConnectToSource(s.ConnectableAPI(), "surface")
+            self.report["labels"] += apply_labels(m.GetPrim(), lab)
             self.mats[key] = m
         return self.mats[key], col
 
@@ -245,7 +310,7 @@ class Writer:
         return self.phys_mats[key]
 
     # ----------------------------------------------------------------- shapes
-    def geom(self, parent_path, shape, collide, phys_mat, static, pose_t, pose_q):
+    def geom(self, parent_path, shape, collide, phys_mat, static, pose_t, pose_q, owner=None):
         """One X3D Shape (inside a collidable) as a USD gprim under parent_path, at local pose (t, q) in X3D frame."""
         sc = self.sc
         g = next(iter(sc.kids(shape, "geometry", GEOMS) or [c for c in (sc.res(x) for x in shape) if c is not None and c.tag in GEOMS]), None)
@@ -329,6 +394,7 @@ class Writer:
             UsdPhysics.MeshCollisionAPI.Apply(gp.GetPrim()).CreateApproximationAttr("none" if static else "convexHull")
         if phys_mat is not None:
             UsdShade.MaterialBindingAPI.Apply(gp.GetPrim()).Bind(phys_mat, UsdShade.Tokens.weakerThanDescendants, "physics")
+        self.report["labels"] += apply_labels(gp.GetPrim(), labels_of(owner, shape))
         self.report["shapes"] += 1
         return gp, ext
 
@@ -349,7 +415,7 @@ class Writer:
                     if shapes:
                         self.report.setdefault("inferred", []).append(f"CollidableShape {c.get('DEF')}: Shape without containerField='shape'")
                 for sh in shapes:
-                    r = self.geom(body_path, sh, c in colliding, phys_mat_of.get(c), static, t, q)
+                    r = self.geom(body_path, sh, c in colliding, phys_mat_of.get(c), static, t, q, owner=c)
                     if r:
                         yield r, t
 
@@ -414,6 +480,7 @@ class Writer:
         xf.AddOrientOp().Set(gfq(to_usd_q(q)))
         self.body_prims[id(b)] = x.GetPrim()
         self.body_pose[id(b)] = (pos, q)
+        self.report["labels"] += apply_labels(x.GetPrim(), labels_of(b))
         self.report["bodies"] += 1
         for f in ODE_ONLY["RigidBody"]:
             if b.get(f) is not None:
@@ -524,7 +591,7 @@ class Writer:
               "rigid_body_count": int(self.report["dynamic"]),
               "mass": float(self.total_mass)}
         if np.all(np.isfinite(self.lo)):
-            md["asset_extents"] = [float(x) for x in (self.hi - self.lo)]
+            md["asset_extents"] = [float(x) * self.unit for x in (self.hi - self.lo)]      # metres, whatever the stage unit
         md.update(self.meta)
         if md.get("qcode") and not re.match(r"^Q[0-9]+$", str(md["qcode"])):
             md.pop("qcode")
@@ -540,6 +607,26 @@ class Writer:
                 cld[k] = present[k]
         layer.customLayerData = cld
         layer.comment = f"Written from {self.sc.path.name} by x3dnv.x3d2usdphysics (X3D RigidBodyPhysics to UsdPhysics)"
+        self.thumbnail(heads.get("image"))
+
+    def thumbnail(self, url):
+        """<meta name='Image'> names the scene's picture; SimReady SR.002 looks for .thumbs/256x256/<file>.png."""
+        if not url:
+            self.report["thumbnail"] = "none named (<meta name='Image'>)"
+            return
+        src = (self.sc.path.parent / url).resolve()
+        if re.match(r"^[a-z][a-z0-9+.-]*:", url, re.I) or not src.is_file() or not src.is_relative_to(self.sc.path.parent.resolve()):
+            self.report["thumbnail"] = f"{url}: not a file beside the scene, not copied"
+            return
+        size = png_size(src)
+        if size is None:
+            self.report["thumbnail"] = f"{url}: not a PNG, not copied"
+            return
+        dest = self.out.parent / ".thumbs" / "256x256" / (self.out.name + ".png")
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_bytes(src.read_bytes())
+        self.report["thumbnail"] = f"{url} copied to .thumbs/256x256/{dest.name}" + (
+            "" if size == (256, 256) else f" ({size[0]} x {size[1]}, not resized)")
 
 
 # ---------------------------------------------------------------- runtime variants (SimReady RV.*)

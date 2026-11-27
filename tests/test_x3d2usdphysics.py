@@ -177,3 +177,77 @@ def test_simready_metadata_profile_round_trip(asset):
     md = st.GetRootLayer().customLayerData["SimReady_Metadata"]
     assert md["qcode"] == "Q111" and md["category"] == "Toys" and md["author"] == "tests" and md["asset_license"] == "Apache-2.0"
     assert rep["meta_missing"] == []
+
+
+# ---------------------------------------------------------------- the X3D SimReady profile, draft 2
+PROFILE = """<?xml version='1.0' encoding='UTF-8'?><X3D profile='Full' version='4.0'><head>
+<unit category='length' name='centimetre' conversionFactor='0.01'/>
+<meta name='title' content='labelled'/><meta name='Image' content='pic.png'/></head><Scene>
+<RigidBodyCollection>
+ <RigidBody DEF='Crate' containerField='bodies'>
+  <MetadataSet containerField='metadata' name='semantics:labels'><MetadataString containerField='value' name='coco' value='"chair" "bench"'/></MetadataSet>
+  <CollidableShape containerField='geometry'><Shape containerField='shape'>
+   <MetadataSet containerField='metadata' name='semantics:labels'><MetadataString containerField='value' name='wikidata_qcode' value='"Q15026"'/>
+    <MetadataString containerField='value' name='affordance'/></MetadataSet>
+   <Appearance><Material diffuseColor='0 1 0'><MetadataSet containerField='metadata' name='semantics:labels'>
+    <MetadataString containerField='value' name='material' value='"wood"'/></MetadataSet></Material></Appearance>
+   <IndexedFaceSet coordIndex='0 2 1 -1 0 1 3 -1 0 3 2 -1 1 2 3 -1'><Coordinate point='0 0 0 100 0 0 0 100 0 0 0 100'/></IndexedFaceSet>
+  </Shape></CollidableShape></RigidBody>
+ <RigidBody DEF='Plain' containerField='bodies' position='300 0 0'>
+  <CollidableShape containerField='geometry'><Shape containerField='shape'>
+   <Appearance><Material diffuseColor='0 1 0'/></Appearance><Sphere radius='50'/></Shape></CollidableShape></RigidBody>
+</RigidBodyCollection></Scene></X3D>"""
+PNG = (b"\x89PNG\r\n\x1a\n" + b"\x00\x00\x00\rIHDR" + (256).to_bytes(4, "big") + (256).to_bytes(4, "big") + b"\x08\x02\x00\x00\x00")
+
+
+@pytest.fixture()
+def profile(tmp_path):
+    src = tmp_path / "in" / "crate.x3d"
+    src.parent.mkdir()
+    src.write_text(PROFILE)
+    (src.parent / "pic.png").write_bytes(PNG)
+    out = tmp_path / "out" / "crate.usda"
+    out.parent.mkdir()
+    rep = xw.convert(src, out)
+    return Usd.Stage.Open(str(out)), rep, out
+
+
+def labels(prim, tax):
+    assert f"SemanticsLabelsAPI:{tax}" in prim.GetAppliedSchemas()
+    return list(prim.GetAttribute(f"semantics:labels:{tax}").Get())
+
+
+def test_labels_ride_on_the_prim_their_x3d_node_becomes(profile):
+    st, rep, _ = profile
+    assert labels(st.GetPrimAtPath("/World/Crate"), "coco") == ["chair", "bench"]
+    mesh = st.GetPrimAtPath("/World/Crate/IndexedFaceSet")
+    assert labels(mesh, "wikidata_qcode") == ["Q15026"]
+    assert labels(mesh, "affordance") == []                    # written with no value in the X3D: applied and empty, not dropped
+    assert not [s for s in st.GetPrimAtPath("/World/Plain/Sphere").GetAppliedSchemas() if s.startswith("Semantics")]
+    assert rep["labels"] == 4
+
+
+def test_a_labelled_material_is_not_merged_with_an_unlabelled_one_of_the_same_colour(profile):
+    st, _, _ = profile
+    mats = [p for p in st.GetPrimAtPath("/World/Looks").GetChildren()]
+    assert len(mats) == 2
+    assert sorted(len([s for s in m.GetAppliedSchemas() if s == "SemanticsLabelsAPI:material"]) for m in mats) == [0, 1]
+
+
+def test_the_stage_unit_is_the_x3d_unit_and_points_are_not_rescaled(profile):
+    st, rep, _ = profile
+    assert UsdGeom.GetStageMetersPerUnit(st) == pytest.approx(0.01) and rep["meters_per_unit"] == pytest.approx(0.01)
+    pts = UsdGeom.Mesh(st.GetPrimAtPath("/World/Crate/IndexedFaceSet")).GetPointsAttr().Get()
+    assert max(max(p) for p in pts) == 100
+    ext = st.GetRootLayer().customLayerData["SimReady_Metadata"]["asset_extents"]
+    assert max(ext) < 10                                        # extents are reported in metres whatever the unit
+
+
+def test_the_named_picture_becomes_the_simready_thumbnail(profile, tmp_path):
+    _, rep, out = profile
+    thumb = out.parent / ".thumbs" / "256x256" / "crate.usda.png"
+    assert thumb.read_bytes() == PNG and rep["thumbnail"].startswith("pic.png copied")
+    src = tmp_path / "in" / "crate.x3d"
+    src.write_text(PROFILE.replace("pic.png", "../elsewhere.png"))
+    rep2 = xw.convert(src, tmp_path / "out2.usda")
+    assert "not copied" in rep2["thumbnail"] and not (tmp_path / ".thumbs" / "256x256" / "out2.usda.png").exists()
