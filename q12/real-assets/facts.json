@@ -1,0 +1,60 @@
+{
+ "about": "Facts the 27 marble-machine scenes do not state themselves and SimReady asks for. Each has a source and a grade: C read from a file, L likely, S the editor's suggestion. Everything graded L or S is for the owner's review; change a value here and rerun.",
+ "corpus": {
+  "repository": "hagopjay/x3d.loom",
+  "path": "x3d.physics/physx-bridge/scenes",
+  "creator": {"value": "HagopJay", "source": "owner of the repository the scenes are published in", "grade": "L"},
+  "license": {"value": "Apache-2.0", "source": "x3d.physics/physx-bridge/LICENSE and package.json", "grade": "C"},
+  "features": ["rigid_bodies", "semantic_labels", "material_labels"]
+ },
+ "materials": {
+  "Mat_wood": ["wood", "the author's name", "C"], "Mat_steel": ["steel", "the author's name", "C"],
+  "Mat_brass": ["brass", "the author's name", "C"], "Brass": ["brass", "the author's name", "C"], "Mat_iron": ["iron", "the author's name", "C"],
+  "Mat_felt": ["felt", "the author's name", "C"], "Mat_grass": ["grass", "the author's name", "C"],
+  "Mat_stone": ["stone", "the author's name", "C"], "Mat_stoneDark": ["stone", "the author's name", "C"],
+  "Mat_glass": ["glass", "the author's name", "C"], "Mat_glassPane": ["glass", "the author's name", "C"],
+  "Mat_ivory": ["ivory", "the author's name; it may only mean the colour", "L"],
+  "Mat_ebony": ["ebony", "the author's name; it may only mean the colour", "L"],
+  "Mat_frame": ["wood", "src/demo/sound.ts gives frame the wood knock", "L"],
+  "Mat_pegboard": ["wood", "src/demo/sound.ts gives pegboard the wood knock", "L"],
+  "Mat_red": ["steel", "src/demo/sound.ts gives red the steel clack", "L"],
+  "Mat_blue": ["steel", "src/demo/sound.ts gives blue the steel clack", "L"],
+  "Mat_marble0": ["glass", "a toy marble; src/demo/sound.ts gives it the glass clink", "L"],
+  "Mat_marble1": ["glass", "a toy marble; src/demo/sound.ts gives it the glass clink", "L"],
+  "Mat_marble2": ["glass", "a toy marble; src/demo/sound.ts gives it the glass clink", "L"],
+  "Mat_marble3": ["glass", "a toy marble; src/demo/sound.ts gives it the glass clink", "L"],
+  "Mat_bar0": ["metal", "PhysicalMaterial metallic 0.6 in the file", "L"], "Mat_bar1": ["metal", "PhysicalMaterial metallic 0.6 in the file", "L"],
+  "Mat_bar2": ["metal", "PhysicalMaterial metallic 0.6 in the file", "L"], "Mat_bar3": ["metal", "PhysicalMaterial metallic 0.6 in the file", "L"],
+  "Mat_bar4": ["metal", "PhysicalMaterial metallic 0.6 in the file", "L"],
+  "Mat_domino0": ["plastic", "editor's suggestion: non-metal, roughness 0.35", "S"], "Mat_domino1": ["plastic", "editor's suggestion: non-metal, roughness 0.35", "S"],
+  "Mat_domino2": ["plastic", "editor's suggestion: non-metal, roughness 0.35", "S"], "Mat_domino3": ["plastic", "editor's suggestion: non-metal, roughness 0.35", "S"],
+  "Mat_domino4": ["plastic", "editor's suggestion: non-metal, roughness 0.35", "S"],
+  "Mat_bead": ["glass", "editor's suggestion: non-metal, roughness 0.08", "S"]
+ },
+ "kinds": {
+  "marble run": ["Q655039", "toy/marble_run"], "domino toppling": ["Q5291227", "toy/domino_toppling"],
+  "bean machine": ["Q139622", "demonstration/galton_board"], "music box": ["Q1365218", "instrument/music_box"],
+  "trebuchet": ["Q19776", "machine/trebuchet"], "inclined plane": ["Q161462", "machine/inclined_plane"],
+  "bell": ["Q101401", "marble_run_piece/bell"], "chute": ["Q1093445", "marble_run_piece/chute"],
+  "elevator": ["Q132911", "marble_run_piece/elevator"], "lever": ["Q40164", "marble_run_piece/lever"],
+  "funnel": ["Q29957", "marble_run_piece/funnel"], "half-pipe": ["Q847120", "marble_run_piece/half_pipe"],
+  "catapult": ["Q184393", "marble_run_piece/launcher"], "pendulum": ["Q20702", "marble_run_piece/pendulum"],
+  "seesaw": ["Q19793", "marble_run_piece/seesaw"], "paddle wheel": ["Q1874394", "marble_run_piece/paddle_wheel"],
+  "xylophone": ["Q165666", "marble_run_piece/xylophone"]
+ },
+ "kinds_source": "Wikidata, English label matched exactly through the QLever endpoint qlever.dev/api/wikidata on 28 November 2026 (grade C that each code carries that label; L that it is the right class for the scene). Data: Wikidata, CC0.",
+ "scenes": {
+  "demos/dominoes-spiral": "domino toppling", "demos/galton-board": "bean machine", "demos/musicbox-twinkle": "music box",
+  "demos/trebuchet-keep": "trebuchet", "experiments/machine-with-sound": "marble run", "experiments/race-ghost": "marble run",
+  "experiments/race-main": "marble run", "marble-machine": "marble run", "marble-machine-build": "marble run",
+  "marble-minimal": "inclined plane", "experiments/marble-minimal-friction2-zero": "inclined plane",
+  "pieces/bell": "bell", "pieces/curve": "chute", "pieces/dominoes": "domino toppling", "pieces/elevator": "elevator",
+  "pieces/flipper": "lever", "pieces/funnel": "funnel", "pieces/halfpipe": "half-pipe", "pieces/launcher": "catapult",
+  "pieces/pendulum": "pendulum", "pieces/ramp": "inclined plane", "pieces/seesaw": "seesaw", "pieces/wheel": "paddle wheel",
+  "pieces/xylophone": "xylophone", "pieces/zigzag": "chute"
+ },
+ "scenes_without_a_kind": {
+  "experiments/ode-only-fields": "a test fixture for engine fields, not an asset of any kind; no Q-code is honest here",
+  "joints-and-sensors": "a test fixture for joints and sensors, not an asset of any kind; no Q-code is honest here"
+ }
+}
