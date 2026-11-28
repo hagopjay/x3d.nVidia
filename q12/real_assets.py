@@ -10,8 +10,8 @@ For every *.x3d under SCENES_DIR:
     opted in      the same file with one <meta name="simready:features"> added and nothing else: x3d_mcp's profile
                   checks now speak, and what they report is compared, rule by rule, with what SimReady said of the
                   USD above. This is the agreement table: does the X3D check predict NVIDIA's verdict on a real file?
-    upgraded      src/x3dnv/simready_upgrade.py writes a copy into OUT_DIR with the facts of FACTS.json, a thumbnail
-                  from THUMBS_DIR and each Box as a mesh; the copy is checked against the X3D 4.0 XSD, by x3d_mcp
+    upgraded      src/x3dnv/simready_upgrade.py writes a copy into OUT_DIR with the facts of FACTS.json and a thumbnail
+                  from THUMBS_DIR (geometry untouched); the writer emits each Box as its exact mesh; the copy is checked against the X3D 4.0 XSD, by x3d_mcp
                   (with the folder), written to USD and judged again
 
 Pass is NVIDIA's own rule in its package sample (skills/.../sr_pkg_sample/_validate_package.py): no issue of
@@ -141,8 +141,9 @@ def main():
         row["upgrade"]["xsd_valid"] = bool(xsd.get("valid"))
         row["upgrade"]["xsd_errors"] = [str(e)[:160] for e in (xsd.get("errors") or [])][:3]
         row["upgrade"]["x3d_mcp_simready"] = dict(x3d_codes(utext, dst.parent))
-        rep2 = xw.convert(dst, work / "upgraded" / (dst.stem.replace("-", "_") + ".usda"))
+        rep2 = xw.convert(dst, work / "upgraded" / (dst.stem.replace("-", "_") + ".usda"), box_as_mesh=True)
         row["upgrade"]["labels_written"] = rep2.get("labels")
+        row["upgrade"]["boxes_written_as_meshes"] = rep2.get("boxes_as_meshes", 0)
         b, bmsg = judge(work / "upgraded" / (dst.stem.replace("-", "_") + ".usda"))
         row["upgraded"] = {"fail": sorted(c for c in b if b[c] == "fail"), "warn": sorted(c for c in b if b[c] == "warn"),
                            "messages": {c: bmsg[c] for c in b}}
@@ -173,7 +174,7 @@ def main():
                    "authored_failures_by_rule": dict(Counter(c for r in rows for c in r["authored"]["fail"])),
                    "upgraded_failures_by_rule": dict(Counter(c for r in rows for c in r["upgraded"]["fail"])),
                    "upgraded_warnings_by_rule": dict(Counter(c for r in rows for c in r["upgraded"]["warn"])),
-                   "boxes_to_meshes": sum(r["upgrade"]["boxes_to_meshes"] for r in rows)},
+                   "boxes_written_as_meshes": sum(r["upgrade"]["boxes_written_as_meshes"] for r in rows)},
         "agreement": {"cells": len(cells), "agree": agree,
                       "by_rule": {c: {"agree": sum(1 for cc, x in cells if cc == c and (x["simready"] != "pass") == x["x3d_mcp_reports"]),
                                       "of": len(rows)} for c in PAIRS},

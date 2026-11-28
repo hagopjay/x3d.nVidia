@@ -9,9 +9,12 @@ What it writes, and nothing else:
                 the source already has is kept. A fact that is not supplied is not written: the upgrader invents none.
     labels      a MetadataSet "semantics:labels" with one MetadataString "material" on every Appearance whose DEF name
                 the facts give a material for (SimReady SL.MAT.001, and SL.001 through the bound material).
-    Box         each Box becomes an IndexedFaceSet of the same eight corners and twelve triangles, wound outwards
-                (SimReady VG.MESH.001 wants meshes). This is exact. Sphere, Cylinder and Cone are left as they are,
-                because a faceted ball does not roll like a ball; SimReady then warns about them, truthfully.
+    Box         left alone by default. SimReady VG.MESH.001 wants meshes, and the writer can emit each Box as its exact
+                twelve-triangle mesh (x3d2usdphysics.convert(..., box_as_mesh=True)) without touching the X3D.
+                mesh_boxes=True rewrites each Box as an IndexedFaceSet in the copy instead; that is exact geometry
+                but it changes how the scene plays in X_ITE 16.8.0, whose physics let ten dominoes rewritten this way
+                fall out of view within 2.5 seconds. Sphere, Cylinder and Cone are never touched: a faceted ball does
+                not roll like a ball, and SimReady then warns about them, truthfully.
 
 Facts are a dict: {"creator", "license", "category", "qcode", "features": [...], "materials": {DEF name: label}}.
 Where each fact came from belongs in the caller's sidecar, not here.
@@ -33,7 +36,7 @@ def _box_points(size):
     return " ".join(f"{a:.9g} {b:.9g} {d:.9g}" for a, b, d in c)
 
 
-def upgrade(src, dst, facts, thumbnail=None):
+def upgrade(src, dst, facts, thumbnail=None, mesh_boxes=False):
     src, dst = Path(src), Path(dst)
     raw = src.read_bytes()
     tree = etree.fromstring(raw, etree.XMLParser(remove_blank_text=False)).getroottree()
@@ -86,7 +89,7 @@ def upgrade(src, dst, facts, thumbnail=None):
         app.insert(0, ms)
         rep["materials_labelled"][name] = label
 
-    for box in list(root.iter("Box")):
+    for box in (list(root.iter("Box")) if mesh_boxes else []):
         mesh = etree.Element("IndexedFaceSet")
         for k in ("DEF", "USE", "containerField", "class", "id"):
             if box.get(k) is not None:
