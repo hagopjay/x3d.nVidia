@@ -254,6 +254,7 @@ class Writer:
         self.stage.SetDefaultPrim(self.root.GetPrim())
         Usd.ModelAPI(self.root.GetPrim()).SetKind("component")
         self.mats, self.phys_mats, self.names = {}, {}, set()
+        self.box_as_mesh = False
         self.body_prims, self.body_pose = {}, {}
         self.report = {"bodies": 0, "dynamic": 0, "static": 0, "kinematic_lost": 0, "shapes": 0, "joints": {},
                        "lost": sc.lost, "dropped_fields": [], "meta_missing": [], "labels": 0, "meters_per_unit": self.unit}
@@ -316,6 +317,14 @@ class Writer:
         g = next(iter(sc.kids(shape, "geometry", GEOMS) or [c for c in (sc.res(x) for x in shape) if c is not None and c.tag in GEOMS]), None)
         if g is None:
             return None
+        if g.tag == "Box" and self.box_as_mesh:
+            # SimReady VG.MESH.001 wants meshes. A Box is exactly its eight corners and twelve triangles, so it is
+            # written as that mesh (convex hull of a box is the box). The X3D file keeps its Box: X_ITE 16.8.0's own
+            # physics does not hold a moving body whose collider was rewritten as an IndexedFaceSet.
+            from x3dnv.simready_upgrade import _TRIS, _box_points
+            box, g = g, etree.Element("IndexedFaceSet", coordIndex=_TRIS)
+            etree.SubElement(g, "Coordinate", point=_box_points((box.get("size") or "2 2 2").split()))
+            self.report["boxes_as_meshes"] = self.report.get("boxes_as_meshes", 0) + 1
         nm = self.name(g.tag)
         p = f"{parent_path}/{nm}"
         t, q = C @ pose_t, to_usd_q(pose_q)
@@ -773,9 +782,10 @@ def add_runtimes(out, runtimes, report):
     report["runtimes"] = rt
 
 
-def convert(src, out, meta=None, runtimes=()):
+def convert(src, out, meta=None, runtimes=(), box_as_mesh=False):
     sc = Scene(src)
     w = Writer(sc, out, meta or {})
+    w.box_as_mesh = bool(box_as_mesh)
     rep = w.write()
     rep["dropped_fields"] = sorted(set(rep["dropped_fields"]))
     if runtimes:
@@ -796,7 +806,7 @@ if __name__ == "__main__":
     rep_path = a[a.index("--report") + 1] if "--report" in a else None
     rts = tuple(a[a.index("--runtimes") + 1].split(",")) if "--runtimes" in a else ()
     assert all(r in RUNTIMES for r in rts), f"--runtimes takes {','.join(RUNTIMES)}"
-    rep = convert(a[0], a[1], meta, rts)
+    rep = convert(a[0], a[1], meta, rts, box_as_mesh="--box-as-mesh" in a)
     if rep_path:
         Path(rep_path).write_text(json.dumps(rep, indent=1, default=str))
     print(json.dumps({k: rep[k] for k in ("bodies", "dynamic", "static", "shapes", "joints", "kinematic_lost")}),

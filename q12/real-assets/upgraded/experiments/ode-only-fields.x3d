@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<X3D profile="Interchange" version="4.0">
+ <head>
+  <component name="RigidBodyPhysics" level="2"/>
+  <meta name="title" content="Experiment: ODE-only fields that PhysX cannot honour (the loss report must list each one)"/>
+  <meta name="generator" content="hand-written, x3d-physx-bridge 0.0.1"/>
+ <meta name="creator" content="HagopJay"/>
+ <meta name="license" content="Apache-2.0"/>
+ <meta name="simready:features" content="rigid_bodies semantic_labels material_labels"/>
+ <meta name="simready:source" content="ode-only-fields.x3d sha256 d8db650bff91fb433d82e6933af2352b4423d8a46c125361f3927aa1a663d8d1"/>
+ <meta name="Image" content="ode-only-fields.png"/>
+ </head>
+ <Scene>
+  <Viewpoint position="0 0.3 1.2"/>
+  <Transform DEF="BoxT" translation="0 0.3 0"><Shape DEF="BoxShape"><Box size="0.1 0.1 0.1"/></Shape></Transform>
+  <Transform DEF="BaseT" translation="0 0 0"><Shape DEF="BaseShape"><Box size="1 0.02 1"/></Shape></Transform>
+  <RigidBodyCollection DEF="World" errorCorrection="0.5" constantForceMix="0.001">
+   <RigidBody DEF="BoxBody" containerField="bodies" position="0 0.3 0" useFiniteRotation="true" finiteRotationAxis="0 1 0" disableTime="2">
+    <CollidableShape DEF="BoxCollider" containerField="geometry"><Shape USE="BoxShape" containerField="shape"/></CollidableShape>
+   </RigidBody>
+   <RigidBody DEF="BaseBody" containerField="bodies" fixed="true">
+    <CollidableShape DEF="BaseCollider" containerField="geometry"><Shape USE="BaseShape" containerField="shape"/></CollidableShape>
+   </RigidBody>
+   <SingleAxisHingeJoint DEF="Hinge" containerField="joints" anchorPoint="0 0.25 0" axis="0 0 1" stopErrorCorrection="0.5"><RigidBody USE="BoxBody" containerField="body1"/><RigidBody USE="BaseBody" containerField="body2"/></SingleAxisHingeJoint>
+   <CollisionCollection DEF="Surface" containerField="collider" appliedParameters="&quot;BOUNCE&quot; &quot;SLIP-1&quot; &quot;ERROR_REDUCTION&quot;" slipFactors="0.1 0.1" softnessConstantForceMix="0.01" softnessErrorCorrection="0.5" surfaceSpeed="0.2 0">
+    <CollidableShape USE="BoxCollider" containerField="collidables"/>
+    <CollidableShape USE="BaseCollider" containerField="collidables"/>
+    <CollisionSpace DEF="Space" containerField="collidables" useGeometry="true"><CollidableShape USE="BoxCollider" containerField="collidables"/></CollisionSpace>
+   </CollisionCollection>
+  </RigidBodyCollection>
+  <ROUTE fromNode="BoxBody" fromField="position" toNode="BoxT" toField="set_translation"/>
+ </Scene>
+</X3D>

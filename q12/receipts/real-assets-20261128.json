@@ -1,0 +1,2773 @@
+{
+ "what": "Real X3D physics scenes against NVIDIA's Robotics-Prop profile, as authored and after the opt-in upgrade",
+ "profile": {
+  "name": "Robotics-Prop",
+  "version": "5.0.0",
+  "required": 47,
+  "optional": 49,
+  "required_with_an_executable_rule": 38,
+  "required_without_one": [
+   "AF.001",
+   "VM.MAT.001",
+   "VM.PS.002",
+   "VM.TEX.001",
+   "VM.TEX.003",
+   "AA.001",
+   "AA.002",
+   "HI.001",
+   "HI.003"
+  ]
+ },
+ "pass_rule": "no ERROR or FAILURE on a required requirement (NVIDIA's package sample, sr_pkg_sample/_validate_package.py); warnings apart",
+ "instruments": {
+  "usd-validation-nvidia": "1.23.0",
+  "usd-core": "26.11",
+  "simready-foundation tiers": [
+   "_tooling",
+   "simready_foundation_tier_aif",
+   "simready_foundation_tier_core",
+   "simready_foundation_tier_isaac",
+   "simready_foundation_tier_newton",
+   "simready_foundation_tier_sensors",
+   "simready_foundation_tier_template",
+   "tests"
+  ],
+  "python": "3.12.3",
+  "x3d_mcp": "c185673",
+  "x3d.nvidia": "5907b26",
+  "enabled_by_hand": [
+   "Ade20kLabelsChecker",
+   "CityscapesLabelsChecker",
+   "CocoLabelsChecker",
+   "ImageNet1kLabelsChecker",
+   "PascalVocLabelsChecker",
+   "SemanticLabelsCapabilityChecker",
+   "SemanticLabelsMaterialChecker",
+   "SemanticLabelsWikidataChecker",
+   "SunRgbdLabelsChecker"
+  ]
+ },
+ "counts": {
+  "scenes": 27,
+  "with_a_moving_body": 18,
+  "authored_pass": 0,
+  "upgraded_pass": 13,
+  "upgraded_pass_with_a_moving_body": 13,
+  "upgraded_pass_without_any_warning": 6,
+  "upgraded_xsd_valid": 27,
+  "authored_failures_by_rule": {
+   "SL.001": 26,
+   "SL.MAT.001": 26,
+   "SR.002": 27,
+   "SR.004": 27,
+   "VG.MESH.001": 21,
+   "RB.001": 9
+  },
+  "upgraded_failures_by_rule": {
+   "SL.001": 5,
+   "SL.MAT.001": 5,
+   "SR.004": 11,
+   "RB.001": 9,
+   "VG.MESH.001": 2
+  },
+  "upgraded_warnings_by_rule": {
+   "VG.MESH.001": 11
+  },
+  "boxes_written_as_meshes": 783
+ },
+ "agreement": {
+  "cells": 162,
+  "agree": 157,
+  "by_rule": {
+   "SR.004": {
+    "agree": 27,
+    "of": 27
+   },
+   "SR.002": {
+    "agree": 27,
+    "of": 27
+   },
+   "SL.001": {
+    "agree": 26,
+    "of": 27
+   },
+   "SL.MAT.001": {
+    "agree": 25,
+    "of": 27
+   },
+   "VG.MESH.001": {
+    "agree": 25,
+    "of": 27
+   },
+   "RB.001": {
+    "agree": 27,
+    "of": 27
+   }
+  },
+  "disagreements": [
+   {
+    "scene": "experiments/ode-only-fields.x3d",
+    "rule": "SL.MAT.001",
+    "simready": "fail",
+    "x3d_mcp_reports": false
+   },
+   {
+    "scene": "marble-machine-build.x3d",
+    "rule": "SL.001",
+    "simready": "pass",
+    "x3d_mcp_reports": true
+   },
+   {
+    "scene": "marble-machine-build.x3d",
+    "rule": "SL.MAT.001",
+    "simready": "pass",
+    "x3d_mcp_reports": true
+   },
+   {
+    "scene": "pieces/curve.x3d",
+    "rule": "VG.MESH.001",
+    "simready": "pass",
+    "x3d_mcp_reports": true
+   },
+   {
+    "scene": "pieces/halfpipe.x3d",
+    "rule": "VG.MESH.001",
+    "simready": "pass",
+    "x3d_mcp_reports": true
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "scene": "demos/dominoes-spiral.x3d",
+   "sha256": "0a1d9ccecadbff040ec7283749045c55d2b214c424b13e9d1263761a640f0aa1",
+   "bodies_moving": 134,
+   "bodies_static": 1,
+   "shapes": 135,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at dominoes_spiral.usda.png for SimReady asset <dominoes_spiral.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_felt": "felt",
+     "Mat_domino0": "plastic",
+     "Mat_domino1": "plastic",
+     "Mat_domino2": "plastic",
+     "Mat_domino3": "plastic",
+     "Mat_domino4": "plastic"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "domino toppling",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 135,
+     "simready-material-unlabelled": 135
+    },
+    "labels_written": 6,
+    "boxes_written_as_meshes": 135
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [],
+    "messages": {}
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "demos/galton-board.x3d",
+   "sha256": "533d674c5381c895399ad3952c77e1e7920122df98da3aeb9fee928ea498f4e0",
+   "bodies_moving": 240,
+   "bodies_static": 9,
+   "shapes": 438,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at galton_board.usda.png for SimReady asset <galton_board.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_ebony": "ebony",
+     "Mat_frame": "wood",
+     "Mat_glassPane": "glass",
+     "Mat_brass": "brass",
+     "Mat_steel": "steel",
+     "Mat_bead": "glass"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 1,
+     "Cylinder": 1
+    },
+    "kind": "bean machine",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 1,
+     "simready-material-unlabelled": 1
+    },
+    "labels_written": 8,
+    "boxes_written_as_meshes": 24
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "demos/musicbox-twinkle.x3d",
+   "sha256": "a90a8ddc40e2cd26b9480dc65c3bdfca07b7302989c9461421a346c9686d0a95",
+   "bodies_moving": 10,
+   "bodies_static": 23,
+   "shapes": 81,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at musicbox_twinkle.usda.png for SimReady asset <musicbox_twinkle.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_wood": "wood",
+     "Mat_frame": "wood",
+     "Mat_steel": "steel",
+     "Mat_brass": "brass",
+     "Mat_ivory": "ivory",
+     "Mat_bar0": "metal",
+     "Mat_bar1": "metal",
+     "Mat_bar2": "metal",
+     "Mat_bar3": "metal",
+     "Mat_bar4": "metal",
+     "Mat_felt": "felt"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 20,
+     "Cylinder": 2
+    },
+    "kind": "music box",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 49,
+     "simready-material-unlabelled": 49
+    },
+    "labels_written": 17,
+    "boxes_written_as_meshes": 59
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "demos/trebuchet-keep.x3d",
+   "sha256": "6c89f87b3e39b98ecf8a1def0f78348f75004d1de5e4b24a7db339a7d3adf730",
+   "bodies_moving": 135,
+   "bodies_static": 2,
+   "shapes": 145,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at trebuchet_keep.usda.png for SimReady asset <trebuchet_keep.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_grass": "grass",
+     "Mat_wood": "wood",
+     "Mat_iron": "iron",
+     "Mat_stoneDark": "stone",
+     "Mat_stone": "stone"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 1,
+     "Cylinder": 1
+    },
+    "kind": "trebuchet",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 136,
+     "simready-material-unlabelled": 136
+    },
+    "labels_written": 8,
+    "boxes_written_as_meshes": 142
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "experiments/machine-with-sound.x3d",
+   "sha256": "08b811190832e0f44182e50cc5ae36d4021e922c670e370916428dda43808a4b",
+   "bodies_moving": 65,
+   "bodies_static": 28,
+   "shapes": 112,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004"
+    ],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "SR.002": "No thumbnail found at machine_with_sound.usda.png for SimReady asset <machine_with_sound.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "warn",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_pegboard": "wood",
+     "Mat_glassPane": "glass",
+     "Mat_frame": "wood",
+     "Mat_brass": "brass",
+     "Mat_marble0": "glass",
+     "Mat_marble1": "glass",
+     "Mat_marble2": "glass",
+     "Mat_marble3": "glass",
+     "Mat_wood": "wood",
+     "Mat_steel": "steel",
+     "Mat_bar0": "metal",
+     "Mat_bar1": "metal",
+     "Mat_bar2": "metal",
+     "Mat_bar3": "metal",
+     "Mat_bar4": "metal",
+     "Mat_ebony": "ebony",
+     "Mat_ivory": "ivory",
+     "Mat_red": "steel",
+     "Mat_blue": "steel"
+    },
+    "materials_unlabelled": [],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 21,
+     "Cone": 1
+    },
+    "kind": "marble run",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1
+    },
+    "labels_written": 25,
+    "boxes_written_as_meshes": 88
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "experiments/marble-minimal-friction2-zero.x3d",
+   "sha256": "e1c32a39517b8f8818ad592f617cf767c752304bfddc967e3263380f845d52ab",
+   "bodies_moving": 1,
+   "bodies_static": 3,
+   "shapes": 8,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at marble_minimal_friction2_zero.usda.png for SimReady asset <marble_minimal_friction2_zero.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Brass": "brass"
+    },
+    "materials_unlabelled": [
+     "(no DEF)",
+     "(no DEF)",
+     "(no DEF)"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 1
+    },
+    "kind": "inclined plane",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 3,
+     "simready-material-unlabelled": 3
+    },
+    "labels_written": 2,
+    "boxes_written_as_meshes": 7
+   },
+   "upgraded": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001"
+    ],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "experiments/ode-only-fields.x3d",
+   "sha256": "d8db650bff91fb433d82e6933af2352b4423d8a46c125361f3927aa1a663d8d1",
+   "bodies_moving": 1,
+   "bodies_static": 1,
+   "shapes": 2,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at ode_only_fields.usda.png for SimReady asset <ode_only_fields.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": false
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [
+     "simready:category",
+     "simready:qcode"
+    ],
+    "materials_labelled": {},
+    "materials_unlabelled": [],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": null,
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-metadata-missing": 1,
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 2
+    },
+    "labels_written": 0,
+    "boxes_written_as_meshes": 2
+   },
+   "upgraded": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata) and/or the same-direct"
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "experiments/race-ghost.x3d",
+   "sha256": "bba4bcf35adea077488ef3dcd599f505cb79c118c08522b91f92fd9897459fe4",
+   "bodies_moving": 65,
+   "bodies_static": 28,
+   "shapes": 112,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004"
+    ],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "SR.002": "No thumbnail found at race_ghost.usda.png for SimReady asset <race_ghost.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "warn",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {},
+    "materials_unlabelled": [
+     "Marble0Ghost",
+     "Marble1Ghost",
+     "Marble2Ghost",
+     "Marble3Ghost",
+     "Marble4Ghost",
+     "Marble5Ghost",
+     "Marble6Ghost",
+     "Marble7Ghost",
+     "Marble8Ghost",
+     "Marble9Ghost",
+     "Marble10Ghost",
+     "Marble11Ghost",
+     "Marble12Ghost",
+     "Marble13Ghost",
+     "Marble14Ghost",
+     "Marble15Ghost",
+     "Marble16Ghost",
+     "Marble17Ghost",
+     "Marble18Ghost",
+     "Marble19Ghost"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 41,
+     "Cone": 1
+    },
+    "kind": "marble run",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 132,
+     "simready-material-unlabelled": 20
+    },
+    "labels_written": 0,
+    "boxes_written_as_meshes": 88
+   },
+   "upgraded": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001"
+    ],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "experiments/race-main.x3d",
+   "sha256": "70580c8ba3d683ecbe616e2e22f5749c908bdb1d82e7bfe108f8b8ad2fb9a482",
+   "bodies_moving": 65,
+   "bodies_static": 28,
+   "shapes": 112,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004"
+    ],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "SR.002": "No thumbnail found at race_main.usda.png for SimReady asset <race_main.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "warn",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_pegboard": "wood",
+     "Mat_glassPane": "glass",
+     "Mat_frame": "wood",
+     "Mat_brass": "brass",
+     "Mat_marble0": "glass",
+     "Mat_marble1": "glass",
+     "Mat_marble2": "glass",
+     "Mat_marble3": "glass",
+     "Mat_wood": "wood",
+     "Mat_steel": "steel",
+     "Mat_bar0": "metal",
+     "Mat_bar1": "metal",
+     "Mat_bar2": "metal",
+     "Mat_bar3": "metal",
+     "Mat_bar4": "metal",
+     "Mat_ebony": "ebony",
+     "Mat_ivory": "ivory",
+     "Mat_red": "steel",
+     "Mat_blue": "steel"
+    },
+    "materials_unlabelled": [],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 21,
+     "Cone": 1
+    },
+    "kind": "marble run",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1
+    },
+    "labels_written": 25,
+    "boxes_written_as_meshes": 88
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "joints-and-sensors.x3d",
+   "sha256": "3adc2be8a841eb2b3a51b040c67ab08390dd42691edc5e6d8ef7822ef1ffdf84",
+   "bodies_moving": 10,
+   "bodies_static": 8,
+   "shapes": 19,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at joints_and_sensors.usda.png for SimReady asset <joints_and_sensors.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [
+     "simready:category",
+     "simready:qcode"
+    ],
+    "materials_labelled": {
+     "Mat_steel": "steel",
+     "Mat_red": "steel",
+     "Mat_brass": "brass",
+     "Mat_wood": "wood",
+     "Mat_glass": "glass"
+    },
+    "materials_unlabelled": [
+     "Mat_floor"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 4
+    },
+    "kind": null,
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-metadata-missing": 1,
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 1,
+     "simready-material-unlabelled": 1
+    },
+    "labels_written": 9,
+    "boxes_written_as_meshes": 15
+   },
+   "upgraded": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.004"
+    ],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata) and/or the same-direct",
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "marble-machine-build.x3d",
+   "sha256": "7c383bbede47f3ebb5d7db9a79428e9eb4de233073ede7ce0550a015104d5d8d",
+   "bodies_moving": 0,
+   "bodies_static": 0,
+   "shapes": 0,
+   "authored": {
+    "fail": [
+     "RB.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode, asset_extents. Fields may be authored in root-layer customLayerData (including Sim",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at marble_machine_build.usda.png for SimReady asset <marble_machine_build.usda>",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_pegboard": "wood",
+     "Mat_frame": "wood",
+     "Mat_brass": "brass",
+     "Mat_marble0": "glass",
+     "Mat_marble1": "glass",
+     "Mat_marble2": "glass",
+     "Mat_marble3": "glass",
+     "Mat_wood": "wood",
+     "Mat_steel": "steel",
+     "Mat_bar0": "metal",
+     "Mat_bar1": "metal",
+     "Mat_bar2": "metal",
+     "Mat_bar3": "metal",
+     "Mat_bar4": "metal",
+     "Mat_ebony": "ebony",
+     "Mat_ivory": "ivory",
+     "Mat_red": "steel",
+     "Mat_blue": "steel"
+    },
+    "materials_unlabelled": [
+     "(no DEF)"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 21,
+     "Cone": 1
+    },
+    "kind": "marble run",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-no-rigid-body": 1,
+     "simready-shape-unlabelled": 1,
+     "simready-material-unlabelled": 1
+    },
+    "labels_written": 0,
+    "boxes_written_as_meshes": 0
+   },
+   "upgraded": {
+    "fail": [
+     "RB.001",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Required metadata fields are missing: asset_extents. Fields may be authored in root-layer customLayerData (including SimReady_Metadata) and/or the same-director",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "marble-machine.x3d",
+   "sha256": "10500eef2e392c407274f5d1186cdb3a2b933445913f262aa953f85a2e855553",
+   "bodies_moving": 65,
+   "bodies_static": 28,
+   "shapes": 112,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004"
+    ],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "SR.002": "No thumbnail found at marble_machine.usda.png for SimReady asset <marble_machine.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "warn",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_pegboard": "wood",
+     "Mat_glassPane": "glass",
+     "Mat_frame": "wood",
+     "Mat_brass": "brass",
+     "Mat_marble0": "glass",
+     "Mat_marble1": "glass",
+     "Mat_marble2": "glass",
+     "Mat_marble3": "glass",
+     "Mat_wood": "wood",
+     "Mat_steel": "steel",
+     "Mat_bar0": "metal",
+     "Mat_bar1": "metal",
+     "Mat_bar2": "metal",
+     "Mat_bar3": "metal",
+     "Mat_bar4": "metal",
+     "Mat_ebony": "ebony",
+     "Mat_ivory": "ivory",
+     "Mat_red": "steel",
+     "Mat_blue": "steel"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 21,
+     "Cone": 1
+    },
+    "kind": "marble run",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 96,
+     "simready-material-unlabelled": 96
+    },
+    "labels_written": 25,
+    "boxes_written_as_meshes": 88
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "marble-minimal.x3d",
+   "sha256": "6e2e8c4bff271d8addb08fe7b35ebc4229a941852a2eba92b4c2f949c4b78d2c",
+   "bodies_moving": 1,
+   "bodies_static": 3,
+   "shapes": 8,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at marble_minimal.usda.png for SimReady asset <marble_minimal.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Brass": "brass"
+    },
+    "materials_unlabelled": [
+     "(no DEF)",
+     "(no DEF)",
+     "(no DEF)"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 1
+    },
+    "kind": "inclined plane",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 3,
+     "simready-material-unlabelled": 3
+    },
+    "labels_written": 2,
+    "boxes_written_as_meshes": 7
+   },
+   "upgraded": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001"
+    ],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "pieces/bell.x3d",
+   "sha256": "f233c37fbc42124fa4f051afb5c74a89f769833bcea5d84bc4c06a39cedc14c9",
+   "bodies_moving": 0,
+   "bodies_static": 1,
+   "shapes": 1,
+   "authored": {
+    "fail": [
+     "RB.001",
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at bell.usda.png for SimReady asset <bell.usda>",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_brass": "brass"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Cone": 1
+    },
+    "kind": "bell",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-no-rigid-body": 1,
+     "simready-shape-unlabelled": 1,
+     "simready-material-unlabelled": 1
+    },
+    "labels_written": 1,
+    "boxes_written_as_meshes": 0
+   },
+   "upgraded": {
+    "fail": [
+     "RB.001",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Metadata field 'mass' must be a positive number of kilograms. Found: 0.0",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "pieces/curve.x3d",
+   "sha256": "8d21bbe01e75ec38597633f1313b5a7f1a7099781b4c542de25c4288efc1c5e2",
+   "bodies_moving": 0,
+   "bodies_static": 1,
+   "shapes": 1,
+   "authored": {
+    "fail": [
+     "RB.001",
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "SR.002": "No thumbnail found at curve.usda.png for SimReady asset <curve.usda>",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_wood": "wood"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "chute",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-no-rigid-body": 1,
+     "simready-shape-unlabelled": 1,
+     "simready-material-unlabelled": 1
+    },
+    "labels_written": 1,
+    "boxes_written_as_meshes": 0
+   },
+   "upgraded": {
+    "fail": [
+     "RB.001",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Metadata field 'mass' must be a positive number of kilograms. Found: 0.0",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "pieces/dominoes.x3d",
+   "sha256": "73078c92dec627b8b9f5838f8d2e34857bc4b78c9962f0886d49fb7d74e36e7b",
+   "bodies_moving": 10,
+   "bodies_static": 1,
+   "shapes": 11,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at dominoes.usda.png for SimReady asset <dominoes.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_wood": "wood",
+     "Mat_ebony": "ebony",
+     "Mat_ivory": "ivory"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "domino toppling",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 12,
+     "simready-material-unlabelled": 12
+    },
+    "labels_written": 5,
+    "boxes_written_as_meshes": 11
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [],
+    "messages": {}
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "pieces/elevator.x3d",
+   "sha256": "4013d3acd726f304236ea26ed9cf01f9bb1cf9b0e4e1c6b2ea69d40280b83196",
+   "bodies_moving": 0,
+   "bodies_static": 2,
+   "shapes": 3,
+   "authored": {
+    "fail": [
+     "RB.001",
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at elevator.usda.png for SimReady asset <elevator.usda>",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_steel": "steel",
+     "Mat_wood": "wood"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "elevator",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-no-rigid-body": 1,
+     "simready-shape-unlabelled": 4,
+     "simready-material-unlabelled": 4
+    },
+    "labels_written": 3,
+    "boxes_written_as_meshes": 3
+   },
+   "upgraded": {
+    "fail": [
+     "RB.001",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Metadata field 'mass' must be a positive number of kilograms. Found: 0.0",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "pieces/flipper.x3d",
+   "sha256": "04980d20606ce89f2f35a1e1223b7180ee7ca6f044d9f8dbea8da2a9aeca8434",
+   "bodies_moving": 1,
+   "bodies_static": 1,
+   "shapes": 2,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at flipper.usda.png for SimReady asset <flipper.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_steel": "steel",
+     "Mat_red": "steel"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "lever",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 3,
+     "simready-material-unlabelled": 3
+    },
+    "labels_written": 2,
+    "boxes_written_as_meshes": 2
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [],
+    "messages": {}
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "pieces/funnel.x3d",
+   "sha256": "9a1aad6b9813731c5578d259f861e7fcef6271903dc7e2f9a62310a5b78cb861",
+   "bodies_moving": 0,
+   "bodies_static": 1,
+   "shapes": 2,
+   "authored": {
+    "fail": [
+     "RB.001",
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at funnel.usda.png for SimReady asset <funnel.usda>",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_brass": "brass"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "funnel",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-no-rigid-body": 1,
+     "simready-shape-unlabelled": 3,
+     "simready-material-unlabelled": 3
+    },
+    "labels_written": 2,
+    "boxes_written_as_meshes": 2
+   },
+   "upgraded": {
+    "fail": [
+     "RB.001",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Metadata field 'mass' must be a positive number of kilograms. Found: 0.0",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "pieces/halfpipe.x3d",
+   "sha256": "e6d3d73ea7a094048955d8acac66b811ae01513c4127b7b9eea516c298bc78c7",
+   "bodies_moving": 0,
+   "bodies_static": 1,
+   "shapes": 1,
+   "authored": {
+    "fail": [
+     "RB.001",
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "SR.002": "No thumbnail found at halfpipe.usda.png for SimReady asset <halfpipe.usda>",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_wood": "wood"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "half-pipe",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-no-rigid-body": 1,
+     "simready-shape-unlabelled": 1,
+     "simready-material-unlabelled": 1
+    },
+    "labels_written": 1,
+    "boxes_written_as_meshes": 0
+   },
+   "upgraded": {
+    "fail": [
+     "RB.001",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Metadata field 'mass' must be a positive number of kilograms. Found: 0.0",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "pieces/launcher.x3d",
+   "sha256": "58a6a60b0b2e5e5614ec1a681b57a5613ba66fef9730f2adaad93098eb369bcd",
+   "bodies_moving": 1,
+   "bodies_static": 1,
+   "shapes": 4,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at launcher.usda.png for SimReady asset <launcher.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_steel": "steel",
+     "Mat_blue": "steel"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "catapult",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 5,
+     "simready-material-unlabelled": 5
+    },
+    "labels_written": 3,
+    "boxes_written_as_meshes": 4
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [],
+    "messages": {}
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "pieces/pendulum.x3d",
+   "sha256": "56029102d2ca8378b0b9e32f152e22d329e5c6197e7fa16d2878e96cd61e7dae",
+   "bodies_moving": 1,
+   "bodies_static": 1,
+   "shapes": 3,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at pendulum.usda.png for SimReady asset <pendulum.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_steel": "steel",
+     "Mat_brass": "brass"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {
+     "Sphere": 1
+    },
+    "kind": "pendulum",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 3,
+     "simready-material-unlabelled": 3
+    },
+    "labels_written": 3,
+    "boxes_written_as_meshes": 2
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [
+     "VG.MESH.001"
+    ],
+    "messages": {
+     "VG.MESH.001": "Stage contains a mesh as required, but also other types of Gprims."
+    }
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "pieces/ramp.x3d",
+   "sha256": "0530d7ae3cb7461bf753872520d63289e99dcd5dfa22338aa066daac7e3ef628",
+   "bodies_moving": 0,
+   "bodies_static": 1,
+   "shapes": 1,
+   "authored": {
+    "fail": [
+     "RB.001",
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at ramp.usda.png for SimReady asset <ramp.usda>",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_wood": "wood"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "inclined plane",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-no-rigid-body": 1,
+     "simready-shape-unlabelled": 2,
+     "simready-material-unlabelled": 2
+    },
+    "labels_written": 1,
+    "boxes_written_as_meshes": 1
+   },
+   "upgraded": {
+    "fail": [
+     "RB.001",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Metadata field 'mass' must be a positive number of kilograms. Found: 0.0",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "pieces/seesaw.x3d",
+   "sha256": "d00a1b5e24300bdf44dd143afee6cf54cf0d8dc4930fffbcd095a758240833c6",
+   "bodies_moving": 1,
+   "bodies_static": 1,
+   "shapes": 2,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at seesaw.usda.png for SimReady asset <seesaw.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_steel": "steel",
+     "Mat_wood": "wood"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "seesaw",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 3,
+     "simready-material-unlabelled": 3
+    },
+    "labels_written": 2,
+    "boxes_written_as_meshes": 2
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [],
+    "messages": {}
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "pieces/wheel.x3d",
+   "sha256": "cdf5fd4c3cb8ee1753f690a8d1aaf74d40ef7a3be5089cbf3a0d991e294f2e71",
+   "bodies_moving": 1,
+   "bodies_static": 1,
+   "shapes": 3,
+   "authored": {
+    "fail": [
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at wheel.usda.png for SimReady asset <wheel.usda>"
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "pass",
+     "x3d_mcp_reports": false
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_steel": "steel",
+     "Mat_wood": "wood"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "paddle wheel",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-shape-unlabelled": 4,
+     "simready-material-unlabelled": 4
+    },
+    "labels_written": 3,
+    "boxes_written_as_meshes": 3
+   },
+   "upgraded": {
+    "fail": [],
+    "warn": [],
+    "messages": {}
+   },
+   "passes_required_rules": true
+  },
+  {
+   "scene": "pieces/xylophone.x3d",
+   "sha256": "9ae4041361ee92423950b8d3036b1a5324b53c1ba5043f53699cb29da6283974",
+   "bodies_moving": 0,
+   "bodies_static": 5,
+   "shapes": 5,
+   "authored": {
+    "fail": [
+     "RB.001",
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at xylophone.usda.png for SimReady asset <xylophone.usda>",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_bar0": "metal",
+     "Mat_bar1": "metal",
+     "Mat_bar2": "metal",
+     "Mat_bar3": "metal",
+     "Mat_bar4": "metal"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "xylophone",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-no-rigid-body": 1,
+     "simready-shape-unlabelled": 6,
+     "simready-material-unlabelled": 6
+    },
+    "labels_written": 5,
+    "boxes_written_as_meshes": 5
+   },
+   "upgraded": {
+    "fail": [
+     "RB.001",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Metadata field 'mass' must be a positive number of kilograms. Found: 0.0",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "passes_required_rules": false
+  },
+  {
+   "scene": "pieces/zigzag.x3d",
+   "sha256": "16fa0dcd8e2c2f06538d530d0de433c7a6b5a76d86b87050ab288ee75551f765",
+   "bodies_moving": 0,
+   "bodies_static": 1,
+   "shapes": 5,
+   "authored": {
+    "fail": [
+     "RB.001",
+     "SL.001",
+     "SL.MAT.001",
+     "SR.002",
+     "SR.004",
+     "VG.MESH.001"
+    ],
+    "warn": [],
+    "messages": {
+     "SL.001": "Unlabeled prim: no SemanticsLabelsAPI semantics found on the prim, its ancestors, its bound material, or its GeomSubsets.",
+     "SL.MAT.001": "Unlabeled material: a Material prim must have 'SemanticsLabelsAPI:material' applied with a non-empty 'semantics:labels:material' value.",
+     "SR.004": "Required metadata fields are missing: author, asset_license, category, qcode. Fields may be authored in root-layer customLayerData (including SimReady_Metadata)",
+     "VG.MESH.001": "Stage does not contain any meshes.",
+     "SR.002": "No thumbnail found at zigzag.usda.png for SimReady asset <zigzag.usda>",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "agreement": {
+    "SR.004": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SR.002": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "SL.MAT.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "VG.MESH.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    },
+    "RB.001": {
+     "simready": "fail",
+     "x3d_mcp_reports": true
+    }
+   },
+   "upgrade": {
+    "metas_added": [
+     "creator",
+     "license",
+     "simready:category",
+     "simready:qcode",
+     "simready:features",
+     "simready:source",
+     "Image"
+    ],
+    "facts_not_supplied": [],
+    "materials_labelled": {
+     "Mat_wood": "wood",
+     "Mat_steel": "steel"
+    },
+    "materials_unlabelled": [
+     "LoomLine"
+    ],
+    "boxes_to_meshes": 0,
+    "primitives_left": {},
+    "kind": "chute",
+    "xsd_valid": true,
+    "xsd_errors": [],
+    "x3d_mcp_simready": {
+     "simready-geometry-not-mesh": 1,
+     "simready-no-rigid-body": 1,
+     "simready-shape-unlabelled": 6,
+     "simready-material-unlabelled": 6
+    },
+    "labels_written": 4,
+    "boxes_written_as_meshes": 5
+   },
+   "upgraded": {
+    "fail": [
+     "RB.001",
+     "SR.004"
+    ],
+    "warn": [],
+    "messages": {
+     "SR.004": "Metadata field 'mass' must be a positive number of kilograms. Found: 0.0",
+     "RB.001": "No physics rigid bodies found under the default prim."
+    }
+   },
+   "passes_required_rules": false
+  }
+ ]
+}
